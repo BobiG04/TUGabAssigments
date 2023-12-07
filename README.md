@@ -5,7 +5,7 @@
 ### https://github.com/BobiG04/TUGabAssigments/tree/master/IfElse
 
 ## Линк към курсова работа:
-#### В обработка...
+#### https://github.com/BobiG04/TUGabAssigments/tree/master/KursRab1Kurs
 
 ## Линк към изпълнени задачи от 00.00.0000г.:
 #### В обработка...
