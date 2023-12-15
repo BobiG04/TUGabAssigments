@@ -1,6 +1,13 @@
 ﻿#include <stdio.h>
 #include <math.h>
 
+struct TrapsSides {
+    int a;
+    int b;
+    int c;
+    int d;
+    int h;
+};
 // Деклариране на цял брой трапеци
 int brTraps;
 // Деклариране на лицето на текущия трапец
@@ -13,6 +20,7 @@ void EnterAndCalSums();
 void SortSes();
 // Масива с всичките стойности за лицата на трапеците
 float Ses[50];
+
 // Самите стойности на текущия трапец в масив
 float n[6];
 
