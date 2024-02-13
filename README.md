@@ -8,7 +8,7 @@
 ### https://github.com/BobiG04/TUGabAssigments/tree/master/C/IfElse
 
 ## Линк към курсова работа:
-### https://github.com/BobiG04/TUGabAssigments/tree/master/C/KursRab1Kurs
+### https://github.com/BobiG04/TUGabAssigments/tree/master/C/KursRab_1Kurs_1Semester
 
 ## Линк към изпълнени задачи от 00.00.0000г.:
 ### В обработка...
