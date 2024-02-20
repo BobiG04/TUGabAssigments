@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrintStars", "PrintStars.csproj", "{9716CAF5-B0E9-4CD6-A2E0-D0DB9D0DE507}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9716CAF5-B0E9-4CD6-A2E0-D0DB9D0DE507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9716CAF5-B0E9-4CD6-A2E0-D0DB9D0DE507}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9716CAF5-B0E9-4CD6-A2E0-D0DB9D0DE507}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9716CAF5-B0E9-4CD6-A2E0-D0DB9D0DE507}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A7E63DC-896A-4BA5-AA13-9DDA2DE58A07}
+	EndGlobalSection
+EndGlobal
