@@ -1,33 +1,37 @@
-<svg fill="none" viewBox="0 0 400 400" width="400" height="400" xmlns="http://www.w3.org/2000/svg">
-  <foreignObject width="100%" height="100%">
-    <div xmlns="http://www.w3.org/1999/xhtml">
-      <style>
-        h1 {
-          color: red;
-          animation: myanimation 2s infinite;
-        }
-        @keyframes myanimation {
-          from { color: red; }
-          to { color: yellow; }
-        }
-      </style>
-      <h1>Hello world!</h1>
-    </div>
-  </foreignObject>
-</svg>
-
-
-<!-- 
-
 <link href="readme-style.css" rel="stylesheet">
 
-<div style="display: inline-block;">
+<div class="DescDiv" style="display: block;">
     <h2><i>Добре дошли в TU Gab Assigments!</i></h2>
     <p> В таблицата по долу можете да си изберете папката, в която можете да разгледате задачите, които са били поставяни за домашно от Технически университет - Габрово <p>
     <img src="https://github.com/BobiG04/TUGabAssigments/blob/master/%D0%9A%D0%BE%D0%BC%D0%BF%D1%8E%D1%82%D1%8A%D1%80%D0%BD%D0%B0%20%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%B0/Git_TUGabAssigments.png" alt="Банер на TU Gab Assigments" class="bannerImg">
 </div>
-
--->
+<div class="TableDiv"> 
+    <tr>
+        <th>Въведение в програмирането</th>
+        <th>Обектно ориентирано програмиране</th>
+        <th>Компютърна графика</th>
+    </tr>
+    <tr>
+        <td><i>Линк към курсова работа - 1 семестър:</i></td>
+        <td><i>Линк към изпълнени задачи от 20.02.2024г.:</i></td>
+        <td><i>Линк към изпълнени задачи от компютърна графика:</i></td>
+    </tr>
+    <tr>
+        <td><a href="http://tinyurl.com/KursRab1"></td>
+        <td><a href="http://tinyurl.com/CSharp2002"></td>
+        <td><a href="http://tinyurl.com/CompGraphs"></td>
+    </tr>
+    <tr>
+        <td><a href="http://tinyurl.com/Cfrom2710"></td>
+        <td><a href="http://tinyurl.com/CSharp1302"></td>
+        <td>...</td>
+    </tr>
+    <tr>
+        <td><a href="http://tinyurl.com/Cfrom1910"></td>
+        <td>...</td>
+        <td>...</td>
+    </tr>
+</div>
 
 <!-- 
 
