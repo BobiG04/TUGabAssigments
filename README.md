@@ -1,8 +1,8 @@
 <link href="readme-style.css" rel="stylesheet">
 
 <h2><i>Добре дошли в TU-Gabrovo Assigments!</i></h2>
-<p align="left"> В таблицата по долу можете да си изберете папката, в която можете да разгледате задачите, които са били поставяни за домашно от Технически университет - Габрово.</p>
-<p align="right"><img src="https://github.com/BobiG04/TUGabAssigments/blob/master/%D0%9A%D0%BE%D0%BC%D0%BF%D1%8E%D1%82%D1%8A%D1%80%D0%BD%D0%B0%20%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%B0/Git_TUGabAssigments.png" alt="Банер на TU Gab Assigments"></p>
+<p style="font-size:30px;"> В таблицата по долу можете да си изберете папката, в която можете да разгледате задачите, които са били поставяни за домашно от Технически университет - Габрово.</p>
+<p><img src="https://github.com/BobiG04/TUGabAssigments/blob/master/%D0%9A%D0%BE%D0%BC%D0%BF%D1%8E%D1%82%D1%8A%D1%80%D0%BD%D0%B0%20%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%B0/Git_TUGabAssigments.png" alt="Банер на TU Gab Assigments"></p>
 
 | Въведение в програмирането | Обектно ориентирано програмиране | Компютърна графика |
 | :-------------: | :-------------: | :-----: |
