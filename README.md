@@ -1,3 +1,9 @@
+
+<h1><i>Добре дошли в TU Gab Assigments!</i></h1>
+
+
+<!-- 
+
 ![alt text](https://github.com/BobiG04/TUGabAssigments/blob/master/%D0%9A%D0%BE%D0%BC%D0%BF%D1%8E%D1%82%D1%8A%D1%80%D0%BD%D0%B0%20%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%B0/Git_TUGabAssigments.png "Банер на TU Gab Assigments")
 
 ## *Добре* *дошли* *в* *TU* *Gab* *Assigments!* 
@@ -11,6 +17,8 @@
 | http://tinyurl.com/Cfrom2710 | http://tinyurl.com/CSharp1302 | ... |
 | Линк към изпълнени задачи от 19.10.2023г.: | ... | ... |
 | http://tinyurl.com/Cfrom1910 | ... | ... |
+
+-->
 
 <!--
 
