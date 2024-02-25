@@ -13,7 +13,11 @@
 | Линк към изпълнени задачи от *19.10.2023г.*: | ... | ... |
 | http://tinyurl.com/Cfrom1910 | ... | ... |
 
-<!-- <div class="TableDiv"> 
+<!-- Alternate versions from the readme file. -->
+
+<!-- 
+
+<div class="TableDiv"> 
     <tr>
         <th>Въведение в програмирането</th>
         <th>Обектно ориентирано програмиране</th>
