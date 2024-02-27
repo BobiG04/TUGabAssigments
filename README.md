@@ -8,8 +8,8 @@
 | http://tinyurl.com/KursRab1 | http://tinyurl.com/CSharp2002  | http://tinyurl.com/CompGraphs |
 | Линк към изпълнени задачи от *27.10.2023г.*: | Линк към изпълнени задачи от *13.02.2024г.*: | ... |
 | http://tinyurl.com/Cfrom2710 | http://tinyurl.com/CSharp1302 | ... |
-| Линк към изпълнени задачи от *19.10.2023г.*: | ... | ... |
-| http://tinyurl.com/Cfrom1910 | ... | ... |
+| Линк към изпълнени задачи от *19.10.2023г.*: | Линк към изпълнени задачи от *27.02.2024г.*: | ... |
+| http://tinyurl.com/Cfrom1910 | http://tinyurl.com/CSharp2702 | ... |
 
 <!-- Alternate versions from the readme file. -->
 
