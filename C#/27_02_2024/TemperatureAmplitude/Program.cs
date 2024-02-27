@@ -11,7 +11,7 @@ namespace TemperatureAmplitude
 
             Console.WriteLine("The hottest places today are:" + CityNames(true, cityNames, temperatures, cityNames.Length));
 			Console.WriteLine("The coldest places today are:" + CityNames(false, cityNames, temperatures, cityNames.Length));
-
+			// difference
 		}
 
 		public static string CityNames(bool highOrLow, string[] cityNames, int[] temps, int arrayLenght)
