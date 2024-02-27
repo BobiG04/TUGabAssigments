@@ -1,57 +1,56 @@
 ﻿using System;
 
-namespace DaysInMonth
+namespace TemperatureAmplitude
 {
 	internal class Program
 	{
-		static void Main(string[] args)
+		public static void Main(string[] args)
 		{
+			string[] cityNames = { "Blagoevgrad", "Burgas", "Varna" ,"Veliko Tarnovo", "Vidin", "Vratsa", "Gabrovo", "Dobrich", "Kurdjali", "Kustendil", "Lovech", "Pleven", "Ruse", "Sofia"};
+			int[] temperatures = { 8, 10, 12, 10, 13, 15, 14, 11, 9, 13, 7, 8, 13, 15 };
 
-			string[,] Data = { {"January","February","March","April","May","June","July","August","September","October","November","December"},{"31","28/29","31","30","31","30","31","31","30","31","30","31"} };
+            Console.WriteLine("The hottest places today are:" + CityNames(true, cityNames, temperatures, cityNames.Length));
+			Console.WriteLine("The coldest places today are:" + CityNames(false, cityNames, temperatures, cityNames.Length));
+			// difference
+		}
 
-            Console.WriteLine("Enter month name: ");
-            string monthName = Console.ReadLine();
+		public static string CityNames(bool highOrLow, string[] cityNames, int[] temps, int arrayLenght)
+		{
+			string[] cityNamesHigh = cityNames;
+			string[] cityNamesLow = cityNames;
+			int midPointHigh = temps[0];
+			int midPointLow = temps[0];
 
-			switch (monthName)
+			if (highOrLow)
 			{
-				case "January":
-					Console.WriteLine(Data[0, 0] + " has " + Data[1, 0] + " days.");
-					break;
-				case "February":
-					Console.WriteLine(Data[0, 1] + " has " + Data[1, 1] + " days, depending on the year.");
-					break;
-				case "March":
-					Console.WriteLine(Data[0, 2] + " has " + Data[1, 2] + " days.");
-					break;
-				case "April":
-					Console.WriteLine(Data[0, 3] + " has " + Data[1, 3] + " days.");
-					break;
-				case "May":
-					Console.WriteLine(Data[0, 4] + " has " + Data[1, 4] + " days.");
-					break;
-				case "June":
-					Console.WriteLine(Data[0, 5] + " has " + Data[1, 5] + " days.");
-					break;
-				case "July":
-					Console.WriteLine(Data[0, 6] + " has " + Data[1, 6] + " days.");
-					break;
-				case "August":
-					Console.WriteLine(Data[0, 7] + " has " + Data[1, 7] + " days.");
-					break;
-				case "September":
-					Console.WriteLine(Data[0, 8] + " has " + Data[1, 8] + " days.");
-					break;
-				case "October":
-					Console.WriteLine(Data[0, 9] + " has " + Data[1, 9] + " days.");
-					break;
-				case "November":
-					Console.WriteLine(Data[0, 10] + " has " + Data[1, 10] + " days.");
-					break;
-				case "December":
-					Console.WriteLine(Data[0, 11] + " has " + Data[1, 11] + " days.");
-					break;
+				for (int i = 0; i < arrayLenght; i++)
+				{
+					if (temps[i] > midPointHigh)
+					{
+						midPointHigh = temps[i];
+						cityNamesHigh[i] = cityNames[i];
+					} else
+					{
+						cityNamesHigh[i] = "";
+					}
+				}
+				return String.Join(" ",cityNamesHigh) + "with " + midPointHigh.ToString() + " degrees Celsius.";
+            } else
+			{
+				for (int i = 0; i < arrayLenght; i++)
+				{
+					if (temps[i] < midPointLow)
+					{
+						midPointLow = temps[i];
+						cityNamesLow[i] = cityNames[i];
+					}
+					else
+					{
+						cityNamesLow[i] = "";
+					}
+				}
+				return String.Join(" ", cityNamesLow) + "with " + midPointLow.ToString() + " degrees Celsius.";
 			}
-
 		}
 	}
 }
