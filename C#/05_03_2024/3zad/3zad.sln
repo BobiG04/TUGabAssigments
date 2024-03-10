@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34616.47
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3zad", "3zad.csproj", "{8EB7AADF-A5A8-439C-A7A9-D5CEB7D88224}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8EB7AADF-A5A8-439C-A7A9-D5CEB7D88224}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EB7AADF-A5A8-439C-A7A9-D5CEB7D88224}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EB7AADF-A5A8-439C-A7A9-D5CEB7D88224}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EB7AADF-A5A8-439C-A7A9-D5CEB7D88224}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2F736FCD-A1DD-4A1A-8C74-FC5C3F2E8B06}
+	EndGlobalSection
+EndGlobal
