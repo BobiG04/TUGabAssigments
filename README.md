@@ -10,6 +10,8 @@
 | http://tinyurl.com/Cfrom2710 | http://tinyurl.com/CSharp1302 | ... |
 | Линк към изпълнени задачи от *19.10.2023г.*: | Линк към изпълнени задачи от *27.02.2024г.*: | ... |
 | http://tinyurl.com/Cfrom1910 | http://tinyurl.com/CSharp2702 | ... |
+| ... | Линк към изпълнени задачи от *05.03.2024г.*: | ... |
+| ... | http://tinyurl.com/CSharp0503 | ... |
 
 <!-- Alternate versions from the readme file. -->
 
@@ -102,5 +104,7 @@ http://tinyurl.com/Cfrom2710
 
 ### https://github.com/BobiG04/TUGabAssigments/tree/master/C/Formulas/Formulas-19.10.2023
 http://tinyurl.com/Cfrom1910
+
+https://tinyurl.com/CSharp0503
 
 -->
