@@ -31,7 +31,7 @@
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1"
-     inkscape:current-layer="svg1" />
+     inkscape:current-layer="layer2" />
   <defs
      id="defs1" />
   <g
@@ -157,76 +157,76 @@
      inkscape:label="LogoRainbow">
     <path
        id="path6-0"
-       style="fill:#ffcc00;stroke-width:0.423771"
-       d="m 48.674242,99.167155 a 81.26281,80.230255 0 0 0 -0.01942,0.26934 81.26281,80.230255 0 0 0 81.262528,80.230785 81.26281,80.230255 0 0 0 1.26124,-0.0887 V 118.76055 A 23.749346,23.447578 0 0 1 110.31957,99.167205 Z" />
+       style="fill:#0066ff;stroke-width:0.423771"
+       d="m 39.178027,121.32499 a 81.26281,80.230255 0 0 0 -0.01942,0.26934 81.26281,80.230255 0 0 0 81.262533,80.23078 81.26281,80.230255 0 0 0 1.26124,-0.0887 v -60.81803 a 23.749346,23.447578 0 0 1 -20.85902,-19.59334 z" />
     <path
        id="path5-7"
-       style="fill:#2ad4ff;stroke-width:0.411834"
-       d="m 63.284546,98.683631 a 66.812912,65.963963 0 0 0 66.776094,65.445669 66.812912,65.963963 0 0 0 0.91719,-0.0648 V 118.27698 A 23.749346,23.447578 0 0 1 110.1188,98.683641 Z" />
+       style="fill:#0055d4;stroke-width:0.411834"
+       d="m 53.788331,120.84146 a 66.812912,65.963963 0 0 0 66.776099,65.44567 66.812912,65.963963 0 0 0 0.91719,-0.0648 v -45.78752 a 23.749346,23.447578 0 0 1 -20.85903,-19.59334 z" />
     <rect
-       style="fill:#55d400;stroke-width:0.315764"
+       style="fill:#0044aa;stroke-width:0.315764"
        id="rect45-9-1-1-2"
        width="32.837017"
        height="18.139486"
-       x="129.97107"
-       y="129.49583" />
+       x="120.47485"
+       y="151.65367" />
     <path
        id="path4-8"
-       style="fill:#55d400;stroke-width:0.411834"
-       d="m 80.444856,98.710801 a 49.787783,49.155161 0 0 0 49.759074,48.751169 49.787783,49.155161 0 0 0 1.02,-0.072 V 118.30413 A 23.749346,23.447578 0 0 1 110.3649,98.710791 Z" />
+       style="fill:#0044aa;stroke-width:0.411834"
+       d="m 70.948641,120.86863 a 49.787783,49.155161 0 0 0 49.759079,48.75117 49.787783,49.155161 0 0 0 1.02,-0.072 v -29.08584 a 23.749346,23.447578 0 0 1 -20.85903,-19.59334 z" />
     <rect
-       style="fill:#55d400;stroke-width:0.328667"
+       style="fill:#0044aa;stroke-width:0.328667"
        id="rect45-9-1-0"
        width="17.632002"
        height="36.599556"
-       x="80.407173"
-       y="63.028564" />
+       x="70.910957"
+       y="85.186394" />
     <rect
-       style="fill:#ff6600;stroke-width:0.278192"
+       style="fill:#003380;stroke-width:0.278192"
        id="rect45-9-3"
        width="14.3473"
        height="32.223625"
-       x="97.665314"
-       y="62.969467" />
+       x="88.169098"
+       y="85.127296" />
     <path
        id="path3-4"
-       style="fill:#ff6600;stroke-width:0.460801"
-       d="m 97.665872,94.894465 a 36.498061,36.034302 0 0 0 36.406848,34.770045 36.498061,36.034302 0 0 0 1.28074,-0.0903 V 116.81749 A 26.573149,26.235502 0 0 1 112.01431,94.894527 Z" />
+       style="fill:#003380;stroke-width:0.460801"
+       d="m 88.169657,117.0523 a 36.498061,36.034302 0 0 0 36.406853,34.77004 36.498061,36.034302 0 0 0 1.28074,-0.0903 V 138.97532 A 26.573149,26.235502 0 0 1 102.5181,117.05236 Z" />
     <rect
-       style="fill:#ff6600;stroke-width:0.250422"
+       style="fill:#003380;stroke-width:0.250422"
        id="rect45-2"
        width="28.875366"
        height="12.974431"
-       x="133.93402"
-       y="116.76842" />
+       x="124.43781"
+       y="138.92625" />
     <rect
-       style="fill:#2ad4ff;stroke-width:0.32363"
+       style="fill:#0055d4;stroke-width:0.32363"
        id="rect45-9-1-2-11"
        width="17.120647"
        height="36.545582"
-       x="63.3013"
-       y="63.028908" />
+       x="53.805084"
+       y="85.186737" />
     <rect
-       style="fill:#ffcc00;stroke-width:0.299435"
+       style="fill:#0066ff;stroke-width:0.299435"
        id="rect45-9-1-2-1-0"
        width="14.656338"
        height="36.545582"
-       x="48.647625"
-       y="63.024628" />
+       x="39.151409"
+       y="85.182457" />
     <rect
-       style="fill:#2ad4ff;stroke-width:0.302285"
+       style="fill:#0055d4;stroke-width:0.302285"
        id="rect45-9-1-1-0-6"
        width="32.823658"
        height="16.630678"
-       x="129.991"
-       y="147.47714" />
+       x="120.49478"
+       y="169.63498" />
     <rect
-       style="fill:#ffcc00;stroke-width:0.293329"
+       style="fill:#0066ff;stroke-width:0.293329"
        id="rect45-9-1-1-0-7-2"
        width="32.929283"
        height="15.60959"
-       x="129.86362"
-       y="164.07666" />
+       x="120.3674"
+       y="186.2345" />
   </g>
   <g
      inkscape:groupmode="layer"
@@ -234,14 +234,15 @@
      inkscape:label="Text">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:132.292px;font-family:'Russo One';-inkscape-font-specification:'Russo One';fill:#000000;stroke-width:0.264583"
-       x="185.88182"
-       y="190.67221"
-       id="text1"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:120.39px;font-family:'Dela Gothic One';-inkscape-font-specification:'Dela Gothic One';fill:#003380;stroke-width:0.24078"
+       x="199.58815"
+       y="172.42262"
+       id="text1"
+       transform="scale(0.89810738,1.1134526)"><tspan
          sodipodi:role="line"
          id="tspan1"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:132.292px;font-family:'Russo One';-inkscape-font-specification:'Russo One';stroke-width:0.264583"
-         x="185.88182"
-         y="190.67221">СКИ</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:120.39px;font-family:'Dela Gothic One';-inkscape-font-specification:'Dela Gothic One';fill:#003380;stroke-width:0.24078"
+         x="199.58815"
+         y="172.42262">СКИ</tspan></text>
   </g>
 </svg>
