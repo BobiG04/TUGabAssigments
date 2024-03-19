@@ -14,6 +14,8 @@
 | ... | http://tinyurl.com/CSharp0503 | ... |
 | ... | Линк към изпълнени задачи от *12.03.2024г.*: | ... |
 | ... | http://tinyurl.com/CSharp1203 | ... |
+| ... | Линк към изпълнени задачи от *19.03.2024г.*: | ... |
+| ... | http://tinyurl.com/CSharp1903 | ... |
 
 <!-- Alternate versions from the readme file. -->
 
