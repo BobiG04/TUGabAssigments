@@ -18,6 +18,8 @@
 | ... | http://tinyurl.com/CSharp1903 | ... |
 | ... | Линк към изпълнени задачи от *26.03.2024г.*: | ... |
 | ... | http://tinyurl.com/CSharp2603 | ... |
+| ... | *CST Anniversary*: | ... |
+| ... | http://tinyurl.com/CstAniv2603 | ... |
 
 <!-- Alternate versions from the readme file. -->
 
