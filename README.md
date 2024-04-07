@@ -22,6 +22,8 @@
 | ... | http://tinyurl.com/CstAniv2603 | ... |
 | ... | Линк към изпълнени задачи от *02.04.2024г.*: | ... |
 | ... | http://tinyurl.com/CSharp0204 | ... |
+| ... | Линк към изпълнени задачи от *07.04.2024г.*: | ... |
+| ... | http://tinyurl.com/CSharp0704 | ... |
 
 <!-- Alternate versions from the readme file. -->
 
