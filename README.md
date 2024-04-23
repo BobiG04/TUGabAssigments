@@ -26,6 +26,10 @@
 | ... | https://tinyurl.com/43kajafy | ... |
 | ... | Линк към изпълнени задачи от *16.04.2024г.*: | ... |
 | ... | https://tinyurl.com/CSharp1604 | ... |
+| ... | Линк към изпълнени задачи от *23.04.2024г.*: | ... |
+| ... | https://tinyurl.com/CSharp2304 | ... |
+| ... | Линк към курсова работа: | ... |
+| ... | https://tinyurl.com/CSharpKursRab | ... |
 
 <!-- Alternate versions from the readme file. -->
 
