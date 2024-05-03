@@ -8,8 +8,8 @@ namespace KursRab
 		protected string name;
 		protected string address;
 		protected double[] gpsCoords = new double[2];
-		protected string[] events = { };
-		protected string[] eventDates = { };
+		protected string[] events = new string[5];
+		protected string[] eventDates = new string[5];
 
 		public Hotel()
 		{
@@ -66,7 +66,7 @@ namespace KursRab
 
 		public string Output()
 		{
-			return String.Join(" ", name, address, gpsCoords);
+			return String.Join(" ", name, address, gpsCoords[0], gpsCoords[1]);
         }
 
 		public void EventOutput (int arrNumb)
@@ -82,7 +82,7 @@ namespace KursRab
 				return String.Join(" ", hotel.name, hotel.address, hotel.GpsCoords[0], hotel.GpsCoords[1]);
 			} else
 			{
-				return "Error";
+				return " ";
 			}
 		}
 
