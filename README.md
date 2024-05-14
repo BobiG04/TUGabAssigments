@@ -30,6 +30,8 @@
 | ... | https://tinyurl.com/CSharp2304 | ... |
 | ... | Линк към курсова работа: | ... |
 | ... | https://tinyurl.com/CSharpKursRab | ... |
+| ... | Линк към изпълнени задачи от *14.05.2024г.*: | ... |
+| ... | https://tinyurl.com/CSharp1405 | ... |
 
 <!-- Alternate versions from the readme file. -->
 
