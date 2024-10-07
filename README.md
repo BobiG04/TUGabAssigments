@@ -5,11 +5,11 @@
 | Въведение в програмирането | Обектно ориентирано програмиране (C#) | Компютърна графика | Програмиране в интернет среда (Java) |
 | :-------------: | :-------------: | :-----: | :-----: |
 | Линк към курсова работа - <br> *1 семестър*: | Линк към изпълнени задачи от *20.02.2024г.*: | Линк към изпълнени задачи от *компютърна графика*: | Линк към изпълнени задачи от *първа седмица* |
-| http://tinyurl.com/KursRab1 | http://tinyurl.com/CSharp2002  | http://tinyurl.com/CompGraphs | ... |
+| http://tinyurl.com/KursRab1 | http://tinyurl.com/CSharp2002  | http://tinyurl.com/CompGraphs | https://tinyurl.com/Java1BobiG04 |
 | Линк към изпълнени задачи от *27.10.2023г.*: | Линк към изпълнени задачи от *13.02.2024г.*: | ... | Линк към изпълнени задачи от *втора седмица* |
-| http://tinyurl.com/Cfrom2710 | http://tinyurl.com/CSharp1302 | ... | ... |
+| http://tinyurl.com/Cfrom2710 | http://tinyurl.com/CSharp1302 | ... | https://tinyurl.com/Java2BobiG04 |
 | Линк към изпълнени задачи от *19.10.2023г.*: | Линк към изпълнени задачи от *27.02.2024г.*: | ... | Линк към изпълнени задачи от *трета седмица* |
-| http://tinyurl.com/Cfrom1910 | http://tinyurl.com/CSharp2702 | ... | ... |
+| http://tinyurl.com/Cfrom1910 | http://tinyurl.com/CSharp2702 | ... | https://tinyurl.com/Java3BobiG04 |
 | ... | Линк към изпълнени задачи от *05.03.2024г.*: | ... | ... |
 | ... | http://tinyurl.com/CSharp0503 | ... | ... |
 | ... | Линк към изпълнени задачи от *12.03.2024г.*: | ... | ... |
@@ -126,5 +126,11 @@ http://tinyurl.com/Cfrom2710
 http://tinyurl.com/Cfrom1910
 
 https://tinyurl.com/CSharp0503
+
+https://tinyurl.com/Java1BobiG04
+
+https://tinyurl.com/Java2BobiG04
+
+https://tinyurl.com/Java3BobiG04
 
 -->
