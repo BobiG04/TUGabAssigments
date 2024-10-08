@@ -7,15 +7,15 @@ public class App {
         boolean status;
         int N;
 
-        String warnMsg = "N трябва да е по-голямо от 0";
+        String warnMsg = "N needs to be greater than 0";
         Scanner input = new Scanner(System.in);
 
         do {
             status = false;
-            System.out.print("Въведете стойност на N = ");
+            System.out.print("Enter number = ");
             try {
                 N = input.nextInt();
-                if (N<1||N%2==1) {
+                if (N<=1||N%2==1) {
                     System.out.println(warnMsg);
                 } else {
                     status = true;
