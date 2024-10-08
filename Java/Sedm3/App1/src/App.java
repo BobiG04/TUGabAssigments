@@ -15,14 +15,14 @@ public class App {
             System.out.print("Enter number = ");
             try {
                 N = input.nextInt();
-                if (N<=1||N%2==1) {
-                    System.out.println(warnMsg);
+                if (N < 1 || N % 2 == 1) {
+                    System.out.println(String.join(warnMsg));
                 } else {
                     status = true;
                 }
             } catch (InputMismatchException e) {
                 input.next();
-                System.out.println(warnMsg);
+                System.out.println(String.join(" ", warnMsg, e.getMessage()));
             }
         } while (!status);
         input.close();

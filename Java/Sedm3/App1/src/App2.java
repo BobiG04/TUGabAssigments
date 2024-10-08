@@ -137,7 +137,7 @@ class Polygon extends Shape {
 
     //public void getPoints() {
         
-    //}*/
+    //}
 
     @Override
     public void setColor(String color) {

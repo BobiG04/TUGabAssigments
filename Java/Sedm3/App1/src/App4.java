@@ -90,69 +90,150 @@ public class App4 {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+       
+        // Teacher
+        String teacherName;
+        int teacherAge;
+        String teacherPhone;
+        String title;
+        int roomNumber;
+        int numGrades;
+        double[] grades;
 
+        // Student
+        String studentName;
+        int studentAge;
+        String studentPhone;
+        String speciality;
+        String facNumber;
+        int numSubjects;
+        String[] schedule;
+
+        // Pupil
+        String pupilName;
+        int pupilAge;
+        String pupilPhone;
+        int classNumber;
+        String schoolName;
+        
         System.out.println("Enter info for a Teacher: ");
-        System.out.print("Name: ");
-        String teacherName = scanner.nextLine();
-        System.out.print("Age: ");
-        int teacherAge = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("Phone Number: ");
-        String teacherPhone = scanner.nextLine();
-        System.out.print("Title: ");
-        String title = scanner.nextLine();
-        System.out.print("Room Number: ");
-        int roomNumber = scanner.nextInt();
-        System.out.println("Enter the number of diciplines and their grades:");
-        int numGrades = scanner.nextInt();
-        double[] grades = new double[numGrades];
-        for (int i = 0; i < numGrades; i++) {
-            System.out.print("Grade " + (i + 1) + ": ");
-            grades[i] = scanner.nextDouble();
-        }
-        Teacher teacher = new Teacher(teacherName, teacherAge, teacherPhone, title, roomNumber);
-        teacher.printTeacherInfo(grades);
+        try {
+            System.out.print("Name: ");
+            teacherName = scanner.nextLine();
+            System.out.print("Age: ");
+            teacherAge = scanner.nextInt();
+            System.out.print("Phone Number: ");
+            teacherPhone = scanner.nextLine();
+            scanner.nextLine();
+            System.out.print("Title: ");
+            title = scanner.nextLine();
+            System.out.print("Room Number: ");
+            roomNumber = scanner.nextInt();
+            System.out.println("Enter the number of Grades and their grades:");
+            numGrades = scanner.nextInt();
+            grades = new double[numGrades];
 
-        scanner.nextLine();
+            if (teacherName == null) {
+                System.out.println("Name not entered.");
+            }
+            if (teacherAge < 1) {
+                System.out.println("Age not inputted correctly.");
+            }
+            if (teacherPhone.length() < 10) {
+                System.out.println("Phone number must be 10 units long.");
+            }
+            if (roomNumber < 1) {
+                System.out.println("Room number should be greater than 0.");
+            }
+            if (numGrades < 1) {
+                System.out.println("Number of grades is more than 0.");
+            }
+            if (grades.length < 1) {
+                System.out.println("The list of grades is more than 0.");
+            }
+
+            for (int i = 0; i < numGrades; i++) {
+                System.out.print("Grade " + (i + 1) + ": ");
+                grades[i] = scanner.nextDouble();
+            }
+            Teacher teacher = new Teacher(teacherName, teacherAge, teacherPhone, title, roomNumber);
+            teacher.printTeacherInfo(grades);
+            scanner.nextLine();
+        } catch (Exception e) {
+            scanner.next();
+            System.out.println(e.getMessage());
+        }
+
         System.out.println("\nEnter info for a Student:");
-        System.out.print("Name: ");
-        String studentName = scanner.nextLine();
-        System.out.print("Age: ");
-        int studentAge = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("Phone Number: ");
-        String studentPhone = scanner.nextLine();
-        System.out.print("Speciality: ");
-        String speciality = scanner.nextLine();
-        System.out.print("Faculty Number: ");
-        String facNumber = scanner.nextLine();
-        System.out.println("Enter the number of subjects:");
-        int numSubjects = scanner.nextInt();
-        scanner.nextLine();
-        String[] schedule = new String[numSubjects];
-        for (int i = 0; i < numSubjects; i++) {
-            System.out.print("Subject " + (i + 1) + ": ");
-            schedule[i] = scanner.nextLine();
+        try {
+            System.out.print("Name: ");
+            studentName = scanner.nextLine();
+            System.out.print("Age: ");
+            studentAge = scanner.nextInt();
+            scanner.nextLine();
+            System.out.print("Phone Number: ");
+            studentPhone = scanner.nextLine();
+            System.out.print("Speciality: ");
+            speciality = scanner.nextLine();
+            System.out.print("Faculty Number: ");
+            facNumber = scanner.nextLine();
+            System.out.println("Enter the number of subjects:");
+            numSubjects = scanner.nextInt();
+            scanner.nextLine();
+            schedule = new String[numSubjects];
+
+            if (studentName == null) {
+                System.out.println("Name not entered.");
+            }
+            if (studentAge < 1) {
+                System.out.println("Age not inputted correctly.");
+            }
+            if (studentPhone.length() < 10 || studentPhone.length() > 10) {
+                System.out.println("Phone number must be 10 units long.");
+            }
+            if (facNumber.length() < 8 || facNumber.length() > 8) {
+                System.out.println("Faculty number must be 10 symbols.");
+            }
+            if (numSubjects < 1) {
+                System.out.println("The list of subjects is more than 0.");
+            }
+
+            for (int i = 0; i < numSubjects; i++) {
+                System.out.print("Subject " + (i + 1) + ": ");
+                schedule[i] = scanner.nextLine();
+            }
+            Student student = new Student(studentName, studentAge, studentPhone, speciality, facNumber);
+            student.printSchedule(schedule);
+        } catch (Exception e) {
+            scanner.next();
+            System.out.println(e.getMessage());
         }
-        Student student = new Student(studentName, studentAge, studentPhone, speciality, facNumber);
-        student.printSchedule(schedule);
 
-        System.out.println("\nEnter info for a Pupil:");
-        System.out.print("Name: ");
-        String pupilName = scanner.nextLine();
-        System.out.print("Age: ");
-        int pupilAge = scanner.nextInt();
-        scanner.nextLine(); 
-        System.out.print("Phone Number: ");
-        String pupilPhone = scanner.nextLine();
-        System.out.print("Number in class: ");
-        int classNumber = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("School Name: ");
-        String schoolName = scanner.nextLine();
-        Pupil pupil = new Pupil(pupilName, pupilAge, pupilPhone, classNumber, schoolName);
-        pupil.printPupilInfo();
+            System.out.println("\nEnter info for a Pupil:");
+        try {
+            System.out.print("Name: ");
+            pupilName = scanner.nextLine();
+            System.out.print("Age: ");
+            pupilAge = scanner.nextInt();
+            scanner.nextLine(); 
+            System.out.print("Phone Number: ");
+            pupilPhone = scanner.nextLine();
+            System.out.print("Number in class: ");
+            classNumber = scanner.nextInt();
+            scanner.nextLine();
+            System.out.print("School Name: ");
+            schoolName = scanner.nextLine();
 
+            
+
+            Pupil pupil = new Pupil(pupilName, pupilAge, pupilPhone, classNumber, schoolName);
+            pupil.printPupilInfo();
+        } catch (Exception e) {
+            scanner.next();
+            System.out.println(e.getMessage());
+        }
+
+        
         scanner.close();
     }
 }
