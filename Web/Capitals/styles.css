@@ -1,0 +1,128 @@
+* {
+    font-family: "M PLUS 1p", sans-serif;
+    font-style: normal;
+}
+
+body {
+    background-image: url(images/terrain_seamless.jpg);
+    background-size: 600px;
+    margin: 0;
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: 900;
+    text-align: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: #25E000;
+    color: #362432;
+}
+
+footer {
+    text-align: center;
+}
+
+#mapSofia {
+    width: 0px;
+    height: 0px;
+    animation-name: mapTransition;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    border: 5px solid #362432;
+    border-radius: 15px;
+}
+
+#mapRiga {
+    width: 0px;
+    height: 0px;
+    animation-name: mapTransition;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    border: 5px solid #362432;
+    border-radius: 15px;
+}
+
+#mapLondon {
+    width: 0px;
+    height: 0px;
+    animation-name: mapTransition;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    border: 5px solid #362432;
+    border-radius: 15px;
+}
+
+#mapWashington {
+    width: 0px;
+    height: 0px;
+    animation-name: mapTransition;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    border: 5px solid #362432;
+    border-radius: 15px;
+}
+
+#mapParis {
+    width: 0px;
+    height: 0px;
+    animation-name: mapTransition;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+    border: 5px solid #362432;
+    border-radius: 15px;
+}
+
+@keyframes mapTransition {
+
+    from {width: 0px; height: 0px;}
+    to {width: 99%; height: 400px;}
+
+}
+
+#SectionOne {
+
+    display: flex;
+    height: 30%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    background-color: #396130;
+
+}
+
+#SectionText {
+
+    width: 50%;
+    height: 100%;
+    margin-top: 35px;
+    margin-left: 2%;
+    color: white;
+
+}
+
+#SectionImage {
+
+    width: 50%;
+    height: 100%;
+    margin-left: 1%;
+    margin-right: 2%;
+
+}
+
+#Sofia {
+    width: 100%;
+    height: 100%;
+    border: 5px solid #362432;
+    border-radius: 15px;
+}
