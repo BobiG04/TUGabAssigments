@@ -1,0 +1,245 @@
+li{
+	display: inline;
+}
+a:hover {
+	background-color: white;
+	color: black;
+	text-shadow: none;
+	box-shadow: 2px 2px 4px black;
+}
+body{
+	margin: 0px;
+}
+header {
+	width: 100%; 
+	height: 300px;
+	text-align: center;
+	background-image: linear-gradient(320deg, #23AD17, #2E612A);
+	animation-name: headerTransition;
+	animation-duration: 7s;
+	animation-iteration-count: infinite;
+}
+h1.PageTitle{
+	margin: 0px;
+	font-size: 70px;
+	font-family: 'Neucha', cursive;
+	color: white;
+	letter-spacing: 5px;
+}
+a{
+	text-decoration: none;
+	color: white;
+	text-shadow: 2px 2px 3px white;
+	margin-left: 2%;
+	margin-right: 2%;
+	font-size: 34px;
+	font-family: 'Neucha', cursive;
+	padding: 10px;
+	padding-left: -5px;
+	padding-right: -5px;
+	border-radius: 15px;
+	background-color: darkgreen;
+	transition-duration: 0.2s;
+}
+a.Current {
+	text-decoration: none;
+	color: black;
+	text-shadow: none;
+	margin-left: 2%;
+	margin-right: 2%;
+	font-size: 34px;
+	font-family: 'Neucha', cursive;
+	padding: 10px;
+	padding-left: -5px;
+	padding-right: -5px;
+	border-radius: 15px;
+	background-color: darkgreen;
+	transition-duration: 0.2s;
+	box-shadow: 2px 2px 4px black;
+	background-color: white;
+}
+ul {
+	width: 95%;
+}
+div.Content {
+	background-image: linear-gradient(75deg, #EBF9FF, #B7D3DF);
+	display: inline-flex;
+	margin-left: 15%;
+	margin-right: 15%;
+	box-shadow: 2px 2px 4px black;
+	border-radius: 10px;
+}
+div.Content1 {
+	background-image: linear-gradient(75deg, #EBF9FF, #B7D3DF);
+	display: inline-flex;
+	margin-left: 15%;
+	margin-right: 15%;
+	box-shadow: 2px 2px 4px black;
+	border-radius: 10px;
+}
+div.Content2 {
+	background-image: linear-gradient(75deg, #EBF9FF, #B7D3DF);
+	display: inline-flex;
+	margin-left: 15%;
+	margin-right: 15%;
+	box-shadow: 2px 2px 4px black;
+	border-radius: 10px;
+}
+img.ProfilePic {
+	width: 250px;
+	height: 250px;
+	border-radius: 250px;
+	box-shadow: 0px 0px 4px black;
+	margin: 1.5%;
+}
+img.CertificatePic1 {
+	width: 400px;
+	height: 250px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 4px black;
+	margin: 1.5%;
+}
+img.CertificatePic2 {
+	width: 400px;
+	height: 250px;
+	border-radius: 5px;
+	box-shadow: 0px 0px 4px black;
+	margin: 1.5%;
+}
+div.InnerContent {
+	margin-left: 1%;
+}
+footer {
+	width: 100%;
+	padding-top: 2.5%;
+	padding-bottom: 2.5%;
+	text-align: center;
+	background-color: darkgreen;
+	box-shadow: 0px 0px 10px black;
+}
+p.ProfileContent {
+	font-family: 'Nunito', sans-serif;
+	margin-right: 1.5%;
+	text-align: justify;
+}
+p.ParagraphContent1 {
+	font-family: 'Nunito', sans-serif;
+	margin-right: 1.5%;
+	margin-left: -49%;
+	margin-top: 14%;
+	padding-right: -15%;
+	text-align: justify;
+	text-align: center;
+}
+p.ParagraphContent2 {
+	font-family: 'Nunito', sans-serif;
+	margin-right: 1.5%;
+	margin-left: -47%;
+	margin-top: 14%;
+	padding-right: -15%;
+	text-align: justify;
+	text-align: center;
+}
+p.ParagraphContent_Contacts {
+	font-family: 'Nunito', sans-serif;
+	margin-right: 1.5%;
+	margin-left: -29%;
+	margin-top: 17%;
+	padding-right: -15%;
+	text-align: justify;
+	text-align: center;
+}
+h2.SubTitle {
+	font-family: 'Nunito', sans-serif;
+	text-align: center;
+	margin-left: 0%;
+	font-size: 40px;
+}
+h2.Contacts {
+	margin-left: 22%;
+	margin-top: 4%;
+}
+h2 {
+	font-family: 'Nunito', sans-serif;
+	margin-left: 23%;
+	padding-left: 1%;
+	padding-right: 1%;
+	text-align: justify;
+	text-align: center;
+}
+nav {
+	background-color: darkgreen;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	box-shadow: 0px 0px 10px black;
+}
+p.Copy{
+	font-family: 'Nunito', sans-serif;
+	color: white;
+}
+section.section {
+	margin: 1%;
+	
+}
+section.section1 {
+	margin: 1%;
+	
+}
+section.section2 {
+	margin: 1%;
+	
+}
+div.line {
+	background-color: darkgreen;
+	border-radius: 250px;
+	margin: 0%;
+	margin-top: 10%;
+	margin-left: -25%;
+	height: 20px;
+	padding-left: 200px;
+	padding-right: 200px;
+}
+
+@keyframes headerTransition {
+	0% {background-image: linear-gradient(320deg, #23AD17, #2E612A);}
+	2.5% {background-image: linear-gradient(325deg, #23AD17, #2E612A);}
+	5% {background-image: linear-gradient(330deg, #23AD17, #2E612A);}
+	7.5% {background-image: linear-gradient(335deg, #23AD17, #2E612A);}
+	10% {background-image: linear-gradient(340deg, #23AD17, #2E612A);}
+	12.5% {background-image: linear-gradient(345deg, #23AD17, #2E612A);}
+	15% {background-image: linear-gradient(350deg, #23AD17, #2E612A);}
+	17.5% {background-image: linear-gradient(355deg, #23AD17, #2E612A);}
+	20% {background-image: linear-gradient(360deg, #23AD17, #2E612A);}
+	22.5% {background-image: linear-gradient(365deg, #23AD17, #2E612A);}
+	25% {background-image: linear-gradient(370deg, #23AD17, #2E612A);}
+	27.5% {background-image: linear-gradient(375deg, #23AD17, #2E612A);}
+	30% {background-image: linear-gradient(380deg, #23AD17, #2E612A);}
+	32.5% {background-image: linear-gradient(385deg, #23AD17, #2E612A);}
+	35% {background-image: linear-gradient(390deg, #23AD17, #2E612A);}
+	37.5% {background-image: linear-gradient(395deg, #23AD17, #2E612A);}
+	40% {background-image: linear-gradient(400deg, #23AD17, #2E612A);}
+	42.5% {background-image: linear-gradient(405deg, #23AD17, #2E612A);}
+	45% {background-image: linear-gradient(410deg, #23AD17, #2E612A);}
+	47.5% {background-image: linear-gradient(415deg, #23AD17, #2E612A);}
+	50% {background-image: linear-gradient(420deg, #23AD17, #2E612A);}
+	52.5% {background-image: linear-gradient(415deg, #23AD17, #2E612A);}
+	55% {background-image: linear-gradient(410deg, #23AD17, #2E612A);}
+	57.5% {background-image: linear-gradient(405deg, #23AD17, #2E612A);}
+	60% {background-image: linear-gradient(400deg, #23AD17, #2E612A);}
+	62.5% {background-image: linear-gradient(395deg, #23AD17, #2E612A);}
+	65% {background-image: linear-gradient(390deg, #23AD17, #2E612A);}
+	67.5% {background-image: linear-gradient(385deg, #23AD17, #2E612A);}
+	70% {background-image: linear-gradient(380deg, #23AD17, #2E612A);}
+	72.5% {background-image: linear-gradient(375deg, #23AD17, #2E612A);}
+	75% {background-image: linear-gradient(370deg, #23AD17, #2E612A);}
+	77.5% {background-image: linear-gradient(365deg, #23AD17, #2E612A);}
+	80% {background-image: linear-gradient(360deg, #23AD17, #2E612A);}
+	82.5% {background-image: linear-gradient(355deg, #23AD17, #2E612A);}
+	85% {background-image: linear-gradient(350deg, #23AD17, #2E612A);}
+	87.5% {background-image: linear-gradient(345deg, #23AD17, #2E612A);}
+	90% {background-image: linear-gradient(340deg, #23AD17, #2E612A);}
+	92.5% {background-image: linear-gradient(335deg, #23AD17, #2E612A);}
+	95% {background-image: linear-gradient(330deg, #23AD17, #2E612A);}
+	97.5% {background-image: linear-gradient(325deg, #23AD17, #2E612A);}
+	100% {background-image: linear-gradient(320deg, #23AD17, #2E612A);}
+}
