@@ -1,0 +1,57 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background-image: url(./images/back.png);
+}
+#title {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+h1, h3 {
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+h1 {
+    font-size: 60px;
+}
+h3 {
+    font-size: 40px;
+}
+h2 {
+    text-align: center;
+}
+#images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#recepies {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+footer {
+    display: flex;
+    justify-content: center;
+}
+img {
+    margin: 5px;
+    border: 5px solid #FF0000;
+    border-radius: 25px;
+    width: 300px;
+    height: 300px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+#banitsa,#musaka,#kufteta {
+    margin: 20px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    width: 300px;
+    text-align: justify;
+}
