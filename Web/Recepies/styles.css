@@ -39,6 +39,9 @@ footer {
     display: flex;
     justify-content: center;
 }
+#copy {
+    text-align: center;
+}
 img {
     margin: 5px;
     border: 5px solid #FF0000;
