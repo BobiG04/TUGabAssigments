@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="bg">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+        <title>Анкета</title>
+        <script src="thanks.js"></script>
+    </head>
+    <body>
+        <h1>Анкета</h1>
+        <form>
+            <label for="fname">Име:</label><br>
+            <input type="text" name="fname" placeholder="Напишете име"><br>
+            <label for="lname">Фамилия:</label><br>
+            <input type="text" name="lname" placeholder="Напишете фамилия"><br>
+            <label for="email">Email:</label><br>
+            <input type="email" name="email" placeholder="Напишете имейл"><br>
+            <label for="phone">Дата на раждане:</label><br>
+            <select>
+                <option value="1999">1999</option>
+                <option value="2000">2000</option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+                <option value="2004">2004</option>
+            </select><br>
+            <!--<label for="sth">Напишете нещо:</label><br>
+            <textarea placeholder="Напишете нещо в текстовото поле"></textarea><br>-->
+            <input type="submit" id="submit" onclick="alert('Благодаря за отделеното време!')"> <input type="reset" id="reset">
+        </form>
+    </body>
+</html>

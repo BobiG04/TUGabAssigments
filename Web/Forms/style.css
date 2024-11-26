@@ -1,0 +1,53 @@
+* {
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    background-image: url(./images/background_photo.png);
+}
+
+input, select {
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 600px;
+    height: 45px;
+    position: relative;
+    resize: none;
+    font-size: large;
+}
+textarea {
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 600px;
+    height: 150px;
+    position: relative;
+    resize: none;
+    font-weight: 500;
+    font-size: large;
+}
+label {
+    position: relative;
+    margin: 10px;
+    font-weight: 600;
+    font-size:larger;
+    text-transform: uppercase;
+}
+form {
+    text-align: center;
+    position: relative;
+}
+h1 {
+    text-align: center;
+    font-weight: 700;
+}
+#submit, #reset {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 5px;
+}
+#thanks {
+    font-weight: 600;
+}
