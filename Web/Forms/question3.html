@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+        <title>Анкета - 3 въпрос</title>
+        <script src="functionality.js"></script>
+    </head>
+    <body>
+        <h1>Анкета</h1>
+        <form id="LineForm" action="question4.html" method="get">
+            <label id="question" for="activity">Какви са вашите интереси?</label><br>
+            <input type="checkbox" id="sport" name="activity" value="sport">
+            <label for="sport">Спорт</label>
+            <input type="checkbox" id="music" name="activity" value="music">
+            <label for="music">Музика</label>
+            <input type="checkbox" id="reading" name="activity" value="reading">
+            <label for="reading">Четене</label>
+            <input type="checkbox" id="travel" name="activity" value="travel">
+            <label for="travel">Пътуване</label>
+            <input type="checkbox" id="other" name="activity" value="other">
+            <label for="other">Друго</label><br>
+            <input type="submit" id="submit" > <input type="reset" id="reset">
+        </form>
+        <footer>
+            <p id="imp">* - Полетата са задължителни</p>
+            <p id="copy">&copy; Bogomil Ivanov 2024. Used for TU-Gab Assigments</p>
+        </footer>
+    </body>
+</html>

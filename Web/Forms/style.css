@@ -3,26 +3,28 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     background-image: url(./images/background_photo.png);
+    height: 100%;
 }
 
-input, select {
+#Text, select {
     border: 2px solid black;
     border-radius: 10px;
     width: 600px;
     height: 45px;
     position: relative;
-    resize: none;
     font-size: large;
 }
-textarea {
+#areatext {
     border: 2px solid black;
     border-radius: 10px;
-    width: 600px;
-    height: 150px;
+    width: 800px;
+    height: 350px;
     position: relative;
     resize: none;
     font-weight: 500;
@@ -30,24 +32,93 @@ textarea {
 }
 label {
     position: relative;
-    margin: 10px;
-    font-weight: 600;
+    font-weight: 800;
     font-size:larger;
     text-transform: uppercase;
 }
-form {
+#question {
+    position: relative;
+    font-weight: 800;
+    font-size:larger;
+    text-transform: uppercase;
+    bottom: 10px;
+}
+#Form {
     text-align: center;
     position: relative;
+    top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#LineForm {
+    text-align: center;
+    position: relative;
+    top: 10px;
+    flex-direction: column;
+    align-items: center;
 }
 h1 {
     text-align: center;
-    font-weight: 700;
+    font-weight: 900;
+    font-size: 46px;
+    margin: 15px;
 }
 #submit, #reset {
     width: fit-content;
     height: fit-content;
     border-radius: 5px;
+    margin: 10px;
+    padding: 5px;
+    font-size: larger;
+    font-weight: 700;
+}
+#numb {
+    width: 50px;
+    height: 40px;
+    font-size: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+}
+#date {
+    width: 300px;
+    height: 40px;
+    font-size: 30px;
+    border: 2px solid black;
+    border-radius: 10px;
+    text-align: center;
+}
+#radio {
+    border: 2px solid black;
+    border-radius: 10px;
+    width: 15px;
+    height: 15px;
+    position: relative;
+    font-size: large;
+}
+#buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 200px;
+    height: 40px;
+    font-weight: 800;
+    font-size: 20px;
+    margin-left: 45%;
+    margin-right: 45%;
+    margin-top: 1%;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
 }
 #thanks {
     font-weight: 600;
+}
+#imp, #copy {
+    text-align: center;
+}
+footer {
+    padding: 1rem 0;
 }

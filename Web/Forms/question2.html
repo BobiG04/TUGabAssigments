@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="bg">
+<html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,18 +7,19 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-        <title>Анкета</title>
+        <title>Анкета - 2 въпрос</title>
         <script src="functionality.js"></script>
     </head>
     <body>
         <h1>Анкета</h1>
-        <form id="Form" action="question1.html" method="get">
-            <label for="fname">Име: *</label><br>
-            <input id="Text" type="text" name="fname" placeholder="Напишете име" required><br>
-            <label for="lname">Фамилия: *</label><br>
-            <input id="Text" type="text" name="lname" placeholder="Напишете фамилия" required><br>
-            <label for="email">Email: *</label><br>
-            <input id="Text" type="email" name="email" placeholder="Напишете вашия имейл" required>
+        <form id="LineForm" action="question3.html" method="get">
+            <label for="gender">Пол:</label>
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Мъж</label>
+            <input type="radio" id="female" name="gender" value="female" required>
+            <label for="female">Жена</label>
+            <input type="radio" id="other" name="gender" value="other" required>
+            <label for="other">Друго</label><br>
             <input type="submit" id="submit" > <input type="reset" id="reset">
         </form>
         <footer>
