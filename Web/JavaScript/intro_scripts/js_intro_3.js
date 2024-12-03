@@ -1,7 +1,7 @@
 function ChangeWord (sentence, word) {
     let words = sentence.split(' ');
 
-    hiddenWord = '';
+    let hiddenWord = '';
 
     for (let j = 0; j < word.length; j++) {
         hiddenWord += '*';
