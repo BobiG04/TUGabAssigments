@@ -16,7 +16,7 @@
 | ... | http://tinyurl.com/CSharp1203 | ... | https://tinyurl.com/Java5BobiG04 |
 | ... | Линк към изпълнени задачи от *19.03.2024г.*: | ... | Линк към изпълнени задачи от *шеста седмица* |
 | ... | http://tinyurl.com/CSharp1903 | ... | https://tinyurl.com/Java6BobiG04 |
-| ... | Линк към изпълнени задачи от *26.03.2024г.*: | ... | Линк към изпълнени задачи от *HTML, CSS, Java* |
+| ... | Линк към изпълнени задачи от *26.03.2024г.*: | ... | Линк към изпълнени задачи от *HTML, CSS, JavaScript* |
 | ... | http://tinyurl.com/CSharp2603 | ... | https://tinyurl.com/WebBobiG04 |
 | ... | *CST Anniversary*: | ... | ... |
 | ... | http://tinyurl.com/CstAniv2603 | ... | ... |
