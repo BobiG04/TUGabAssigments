@@ -1,0 +1,135 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+body {
+    background-image: url(./images/back.png);
+}
+#title {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height: fit-content;
+}
+#titleText {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 76px;
+    color: black;
+    width: fit-content;
+    text-align: center;
+    align-self: center;
+    cursor: pointer;
+}
+#loginBut {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 24px;
+    color: black;
+    align-self:flex-end;
+    width: fit-content;
+}
+#loginbutton {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 24px;
+    color: black;
+    width: fit-content;
+    cursor: pointer;
+}
+#regbutton {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 24px;
+    color: black;
+    width: fit-content;
+    cursor: pointer;
+}
+h1, h3 {
+    margin-left: 30%;
+    margin-right: 30%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+h1 {
+    font-size: 60px;
+}
+h3 {
+    font-size: 40px;
+}
+h2 {
+    text-align: center;
+}
+#images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+#recepies {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+footer {
+    display: flex;
+    justify-content: center;
+}
+#copy {
+    text-align: center;
+}
+img {
+    margin: 5px;
+    border: 5px solid #FF0000;
+    border-radius: 25px;
+    width: 300px;
+    height: 300px;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+#banitsa,#musaka,#kufteta {
+    margin: 20px;
+    margin-left: 2.5%;
+    margin-right: 2.5%;
+    width: 300px;
+    text-align: justify;
+}
+#form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 24px;
+}
+#formP {
+    font-size: 16px;
+}
+#textInput {
+    width: auto;
+    font-size: 24px;
+}
+#butSub {
+    width: 150px;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 7px;
+    padding: 5px;
+    cursor: pointer;
+    
+}
+#butRes {
+    width: 150px;
+    font-size: 20px;
+    border: 2px solid black;
+    border-radius: 7px;
+    padding: 5px;
+    cursor: pointer;
+}
+#buttons {
+    align-self: center;
+    text-decoration: none;
+    color: black;
+    margin: 10px;
+}

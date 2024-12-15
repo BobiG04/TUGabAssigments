@@ -1,0 +1,19 @@
+$(document).ready(
+    function(){
+        $("#FUN").click(function(){
+            $("#musaka").hide();
+            $("#banitsa").hide();
+            $("#kufteta").hide();
+        });
+        $("#FUN2").click(function(){
+            $("img").hide();
+        });
+        $("#FUN3").click(function(){
+            $("ul").hide();
+            $("p").hide();
+            $("h2").hide();
+            $("h3").hide();
+            $("h4").hide();
+        });
+    }
+);
