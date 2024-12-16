@@ -1,13 +1,42 @@
-function GetTime () {
+$(document).ready(function() {
+    function fetchTime() {
+        $.ajax({
+            url: "http://kst.tugab.bg/pis/gettimejson.php",
+            method: "GET",
+            dataType: "json",
+            success: function(data) {
+                var fullValue = data.value.split(", ");
+                var time = fullValue[0];
 
-    const xhttp = new XMLHttpRequest();
-    xhttp.onload = function() {
-        document.getElementById("time").innerHTML = getCurrentTime().GetTime;
+                $("#timeDisplay").text("Time: " + time);
+            },
+            error: function(error) {
+                console.error("Error fetching time:", error);
+            }
+        });
     }
 
-    xhttp.open("GET", "http://kst.tugab.bg/pis/gettimejson.php");
-    xhttp.send();
+    function fetchDate() {
+        $.ajax({
+            url: "http://kst.tugab.bg/pis/gettimejson.php",
+            method: "GET",
+            dataType: "json",
+            success: function(data) {
+                var fullValue = data.value.split(", "); 
+                var date = fullValue[1]; 
 
-    console.log("Hello!");
+                $("#dateDisplay").text("Date: " + date);
+            },
+            error: function(error) {
+                console.error("Error fetching date:", error);
+            }
+        });
+    }
 
-}
+    fetchTime();
+    fetchDate();
+
+    setInterval(fetchTime, 1000);
+
+    setInterval(fetchDate, 86400000);
+});
