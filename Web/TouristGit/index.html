@@ -5,10 +5,11 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Туристически Гид</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link href="./styles.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg centered bg-body-tertiary">
+        <nav class="navbar navbar-expand-lg centered bg-body-tertiary" style="margin-bottom: 10px;">
             <div class="container-md">
               <a class="navbar-brand" href="index.html">Туристически Гид</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,73 +18,212 @@
               <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                   <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="sofia.html">София</a>
+                    <button class="nav-link" data-bs-toggle="modal" data-bs-target="#ModalSofia">София</button>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="paris.html">Париж</a>
+                    <button class="nav-link" data-bs-toggle="modal" data-bs-target="#ModalParis">Париж</button>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="riga.html">Рига</a>
+                    <button class="nav-link" data-bs-toggle="modal" data-bs-target="#ModalRiga">Рига</button>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="washington.html">Вашингтон</a>
+                    <button class="nav-link" data-bs-toggle="modal" data-bs-target="#ModalWashington">Вашингтон</button>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="london.html">Лондон</a>
+                    <button class="nav-link" data-bs-toggle="modal" data-bs-target="#ModalLondon">Лондон</button>
                   </li>
                 </ul>
               </div>
             </div>
         </nav>
         <div class="container" style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-            <div class="card" style="width: 18rem;">
-                <img src="images/sofia1.jpg" class="card-img-top" alt="Снимка на София">
+            <div id="Card" class="card border border-success rounded-3 border-5" style="width: 18rem;">
+                <img id="Card-Images" src="images/sofia1.jpg" class="card-img-top rounded-0" alt="Снимка на София">
                 <div class="card-body">
                   <h5 class="card-title">София</h5>
                   <p class="card-text">София е столицата на България. С около 1 286 965 жители тя е най-големият град в страната с над 18% от нейното общо население, както и 14-ият по големина град в Европейския съюз.</p>
-                  <a href="#" class="btn btn-primary">Подробности</a>
+                  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalSofia">Подробности</button>
                 </div>
             </div>
-            <div class="card" style="width: 18rem;">
-                <img src="images/Paris1.jpg" class="card-img-top" alt="Снимка на София">
+            <div id="Card" class="card border border-success rounded-3 border-5" style="width: 18rem;">
+                <img id="Card-Images" src="images/Paris1.jpg" class="card-img-top rounded-0" alt="Снимка на Париж">
                 <div class="card-body">
                   <h5 class="card-title">Париж</h5>
                   <p class="card-text">Париж е столицата и най-големият град на Франция. Разположен е в меандър на река Сена, която 
                     го разделя на 2 части – десен бряг (Rive droite) на север и по-малкия ляв бряг (Rive gauche) на юг. Париж също така е прочут с големите си 
                     булеварди, засадени с кестени, най-прочутият от които е Шанз-Елизе, както и с редица архитектурни забележителности.</p>
-                  <a href="#" class="btn btn-primary">Подробности</a>
+                  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalParis">Подробности</button>
                 </div>
             </div>
-            <div class="card" style="width: 18rem;">
-                <img src="images/latvia1.jpg" class="card-img-top" alt="Снимка на София">
+            <div id="Card" class="card border border-success rounded-3 border-5" style="width: 18rem;">
+                <img id="Card-Images" src="images/latvia1.jpg" class="card-img-top rounded-0" alt="Снимка на Рига">
                 <div class="card-body">
                   <h5 class="card-title">Рига</h5>
                   <p class="card-text">Рига е столицата на Латвия и главен търговски, културен, индустриален и финансов център на 
                     страната. Разположен е на двата бряга на река Даугава, точно където тя се влива в Балтийско море. Рига е разположена на 
                     южния бряг на Рижкия залив, част от Балтийско море.</p>
-                  <a href="#" class="btn btn-primary">Подробности</a>
+                  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalRiga">Подробности</button>
                 </div>
             </div>
-            <div class="card" style="width: 18rem;">
-                <img src="images/Washington2.jpg" class="card-img-top" alt="Снимка на София">
+            <div id="Card" class="card border border-success rounded-3 border-5" style="width: 18rem;">
+                <img id="Card-Images" src="images/Washington2.jpg" class="card-img-top rounded-0" alt="Снимка на Вашингтон">
                 <div class="card-body">
                   <h5 class="card-title">Вашингтон</h5>
                   <p class="card-text">Вашингтон (на английски: Washington, D.C.) е столицата на Съединените американски щати. 
                     Вашингтон е с обща площ от 177 km^2, от които 159 km^2 са заети от земя и 18 km^2 от вода. Окръгът е по-малък от 260 km^2, 
                     което се дължи на преотстъпването на южната част на окръга обратно на щата Вирджиния през 1846 г.</p>
-                  <a href="#" class="btn btn-primary">Подробности</a>
+                  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalWashington">Подробности</button>
                 </div>
             </div>
-            <div class="card" style="width: 18rem;">
-                <img src="images/London3.jpg" class="card-img-top" alt="Снимка на София">
+            <div id="Card" class="card border border-success rounded-3 border-5" style="width: 18rem;">
+                <img id="Card-Images" src="images/London3.jpg" class="card-img-top rounded-0" alt="Снимка на Лондон">
                 <div class="card-body">
                   <h5 class="card-title">Лондон</h5>
                   <p class="card-text">Лондон е столицата на Обединеното кралство Великобритания и Северна Ирландия. Лондон се 
                     нарежда сред четирите най-важни световни града, наред с Ню Йорк, Париж и Токио. Лондон покрива 1578 км^2, което го прави 
                     37-а по големина агломерация в света.</p>
-                  <a href="#" class="btn btn-primary">Подробности</a>
+                  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#ModalLondon">Подробности</button>
                 </div>
             </div>
         </div>
+
+        <!-- Modal Sofia -->
+        <div class="modal modal-xl fade" id="ModalSofia" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog ">
+            <div class="modal-content bg-success-subtle border border-success border-5">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">София</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Со̀фия е столицата на България. С около 1 286 965 жители тя е най-големият град в страната с над 18% от нейното общо население,[1] както и 14-ият по големина град в Европейския съюз.
+
+София е разположена в централната част на Балканския полуостров, в оградената от няколко планини Софийска котловина, която е най-голямото и едно от най-високите Подбалкански полета. Тя заема средищно положение на Балканите, като няколко главни пътя я свързват с другите части на полуострова – през Вакарелската планина към Тракия и Истанбул, през Драгоманския проход към Белград и Централна Европа, по долината на Струма към Гърция и Северна Македония и през няколко прохода в Стара планина към Северна България и Румъния. Източно от града преминава река Искър, а през самия град няколко малки нейни притоци.
+
+Първото писмено свидетелство за града е от II век пр. Хр., когато той е главен град на един от тракийските народи. Той се превръща в един от главните опорни центрове на Римската империя на Балканите и през IV век служи за временна резиденция на няколко императори. Градът запазва значението си и през Средновековието, а след XV век преживява нов разцвет, като една от главните логистични бази в тила на Османската империя при нейните военни кампании в Централна Европа. С военното отслабване на Империята от края на XVII век София също запада и през следващите две столетия населението му намалява а много сгради са занемарени или изоставени. През 1879 година, малко след Освобождението на България, градът става столица на новата държава и през следващите десетилетия бързо се разраства.
+
+Днес София е основен административен, индустриален, транспортен, културен и образователен център на страната, като в нея е съсредоточено 1/6 от промишленото производство на България. Тук се намират също така Българската академия на науките, централните сгради на Българска национална телевизия, Българско национално радио, Българска телеграфна агенция, много университети, театри, кина, както и Националната художествена галерия, археологически, исторически, природонаучни и други музеи. На много места в центъра на града са запазени видими археологически паметници от римско време.
+                </p>
+                <iframe id="Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102327.05777625642!2d23.24014696172434!3d42.696887869352054!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40aa8682cb317bf5%3A0x400a01269bf5e60!2z0KHQvtGE0LjRjw!5e0!3m2!1sbg!2sbg!4v1734466813080!5m2!1sbg!2sbg" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Затвори</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Paris -->
+        <div class="modal modal-xl fade" id="ModalParis" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content bg-success-subtle border border-success border-5">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Париж</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>
+                  Париж (на френски: Paris; IPA: [pa.ˈʁi]) е столицата и най-големият град на Франция. Разположен е в меандър на река Сена, която го разделя на 2 части – десен бряг (Rive droite) на север и по-малкия ляв бряг (Rive gauche) на юг. Реката е известна с многобройните си кейове, които в голямата си част са озеленени и предназначени за разходка, с букинистите – продавачи на книги на открито, и с историческите мостове, свързващи северната и южната част. Париж също така е прочут с големите си булеварди, засадени с кестени, най-прочутият от които е Шанз-Елизе, както и с редица архитектурни забележителности.
+
+Градът има население от малко над два милиона жители (преброяване през 2015 г. – 2 206 488 жители). Много по-голямата парижка агломерация, с диаметър близо 120 km, има малко над тринадесет милиона жители (преброяване през 2019 г. – 13 114 718 жители[2]) и заема първото място по население в ЕС (държано от Лондон преди излизането на Великобритания от ЕС). Положението му на важен търговски и културен център, както и силното развитие на науката, образованието, развлекателната индустрия, медиите, модата и изкуствата, затвърждават статута му на един от най-важните и значими градове в световен мащаб.[4]
+
+Още от Х век Париж е един от главните градове на Франция: намира се в сърцето на богат земеделски район, с кралски замъци, абатства и катедрала; през XII век с откриването на Сорбоната градът става едно от първите университетски средища, както и център на изкуствата. Постепенно кралската власт се установява трайно в града − неговата политическа и икономическа мощ не спира да расте. В началото на XIV век Париж вече е един от най-важните центрове на западния свят. През XVII век градът е столица на най-мощната европейска държава, през XVIII век е културен център на Европа, а през XIX век става център на изкуството.
+
+Днес Париж и регионът, със своите 533,6 милиарда евро брутен вътрешен продукт (БВП) за 2007 г., произвеждат повече от една четвърт от БВП на Франция.[5] Според оценки от 2005 г., БВП на Париж е най-големият БВП на европейски град[6] и пети в света.[7] В Парижката агломерация се намират 38 от 500-те най-големи компании на света,[8] които са съсредоточени в няколко бизнес квартала, най-голям от които е Дефанс. Париж е седалище на няколко международни организации, като ЮНЕСКО, Организацията за икономическо сътрудничество и развитие, Международната търговска палата с Международния арбитражен съд, както и неформалния Парижки клуб.
+
+В града се намират множество паметници на културата, което отразява водещото му значение в световната история, що се отнася до сферата на културата, икономиката и науката. Годишно градът се посещава от 45 милиона туристи (от които 60% чуждестранни)[9] и символите му са едни от най-лесно разпознаваемите в световната култура.
+                </p>
+                <iframe id="Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d83998.77824586902!2d2.2646350301247775!3d48.85893843453428!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e66e1f06e2b70f%3A0x40b82c3688c9460!2z0J_QsNGA0LjQtiwg0KTRgNCw0L3RhtC40Y8!5e0!3m2!1sbg!2sbg!4v1734466952342!5m2!1sbg!2sbg" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Затвори</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Riga -->
+        <div class="modal modal-xl fade" id="ModalRiga" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content bg-success-subtle border border-success border-5">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Рига</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Рига (на латвийски: Rīga, МФА: [riːɡa]) е столицата на Латвия и главен търговски, културен, индустриален и финансов център на страната. Разположен е на двата бряга на река Даугава, точно където тя се влива в Балтийско море. Населението на града е 614 618 души (2021),[1] приблизително равен брой от които са латвийци и руснаци. Рига е най-големият град в трите Балтийски държави и е третият по големина град, разположен на Балтийско море след Санкт Петербург и Стокхолм.</p>
+                <iframe id="Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d139177.9411197156!2d23.96427018776796!3d56.97183632776117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46eecfb0e5073ded%3A0x400cfcd68f2fe30!2z0KDQuNCz0LAsINCb0LDRgtCy0LjRjw!5e0!3m2!1sbg!2sbg!4v1734467076865!5m2!1sbg!2sbg" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>          
+              </div>    
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Затвори</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal Washington -->
+        <div class="modal modal-xl fade" id="ModalWashington" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content bg-success-subtle border border-success border-5">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Вашингтон</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Вашингтон (на английски: Washington, D.C.) е столицата на Съединените американски щати.
+
+                  Територията му образува Федерален окръг Колумбия, наричан често и само окръг Колумбия (District of Columbia) – единственият федерален окръг в САЩ. Смята се, че Вашингтон и Федерален окръг Колумбия представляват една и съща административна единица. Градът е разположен на северния бряг на река Потомак и граничи с щатите Вирджиния на югозапад и Мериленд от другите страни. Окръгът има население от 599 657 души. Пътуващите от околните предградия повишават неговото население през работната седмица до около милион.
+                  
+                  Центровете на трите клона на федералното правителство на Съединените щати са разположени в окръга, както и много от националните исторически забележителности и музеи. Вашингтон е домакин на 174 чуждестранни посолства, както и седалищата на Световната банка, Международния валутен фонд (IMF), Организацията на американските държави (OAS), Интер-американската банка за развитие, Панамериканската здравна организация (PAHO). Седалищата на други институции, като профсъюзи, лобистки групи и професионални сдружения, също са разположени в окръга.
+                  
+                  Вашингтон е управляван от кмет и 13 члена на Градския съвет. Въпреки това Конгресът на Съединените щати има върховна власт над града и може да отхвърля местни закони. По тази причина жителите на окръга имат по-малко автономност, отколкото жителите на щатите. Окръгът има делегат на федералното правителство, който не може да гласува закони и същевременно е действащ в Конгреса, но не и сенатори. Жителите на окръга нямат право да гласуват в президентските избори до ратифицирането на Двадесет и третата поправка на Конституцията на САЩ през 1961 г.
+                  
+                  Вашингтон е наречен на Джордж Вашингтон, първият президент на САЩ. Името на окръг Колумбия идва от старо поетично име за Съединените щати, произлизащо от Христофор Колумб, което е излязло от употреба в началото на 20 век. Много музеи и паметници на Вашингтон го правят популярно място за туристи.
+                </p>
+                <iframe id="Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d99370.15308114253!2d-77.09697638247336!3d38.89385915483674!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7c6de5af6e45b%3A0xc2524522d4885d2a!2z0JLQsNGI0LjQvdCz0YLQvtC9LCDQvtC60YDRitCzINCa0L7Qu9GD0LzQsdC40Y8sINCh0YrQtdC00LjQvdC10L3QuCDRidCw0YLQuA!5e0!3m2!1sbg!2sbg!4v1734467383986!5m2!1sbg!2sbg" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>    
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Затвори</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modal London -->
+        <div class="modal modal-xl fade" id="ModalLondon" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content bg-success-subtle border border-success border-5">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Лондон</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>Ло̀ндон (на английски: London [ˈlʌndən][5][6]) е столицата на Обединеното кралство Великобритания и Северна Ирландия. Лондон се нарежда сред четирите най-важни световни града, наред с Ню Йорк, Париж и Токио.
+
+                  През Лондон тече река Темза, над която са построени множество мостове. Най-известният сред тях е мостът „Тауър“ (Tower Bridge), построен в края на XIX век до крепостта „Тауър“ (Tower of London, „Лондонската кула“), откъдето носи и името си. Други мостове над Темза в центъра на Лондон (от изток на запад) са „Лондон“ (London Bridge), „Садърк“ (Southwark Bridge), пешеходният Мост на хилядолетието (Millennium Bridge), открит през 2000 г., Блекфрайърс Бридж (Blackfriars Bridge), Уотърлу Бридж (Waterloo Bridge) и мостът „Уестминстър“ (Westminster Bridge). Край реката са разположени и по-модерните „Окото на Лондон“ (London Eye) – гигантско виенско колело със 137 метра височина, и покритата зала Милениъм Доум (Millenium Dome, Куполът на хилядолетието), построени в чест на настъпването на третото хилядолетие. През 2008 г. Милениъм Доум е превърната в развлекателен център The O2.
+                  
+                  През 2021 г. градът има население от 9 002 488 души и е център на метрополен регион с население от 14 257 962 души. Така Лондон се нарежда на 3-то място по население в Европа, след Москва и Истанбул.
+                  
+                  Лондонското метро датира от 1863 г. и е първият метрополитен в света. Сред най-дългите му линии са Central line (74 km), Piccadilly line (71 km), Metropolitan line (66 km) и District line (64 km). Най-новата и бърза линия на Лондонското метро е Jubilee line. Метрото има 272 станции, разполага с 11 линии и 402 km дължина. Кмет на Лондон от 2016 г., е Садик Хан, предшестван от Борис Джонсън, заемал поста от май 2008 г. Преди 2000 година градът няма кмет и кметска управа.
+                  
+                  Сред най-големите забележителности в Лондон са зданието на Парламента с прочутата часовникова кула Биг Бен, Уестминстърското абатство, където се извършват коронациите, сватбите и погребенията на кралското семейство, Бъкингамският дворец – резиденцията на кралското семейство, Катедралата Сейнт Пол, площадите Трафалгар и Пикадили Съркъс. Сред забележителностите в Лондон са и музеят с восъчни фигури на Мадам Тюсо, Британският музей и Природоисторическият музей, включващ четири зони. Най-голямата търговска улица в Лондон е Оксфорд стрийт (Oxford Street). Лондон е известен с червените си двуетажни автобуси и червените телефонни кабини, грабващи окото на всеки току-що пристигнал турист.
+                  
+                  Пикадили Съркъс
+                  През 2012 година Лондон е домакин на XXX летни олимпийски игри.
+                </p>
+                <iframe id="Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d158858.87879712597!2d-0.41339588967518537!3d51.528442055580484!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a00baf21de75%3A0x52963a5addd52a99!2z0JvQvtC90LTQvtC9LCDQktC10LvQuNC60L7QsdGA0LjRgtCw0L3QuNGP!5e0!3m2!1sbg!2sbg!4v1734467531873!5m2!1sbg!2sbg" width="600" height="450" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Затвори</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <footer style="margin-top: 10px;">
+          <div class="bg-body-tertiary">
+            <p class="centered" style="margin: 0; padding: 10px; text-align: center;">&copy; Bogomil Ivanov, 2024. Used for TU-Gab Assigments.</p>
+          </div>
+        </footer>
     </body>
 </html>
