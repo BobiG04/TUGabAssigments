@@ -1,42 +1,29 @@
-$(document).ready(function() {
-    function fetchTime() {
-        $.ajax({
-            url: "http://kst.tugab.bg/pis/gettimejson.php",
-            method: "GET",
-            dataType: "json",
-            success: function(data) {
-                var fullValue = data.value.split(", ");
-                var time = fullValue[0];
+let previousValue = null;
 
-                $("#timeDisplay").text("Time: " + time);
-            },
-            error: function(error) {
-                console.error("Error fetching time:", error);
-            }
-        });
-    }
+function getTimeASync () {
+    $.ajax({
+        url: "https://kst.tugab.bg/pis/gettimejson.php",
+        type: "GET",
+        success: function(response) {
+            console.info(response);
+            const currentValue = response.value;
+            if (currentValue !== previousValue) {
+                const [timeText, dateText] = response.value.split(", ");
+                const [hours, minutes] = timeText.split(":");
 
-    function fetchDate() {
-        $.ajax({
-            url: "http://kst.tugab.bg/pis/gettimejson.php",
-            method: "GET",
-            dataType: "json",
-            success: function(data) {
-                var fullValue = data.value.split(", "); 
-                var date = fullValue[1]; 
+                $("#time").text(`${hours}:${minutes}`);
+                $("#date").text(dateText);
+                previousValue = currentValue;
 
-                $("#dateDisplay").text("Date: " + date);
-            },
-            error: function(error) {
-                console.error("Error fetching date:", error);
-            }
-        });
-    }
+                setTimeout(getTimeASync, 1000);
+            };
+        },
+        error: function(xhr, status, error) {
+            console.error("Failed to fetch data. Status:", xhr.status, "Error:", error);
 
-    fetchTime();
-    fetchDate();
+            setTimeout(getTimeASync, 5000);
+        }
+    });
+}
 
-    setInterval(fetchTime, 1000);
-
-    setInterval(fetchDate, 86400000);
-});
+getTimeASync();
