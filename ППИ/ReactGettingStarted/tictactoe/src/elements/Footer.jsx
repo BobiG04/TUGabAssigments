@@ -2,9 +2,9 @@ const Footer = () => {
     const FooterStyle = {
         color: "black",
         padding: "10px",
-        fontFamily: "Minecraft",
+        fontFamily: "Century Gothic",
         textAlign: "center",
-        postion: "sticky"
+        position: "sticky",
     };
     return (
         <>

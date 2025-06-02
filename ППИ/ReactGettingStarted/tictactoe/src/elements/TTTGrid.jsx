@@ -1,27 +1,28 @@
-import GridRow from './GridRow';
 import Image from '../images/grid.png';
+import GridSquare from './GridSquare';
 
 const TTTGrid = (gridID) => {
     const GridImgStyle = {
         position: "absolute",
         zIndex: "-1",
         display: "flex",
-        alignSelf: "center"
+        justifyContent: "center",
+        width: "99%",
+        marginTop: "36px"
     };
     const GridStyle = {
         textAlign: "center",
-        display: "flex",
+        display: "block",
         flexDirection: "column",
-        flexWrap: "wrap",
-        alignContent: "center"
+        flexWrap: "wrap"
     };
     return (
         <>
             <div style={GridStyle} id={gridID}>
-                <img style={GridImgStyle} src={Image} />
-                <GridRow gridRowName="Row1"/>
-                <GridRow gridRowName="Row2"/>
-                <GridRow gridRowName="Row3"/>
+                <div style={GridImgStyle}>
+                    <img src={Image} />
+                </div>
+                <GridSquare/>
             </div>
         </>
     );

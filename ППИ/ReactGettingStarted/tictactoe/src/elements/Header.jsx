@@ -3,10 +3,12 @@ import React from 'react';
 const Header = () => {
     const HeaderStyle = {
         color: "black",
-        padding: "10px",
-        fontFamily: "Minecraft",
+        padding: "20px",
+        fontFamily: "Century Gothic",
         textAlign: "center",
-        fontSize: "48px"
+        fontSize: "56px",
+        fontWeight: "bold",
+        margin: "0px",
     };
     return (
         <h1 style={HeaderStyle}>Tic-Tac-Toe</h1>

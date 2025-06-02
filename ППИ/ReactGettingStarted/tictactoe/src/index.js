@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import Header from './elements/Header.jsx';
 import Footer from './elements/Footer.jsx';
 import TTTGrid from './elements/TTTGrid.jsx';
+import GridSquare from './elements/GridSquare.jsx';
 
 const head = ReactDOM.createRoot(document.getElementById('header'));
 let main = ReactDOM.createRoot(document.getElementById('main'));
