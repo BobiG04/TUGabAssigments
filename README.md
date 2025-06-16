@@ -12,7 +12,7 @@
     </ul>
 </ul>
 <br>
-<h2>Обектно ориентирано програмиране <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=Fycm8TUhWmFU&format=png&color=000000"></h2>
+<h2>Обектно ориентирано програмиране <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=55251&format=png&color=000000"></h2>
 <ul>
     <li>Курсова работа - https://tinyurl.com/CSharpKursovRab</li>
     <li>Линкове към изпълнени задачи:</li>
