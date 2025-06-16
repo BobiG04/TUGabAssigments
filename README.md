@@ -38,7 +38,7 @@
     <li>Линк към изпълнени задачи: - http://tinyurl.com/CompGraphs</li>
 </ul>
 <br>
-<h2>Програмиране в интернет среда <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=Pd2x9GWu9ovX&format=png&color=000000"> <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000"> <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000"> <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000"></h2>
+<h2>Програмиране в интернет среда <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=13679&format=png&color=000000"> <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000"> <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000"> <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000"></h2>
 <ul>
     <li>Курсова работа - https://tinyurl.com/CSharpKursovRab</li>
     <li>Линкове към изпълнени задачи:</li>
