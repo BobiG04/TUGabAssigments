@@ -2,7 +2,7 @@
 <p font-size="30px"> По долу можете да си изберете папката, в която можете да разгледате задачите, които са били поставяни за домашно от Технически университет - Габрово.</p>
 <p><img src="https://github.com/BobiG04/TUGabAssigments/blob/master/%D0%9A%D0%BE%D0%BC%D0%BF%D1%8E%D1%82%D1%8A%D1%80%D0%BD%D0%B0%20%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%B0/Git_TUGabAssigments.png" alt="Банер на TU Gab Assigments"></p>
 
-<h2>Въведение в програмирането (<img style="width:10px; height:10px;" src="https://img.icons8.com/?size=100&id=40670&format=png&color=000000">)</h2>
+<h2>Въведение в програмирането (<img style="width:20px; height:20px;" src="https://img.icons8.com/?size=100&id=40670&format=png&color=000000">)</h2>
 <ul>
     <li>Курсова работа - http://tinyurl.com/KursRab1</li>
     <li>Линкове към изпълнени задачи:</li>
