@@ -11,7 +11,7 @@
         <li><em>19.10.2023г.</em> - http://tinyurl.com/Cfrom1910</li>
     </ul>
 </ul>
-<br>
+
 <h2>Обектно ориентирано програмиране <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=55251&format=png&color=000000"></h2>
 <ul>
     <li>Курсова работа - https://tinyurl.com/CSharpKursovRab</li>
@@ -32,12 +32,12 @@
         <li><em>14.05.2024г.</em> - http://tinyurl.com/CSharp1405</li>
     </ul>
 </ul>
-<br>
+
 <h2>Компютърна графика <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=63150&format=png&color=000000"> <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=omuSvqfyybfC&format=png&color=000000"></h2>
 <ul>
     <li>Линк към изпълнени задачи: - http://tinyurl.com/CompGraphs</li>
 </ul>
-<br>
+
 <h2>Програмиране в интернет среда <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=GPfHz0SM85FX&format=png&color=000000"> <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000"> <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000"> <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000"></h2>
 <ul>
     <li>Курсова работа - https://tinyurl.com/CSharpKursovRab</li>
