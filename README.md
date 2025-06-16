@@ -35,7 +35,6 @@
 <br>
 <h2>Компютърна графика <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=63150&format=png&color=000000"> <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=omuSvqfyybfC&format=png&color=000000"></h2>
 <ul>
-    <li>Курсова работа - https://tinyurl.com/CSharpKursovRab</li>
     <li>Линк към изпълнени задачи: - http://tinyurl.com/CompGraphs</li>
 </ul>
 <br>
