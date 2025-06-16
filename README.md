@@ -11,6 +11,27 @@
         <li><em>19.10.2023г.</em> - http://tinyurl.com/Cfrom1910</li>
     </ul>
 </ul>
+<br>
+<h2>Обектно ориентирано програмиране (C#)</h2>
+<ul>
+    <li>Курсова работа - https://tinyurl.com/CSharpKursovRab</li>
+    <li>Линкове към изпълнени задачи:</li>
+    <ul>
+        <li><em>20.02.2024г.</em> - http://tinyurl.com/CSharp2002</li>
+        <li><em>13.02.2024г.</em> - http://tinyurl.com/CSharp1302</li>
+        <li><em>27.02.2024г.</em> - http://tinyurl.com/CSharp2702</li>
+        <li><em>05.03.2024г.</em> - http://tinyurl.com/CSharp0503</li>
+        <li><em>12.03.2024г.</em> - http://tinyurl.com/CSharp1203</li>
+        <li><em>19.03.2024г.</em> - http://tinyurl.com/CSharp1903</li>
+        <li><em>26.03.2024г.</em> - http://tinyurl.com/CSharp2603</li>
+        <li><em>CST Anniversary</em> - http://tinyurl.com/CstAniv2603</li>
+        <li><em>02.04.2024г.</em> - http://tinyurl.com/CSharp0204</li>
+        <li><em>07.04.2024г.</em> - http://tinyurl.com/CSharp0704</li>
+        <li><em>16.04.2024г.</em> - http://tinyurl.com/CSharp1604</li>
+        <li><em>23.04.2024г.</em> - http://tinyurl.com/CSharp2304</li>
+        <li><em>14.05.2024г.</em> - http://tinyurl.com/CSharp1405</li>
+    </ul>
+</ul>
 
 | Въведение в програмирането | Обектно ориентирано програмиране (C#) | Компютърна графика | Програмиране в интернет среда (Java, HTML, CSS, JavaScript)
 | :-------------: | :-------------: | :-----: | :-----: |
@@ -39,7 +60,7 @@
 | ... | Линк към изпълнени задачи от *23.04.2024г.*: | ... | ... |
 | ... | https://tinyurl.com/CSharp2304 | ... | ... |
 | ... | Линк към курсова работа: | ... | ... |
-| ... | https://tinyurl.com/CSharpKursovRab | ... | ... |
+| ... |  | ... | ... |
 | ... | Линк към изпълнени задачи от *14.05.2024г.*: | ... | ... |
 | ... | https://tinyurl.com/CSharp1405 | ... | ... |
 
