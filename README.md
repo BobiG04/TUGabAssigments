@@ -7,7 +7,7 @@
     <li>Курсова работа - http://tinyurl.com/KursRab1</li>
     <li>Линкове към изпълнени задачи:</li>
     <ul>
-        <li>*27.10.2023г.* - http://tinyurl.com/Cfrom2710</li>
+        <li><em>27.10.2023г.</em> - http://tinyurl.com/Cfrom2710</li>
     </ul>
 </ul>
 
