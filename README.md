@@ -32,6 +32,27 @@
         <li><em>14.05.2024г.</em> - http://tinyurl.com/CSharp1405</li>
     </ul>
 </ul>
+<br>
+<h2>Компютърна графика (Inkscape, GIMP)</h2>
+<ul>
+    <li>Курсова работа - https://tinyurl.com/CSharpKursovRab</li>
+    <li>Линк към изпълнени задачи: - http://tinyurl.com/CompGraphs</li>
+</ul>
+<br>
+<h2>Програмиране в интернет среда (Java, HTML, CSS, JavaScript)</h2>
+<ul>
+    <li>Курсова работа - https://tinyurl.com/CSharpKursovRab</li>
+    <li>Линкове към изпълнени задачи:</li>
+    <ul>
+        <li><em>Първа седмица</em> - https://tinyurl.com/Java1BobiG04</li>
+        <li><em>Втора седмица</em> - https://tinyurl.com/Java2BobiG04</li>
+        <li><em>Трета седмица</em> - https://tinyurl.com/Java3BobiG04</li>
+        <li><em>Четвърта седмица</em> - https://tinyurl.com/Java4BobiG04</li>
+        <li><em>Пета седмица</em> - https://tinyurl.com/Java5BobiG04</li>
+        <li><em>Шеста седмица</em> - https://tinyurl.com/Java6BobiG04</li>
+        <li><em>HTML, CSS, JavaScript</em> - https://tinyurl.com/WebBobiG04</li>
+    </ul>
+</ul>
 
 | Въведение в програмирането | Обектно ориентирано програмиране (C#) | Компютърна графика | Програмиране в интернет среда (Java, HTML, CSS, JavaScript)
 | :-------------: | :-------------: | :-----: | :-----: |
