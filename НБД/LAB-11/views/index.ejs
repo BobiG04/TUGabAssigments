@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	  <meta charset="UTF-8">
+	  <title>Query MongoDB</title>
+	  <link rel="stylesheet" href="/styles.css" />
+	</head>
+	<body>
+		<div id="container">
+			<header>
+				Изпращане на заявка към MongoDB
+			</header>
+			<section data-position="query">
+				<form action="/query" method="POST">
+					<input type="text" placeholder="Дисциплина" name="subject">
+					<input type="text" placeholder="Оценка" name="grade">
+					<input type="submit" value="Изпрати заявката"></input>
+				</form>
+			</section>
+			<section data-position="results">
+				<% if(results.status == "ok") { %>
+					<header><%= results.title %></header>
+					<ul class="results">
+						<% results.docs.forEach(doc => { %>
+							<li class="results">
+								<%= doc.name.firstName%> <%= doc.name.lastName%>
+							</li>
+						<%}); %>	
+					</ul>
+				<% }
+				else { %>
+					<p class="error"><%= results.info %></p>
+				<%} %>
+			</section>	
+		</div>
+	</body>
+</html>

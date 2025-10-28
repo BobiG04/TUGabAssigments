@@ -1,0 +1,55 @@
+html, body {
+	height: 100%;
+}
+html {
+	font-family: Helvetica;
+}
+p.error {
+	color: rgb(220,0,0);
+}
+[data-position="loading-box"] {
+	overflow: hidden;
+}
+[data-position="info-box"] {
+	overflow: hidden;
+	font-weight: 300;
+}
+[data-position] {
+	background-color: rgba(0,80,250,0.2);
+	padding: 12px;
+	margin: 8px;
+	border: 1px solid rgba(50,50,50,0.2);
+	border-radius: 0.25rem;
+}
+header {
+	margin: 12px;
+	font-weight: 550;
+}
+#container {
+    max-width: 500px;
+    margin: auto;  
+	margin-top: 30px;
+	padding: 5px;
+    border: 2px solid #ccc;
+    background-color: #eee;
+    border-radius: 4px;
+}
+input[type=text], input[type=submit]{
+	width: 30%;
+    padding: 10px 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #eeffff;
+    border-radius: 6px;
+}
+
+
+
+
+
+
+
+
+
+

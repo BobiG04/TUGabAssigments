@@ -1,0 +1,197 @@
+﻿
+// 1. Създаване на база данни participants
+
+// drop table participants;
+create table participants(id integer, firstname varchar(50), family varchar(50), lastname varchar(50));
+
+insert into participants (id, firstname, family, lastname) values 
+	(1, 'Йордан', 'Валентинов', 'Петков'),
+	(2, 'Мартин', 'Даниел', 'Копчев'),
+	(3, 'Георги', 'Делянов', 'Генков'),
+	(4, 'Добрин', 'Венциславов', 'Башев'),
+	(5, 'Йордан', 'Руменов', 'Пенев'),
+	(6, 'Адриян', 'Ивов', 'Ибовски'),
+	(7, 'Веселин', 'Александров', 'Димов'),
+	(8, 'Пламен', 'Венелинов', 'Динев'),
+	(9, 'Тихомир', 'Тихомиров', 'Галов'),
+	(10, 'Димитър', 'Константинов', 'Любенов'),
+	(11, 'Никола', 'Мирославов', 'Максимов'),
+	(12, 'Валентин', 'Иванов', 'Владимиров'),
+	(13, 'Виктор', 'Пламенов', 'Венков'),
+	(14, 'Цвета', 'Огнянова', 'Тодорова'),
+	(15, 'Георги', 'Илков', 'Бешев'),
+	(16, 'Стефан', 'Георгиев', 'Георгиев'),
+	(17, 'Ивайло', 'Николаев', 'Иванов'),
+	(18, 'Цветомир', '', 'Бонев'),
+	(19, 'Емил', 'Иво', 'Бонев'),
+	(20, 'Ясен', 'Пламенов', 'Пенчев'),
+	(21, 'Емил', 'Йорданов', 'Йорданов');
+
+
+// 2. Създаване на база данни competitions
+
+// drop table competitions;
+create table competitions(id integer, pid integer, affiliation varchar(100), lang varchar(15), points integer);
+
+insert into competitions (id, pid, affiliation, lang, points) values 
+	(2017, 1, 'Математическа гимназия - Габрово', 'C++', 86),
+	(2018, 1, 'Математическа гимназия - Габрово', 'C++', 92),
+	(2017, 2, 'Математическа гимназия - Габрово', 'C++', 86),
+	(2018, 2, 'Математическа гимназия - Габрово', 'C++', 92),
+	(2017, 3, 'Математическа гимназия - Габрово', 'C++', 82),
+	(2017, 4, 'Математическа гимназия - Габрово', 'C++', 80),
+	(2018, 4, 'Математическа гимназия - Габрово', 'C++', 96),
+	(2017, 5, 'ТУ - Габрово', 'C++', 75),
+	(2017, 6, 'Математическа гимназия - Габрово', 'C++', 74),
+	(2018, 6, 'Математическа гимназия - Габрово', 'C++', 82),
+	(2017, 7, 'Математическа гимназия - Габрово', 'C++', 72),
+	(2018, 7, 'Математическа гимназия - Габрово', 'C++', 74),
+	(2017, 8, 'Математическа гимназия - Габрово', 'C++', 70),
+	(2018, 8, 'Математическа гимназия - Габрово', 'C++', 82),
+	(2017, 9, 'Математическа гимназия - Габрово', 'C#', 67),
+	(2017, 10, 'ТУ - Габрово', 'C++', 65),
+	(2017, 11, 'Математическа гимназия - Габрово', 'C++', 63),
+	(2018, 11, 'Математическа гимназия - Габрово', 'C++',82),
+	(2017, 12, 'ТУ - Габрово', 'C#', 58),
+	(2017, 13, 'Математическа гимназия - Габрово', 'Java', 57),
+	(2017, 14, 'Математическа гимназия - Габрово', 'C++', 54),
+	(2018, 14, 'Математическа гимназия - Габрово', 'C++', 84),
+	(2017, 15, 'ТУ - Габрово', 'C++', 0),
+	(2018, 16, 'ТУ - Габрово', 'C#', 75),
+	(2018, 17, 'ТУ - Габрово', 'C#', 75),
+	(2018, 18, 'ТУ - Габрово', 'Java', 72),
+	(2018, 19, 'Математическа гимназия - Габрово', 'C++', 72),
+	(2018, 20, 'Математическа гимназия - Габрово', 'C++', 63),
+	(2018, 21, 'Математическа гимназия - Габрово', 'C#', 60);
+
+
+// 3. Създаване на база данни ranking
+
+// drop table ranking;
+create table ranking(points integer, medal varchar(10));
+
+insert into ranking(points, medal) values(0, 'none');
+insert into ranking(points, medal) values(1, 'none');
+insert into ranking(points, medal) values(2, 'none');
+insert into ranking(points, medal) values(3, 'none');	
+insert into ranking(points, medal) values(4, 'none');
+insert into ranking(points, medal) values(5, 'none');
+insert into ranking(points, medal) values(6, 'none');
+insert into ranking(points, medal) values(7, 'none');
+insert into ranking(points, medal) values(8, 'none');
+insert into ranking(points, medal) values(9, 'none');
+
+insert into ranking(points, medal) values(10, 'none');
+insert into ranking(points, medal) values(11, 'none');
+insert into ranking(points, medal) values(12, 'none');
+insert into ranking(points, medal) values(13, 'none');
+insert into ranking(points, medal) values(14, 'none');
+insert into ranking(points, medal) values(15, 'none');
+insert into ranking(points, medal) values(16, 'none');
+insert into ranking(points, medal) values(17, 'none');
+insert into ranking(points, medal) values(18, 'none');
+insert into ranking(points, medal) values(19, 'none');
+insert into ranking(points, medal) values(20, 'none');
+
+insert into ranking(points, medal) values(21, 'none');
+insert into ranking(points, medal) values(22, 'none');
+insert into ranking(points, medal) values(23, 'none');
+insert into ranking(points, medal) values(24, 'none');
+insert into ranking(points, medal) values(25, 'none');
+insert into ranking(points, medal) values(26, 'none');
+insert into ranking(points, medal) values(27, 'none');
+insert into ranking(points, medal) values(28, 'none');
+insert into ranking(points, medal) values(29, 'none');
+
+insert into ranking(points, medal) values(30, 'none');
+insert into ranking(points, medal) values(31, 'none');
+insert into ranking(points, medal) values(32, 'none');
+insert into ranking(points, medal) values(33, 'none');
+insert into ranking(points, medal) values(34, 'none');
+insert into ranking(points, medal) values(35, 'none');
+insert into ranking(points, medal) values(36, 'none');
+insert into ranking(points, medal) values(37, 'none');
+insert into ranking(points, medal) values(38, 'none');
+insert into ranking(points, medal) values(39, 'none');
+
+insert into ranking(points, medal) values(40, 'none');
+insert into ranking(points, medal) values(41, 'none');
+insert into ranking(points, medal) values(42, 'none');
+insert into ranking(points, medal) values(43, 'none');
+insert into ranking(points, medal) values(44, 'none');
+insert into ranking(points, medal) values(45, 'none');
+insert into ranking(points, medal) values(46, 'none');
+insert into ranking(points, medal) values(47, 'none');
+insert into ranking(points, medal) values(48, 'none');
+insert into ranking(points, medal) values(49, 'none');
+
+insert into ranking(points, medal) values(50, 'bronze');
+insert into ranking(points, medal) values(51, 'bronze');
+insert into ranking(points, medal) values(52, 'bronze');
+insert into ranking(points, medal) values(53, 'bronze');
+insert into ranking(points, medal) values(54, 'bronze');
+insert into ranking(points, medal) values(55, 'bronze');
+insert into ranking(points, medal) values(56, 'bronze');
+insert into ranking(points, medal) values(57, 'bronze');
+insert into ranking(points, medal) values(58, 'bronze');
+insert into ranking(points, medal) values(59, 'bronze');
+insert into ranking(points, medal) values(60, 'bronze');
+insert into ranking(points, medal) values(61, 'bronze');
+insert into ranking(points, medal) values(62, 'bronze');
+insert into ranking(points, medal) values(63, 'bronze');
+insert into ranking(points, medal) values(64, 'bronze');
+
+insert into ranking(points, medal) values(65, 'silver');
+insert into ranking(points, medal) values(66, 'silver');
+insert into ranking(points, medal) values(67, 'silver');
+insert into ranking(points, medal) values(68, 'silver');
+insert into ranking(points, medal) values(69, 'silver');
+insert into ranking(points, medal) values(70, 'silver');
+insert into ranking(points, medal) values(71, 'silver');
+insert into ranking(points, medal) values(72, 'silver');
+insert into ranking(points, medal) values(73, 'silver');
+insert into ranking(points, medal) values(74, 'silver');
+insert into ranking(points, medal) values(75, 'silver');
+insert into ranking(points, medal) values(76, 'silver');
+insert into ranking(points, medal) values(77, 'silver');
+insert into ranking(points, medal) values(78, 'silver');
+insert into ranking(points, medal) values(79, 'silver');
+insert into ranking(points, medal) values(80, 'silver');
+insert into ranking(points, medal) values(81, 'silver');
+insert into ranking(points, medal) values(82, 'silver');
+insert into ranking(points, medal) values(83, 'silver');
+insert into ranking(points, medal) values(84, 'silver');
+
+insert into ranking(points, medal) values(85, 'gold');
+insert into ranking(points, medal) values(86, 'gold');
+insert into ranking(points, medal) values(87, 'gold');
+insert into ranking(points, medal) values(88, 'gold');
+insert into ranking(points, medal) values(89, 'gold');
+insert into ranking(points, medal) values(90, 'gold');
+insert into ranking(points, medal) values(91, 'gold');
+insert into ranking(points, medal) values(92, 'gold');
+insert into ranking(points, medal) values(93, 'gold');
+insert into ranking(points, medal) values(94, 'gold');
+insert into ranking(points, medal) values(95, 'gold');
+insert into ranking(points, medal) values(96, 'gold');
+insert into ranking(points, medal) values(97, 'gold');
+insert into ranking(points, medal) values(98, 'gold');
+insert into ranking(points, medal) values(99, 'gold');
+insert into ranking(points, medal) values(100, 'gold');
+
+
+select * from participants
+select * from competitions 
+select * from ranking
+
+
+
+
+
+
+
+
+
+
+
+
