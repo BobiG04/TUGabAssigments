@@ -10,7 +10,7 @@
 			Console.Write("Enter the number of points: ");
 			int n = int.Parse(Console.ReadLine());
 
-			Point[] points = new Point[n];
+			List<Point> points = new List<Point>(new Point[n]);
 
 			for (int i = 0; i < n; i++)
 			{
