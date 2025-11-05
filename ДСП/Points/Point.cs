@@ -11,6 +11,12 @@ namespace Points
 		public double X { get; private set; }
 		public double Y { get; private set; }
 
+		public Point()
+		{
+			X = 0;
+			Y = 0;
+		}
+
 		public void Input()
 		{
 			Console.Write("Enter X coordinate: ");

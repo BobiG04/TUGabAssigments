@@ -17,6 +17,7 @@
 				Console.WriteLine($"\nPoint #{i + 1}:");
 				Point p = new Point();
 				p.Input();
+				Point pres = new Point();
 
 				if (region.Contains(p))
 				{
@@ -25,8 +26,8 @@
 				}
 				else
 				{
-					Console.WriteLine(" The point is outside the region. Enter it's value again.");
-					i--; 
+					Console.WriteLine(" The point is outside the region. The point reseted to [0,0].");
+					points[i] = pres;
 				}
 			}
 
