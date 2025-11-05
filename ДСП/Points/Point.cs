@@ -17,6 +17,12 @@ namespace Points
 			Y = 0;
 		}
 
+		public Point(double xcor, double ycor)
+		{
+			X = xcor;
+			Y = ycor;
+		}
+
 		public void Input()
 		{
 			Console.Write("Enter X coordinate: ");

@@ -5,10 +5,15 @@
 
 		private static Region instance;
 
-		public double Xmin { get; private set; }
-		public double Xmax { get; private set; }
-		public double Ymin { get; private set; }
-		public double Ymax { get; private set; }
+		private double xmin;
+		private double xmax;
+		private double ymin;
+		private double ymax;
+
+		public double Xmin { get { return xmin; } private set { xmin = value; } }
+		public double Xmax { get { return xmax; } set { xmax = value; } }
+		public double Ymin { get { return ymin; } private set { ymin = value; } }
+		public double Ymax { get { return ymax; } set { ymax = value; } }
 
 		private Region(double xmin, double xmax, double ymin, double ymax)
 		{

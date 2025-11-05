@@ -17,7 +17,7 @@
 				Console.WriteLine($"\nPoint #{i + 1}:");
 				Point p = new Point();
 				p.Input();
-				Point pres = new Point();
+				Point pres = new Point(region.Xmin,region.Ymin);
 
 				if (region.Contains(p))
 				{
