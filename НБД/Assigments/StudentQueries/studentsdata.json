@@ -1,0 +1,49 @@
+[
+
+{
+    "name": "Alice",
+    "familyname": "Johnson",
+    "gender": "female",
+    "course": 3,
+    "degree": "Bachelor",
+    "language": "Python",
+    "participation": "online"
+},
+{
+    "name": "Bob",
+    "familyname": "Smith",
+    "gender": "male",
+    "course": 2,
+    "degree": "Master",
+    "language": "C++",
+    "participation": "onsite"
+},
+{
+    "name": "Charlie",
+    "familyname": "Brown",
+    "gender": "male",
+    "course": 1,
+    "degree": "Bachelor",
+    "language": "C++",
+    "participation": "online"
+},
+{
+    "name": "Diana",
+    "familyname": "Evans",
+    "gender": "female",
+    "course": 4,
+    "degree": "Master",
+    "language": "C#",
+    "participation": "onsite"
+},
+{
+    "name": "Ethan",
+    "familyname": "Davis",
+    "gender": "male",
+    "course": 2,
+    "degree": "Bachelor",
+    "language": "Python",
+    "participation": "online"
+}
+
+]

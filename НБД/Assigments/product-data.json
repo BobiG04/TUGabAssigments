@@ -1,0 +1,20 @@
+[
+    {
+    "name":"FirstProduct",
+    "price":29.99,
+    "in_stock":true,
+    "tags":["electronics","gadget"]
+    },
+    {
+    "name":"SecondProduct",
+    "price":49.99,
+    "in_stock":false,
+    "tags":["home","kitchen"]
+    },
+    {
+    "name":"ThirdProduct",
+    "price":19.99,
+    "in_stock":true,
+    "tags":["book","education"]
+    }
+]
