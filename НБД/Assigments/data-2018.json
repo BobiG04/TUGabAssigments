@@ -1,0 +1,113 @@
+[
+	{
+		"name": {"firstname": "Добрин","family": "Венциславов","lastname": "Башев"},
+		"affiliation": {"type": "school","name": "Математическа гимназия - Габрово", "class": 10},
+		"language": "C++",
+		"points": 96,
+		"medal": "gold",
+		"status": "ok"
+	},
+	{
+		"name": {"firstname": "Мартин","family": "Даниел","lastname": "Копчев"},
+		"affiliation": {"type": "school","name": "Математическа гимназия - Габрово", "class": 9},
+		"language": "C++",
+		"points": 92,
+		"medal": "gold",
+		"status": "ok"
+	},
+	{
+		"name": {"firstname": "Йордан","family": "Валентинов","lastname": "Петков"},
+		"affiliation": {"type": "school","name": "Математическа гимназия - Габрово", "class": 12},
+		"language": "C++","points": 92,
+		"medal": "gold",
+		"status": "ok"
+	},
+	{
+		"name": {"firstname": "Цвета","family": "Огнянова","lastname": "Тодорова"},
+		"affiliation": {"type": "school","name": "Математическа гимназия - Габрово", "class": 12},
+		"language": "C++",
+		"points": 84,
+		"medal": "gold",
+		"status": "ok"
+	},
+	{
+		"name": {"firstname": "Адриян","family": "Ивов","lastname": "Ибовски"}, 
+		"affiliation": {"type": "school","name": "Математическа гимназия - Габрово", "class": 11},
+		"language": "C++",
+		"points": 82,
+		"medal": "gold",
+		"status": "ok"
+	},
+	{
+		"name": {"firstname": "Пламен","family": "Венелинов","lastname": "Динев"},
+		"affiliation": {"type": "school","name": "Математическа гимназия - Габрово", "class": 11},
+		"language": "C++",
+		"points": 82,
+		"medal": "silver",
+		"status": "ok"
+	},
+	{
+		"name": {"firstname": "Никола","family": "Мирославов","lastname": "Максимов"},
+		"affiliation": {"type": "school","name": "Математическа гимназия - Габрово", "class": 9},
+		"language": "C++",
+		"points": 82,
+		"medal": "silver",
+		"status": "ok"
+	},
+	{
+		"name": {"firstname": "Стефан","family": "Георгиев","lastname": "Георгиев"},
+		"affiliation": {"type": "university","name": "Университет - гр. Велико Търново","class": 3},
+		"language": "C#",
+		"points": 75,
+		"medal": "silver",
+		"status": "ok"
+	},
+	{
+		"name": {"firstname": "Ивайло","family": "Николаев","lastname": "Иванов"},
+		"affiliation": {"type": "university","name": "Технически Университет - Габрово", "class": 2},
+		"language": "C#",
+		"points": 75,
+		"medal": "silver",
+		"status": "ok"
+	},
+	{
+		"name": {"firstname": "Веселин","family": "","lastname": "Димов"},
+		"affiliation": {"type": "school","name": "Математическа гимназия - Габрово","class": 10},
+		"language": "C++",
+		"points": 74,
+		"medal": "bronze",
+		"status": "ok"
+	},
+	{
+		"name": {"firstname": "Цветомир","family": "","lastname": "Бонев"},
+		"affiliation": {"type": "school","name": "Математическа гимназия - Габрово","class": 9},
+		"language": "Java",
+		"points": 72,
+		"medal": "bronze",
+		"status": "ok"
+	},
+	{
+		"name": {"firstname": "Емил","family": "Иво","lastname": "Бонев"},
+		"affiliation": {"type": "school","name": "Математическа гимназия - Габрово","class": 8},
+		"language": "C++",
+		"points": 72,
+		"medal": "bronze",
+		"status": "ok"
+	},
+	{
+		"name": {"firstname": "Ясен","family": "Пламенов","lastname": "Пенчев"},
+		"affiliation": {"type": "school","name": "Математическа гимназия - Габрово","class": 8},
+		"language": "C++",
+		"points": 63,
+		"medal": "bronze",
+		"status": "ok"
+	},
+	{
+		"name": {"firstname": "Емил","family": "Йорданов","lastname": "Йорданов"},
+		"affiliation": {"type": "school","name": "Математическа гимназия - Габрово","class": 11},
+		"language": "C#",
+		"points": 60,
+		"medal": "none",
+		"status": "ok"
+	}
+]

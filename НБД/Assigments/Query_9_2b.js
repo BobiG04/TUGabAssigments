@@ -5,9 +5,9 @@ const fs = require('fs/promises'); // Използваме вградения м
  
 // Конфигурация за MongoDB
 const uri = 'mongodb://localhost:27017'; // Променете, ако използвате различен адрес/порт
-const dbName = 'Data-2017'; // Името на новата база данни
+const dbName = 'Data-2018'; // Името на новата база данни
 const collectionName = 'data'; // Името на новата колекция
-const jsonFilePath = 'data-2017.json';
+const jsonFilePath = 'data-2018.json';
  
 // --- Функции, базирани на JavaScript Promises / Async/Await ---
  

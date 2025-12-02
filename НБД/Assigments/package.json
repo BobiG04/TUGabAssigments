@@ -1,5 +1,27 @@
 {
+  "name": "server-queries",
+  "version": "1.0.0",
+  "description": "desc",
+  "keywords": [
+    "form"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "none"
+  },
+  "license": "UNLICENSED",
+  "author": "Bogomil",
+  "type": "commonjs",
+  "main": "SU_Form.js",
+  "scripts": {
+    "test": "test"
+  },
   "dependencies": {
+    "body-parser": "^2.2.1",
+    "express": "^5.1.0",
     "mongodb": "^6.20.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
   }
 }
