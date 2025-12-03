@@ -1,84 +1,64 @@
-﻿namespace Publications
+﻿using System;
+using System.Collections.Generic;
+
+namespace Publications
 {
     internal class Paper
     {
-
-        public Author author;
+        public int numberOfAuthors = 0;
+        public List<Author> authors = new List<Author>();
 
         public string Title { get; set; }
         public string ISBN { get; set; }
         public string Details { get; set; }
         public string Type { get; set; }
 
-        public Paper(string title, Author a, string isbn, string details, string type)
+        public Paper(int n)
         {
-            Title = title;
-            author = a;
-            ISBN = isbn;
-            Details = details;
-            Type = type;
+            numberOfAuthors = n;
+        }
+
+        public void InputPaperData()
+        {
+            Console.WriteLine("--- Enter Paper Details ---");
+
+            for (int i = 0; i < numberOfAuthors; i++)
+            {
+                Author author = new Author();
+                Console.WriteLine($"Enter details for Author #{i + 1}:");
+                Console.Write("First name: ");
+                author.Name = Console.ReadLine();
+                Console.Write("Last name: ");
+                author.LastName = Console.ReadLine();
+                authors.Add(author);
+            }
+
+            Console.Write("Title: ");
+            Title = Console.ReadLine();
+            Console.Write("Details: ");
+            Details = Console.ReadLine();
+            Console.Write("ISBN: ");
+            ISBN = Console.ReadLine();
+            Console.Write("Type: ");
+            Type = Console.ReadLine();
+        }
+
+        public bool SearchAuthor(string name, string lastName)
+        {
+            foreach (Author author in authors)
+            {
+                if (author.Name.Trim().ToLower() == name.Trim().ToLower() &&
+                    author.LastName.Trim().ToLower() == lastName.Trim().ToLower())
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void DisplayInfo()
         {
-            Console.WriteLine($"Title: {Title}");
-            Console.Write($"Author: {author.Name} {author.Surname}");
-            
-            Console.WriteLine();
-            Console.WriteLine($"ISBN: {ISBN}");
-            Console.WriteLine($"Details: {Details}");
-            Console.WriteLine($"Type: {Type}");
+            Console.WriteLine($"Paper: {Title}");
         }
-
-        public void AddPaper()
-        {
-            Console.Clear();
-
-            Console.WriteLine("Enter paper title:");
-            Title = Console.ReadLine();
-            
-            Console.WriteLine($"Enter name of author:");
-            author.Name = Console.ReadLine();
-            Console.WriteLine($"Enter surname of author:");
-            author.Surname = Console.ReadLine();
-
-            Console.WriteLine("Enter ISBN:");
-            ISBN = Console.ReadLine();
-            Console.WriteLine("Enter paper details:");
-            Details = Console.ReadLine();
-            Console.WriteLine("Enter paper type:");
-            Type = Console.ReadLine();
-            Console.WriteLine($"Paper '{Title}' has been added.");
-        }
-
-        public void EditPaper()
-        {
-            Console.WriteLine("Enter new paper title:");
-            Title = Console.ReadLine();
-            
-            Console.WriteLine($"Enter name of author:");
-            author.Name = Console.ReadLine();
-            Console.WriteLine($"Enter surname of author:");
-            author.Surname = Console.ReadLine();
-
-            Console.WriteLine("Enter new ISBN:");
-            ISBN = Console.ReadLine();
-            Console.WriteLine("Enter new paper details:");
-            Details = Console.ReadLine();
-            Console.WriteLine("Enter new paper type:");
-            Type = Console.ReadLine();
-            Console.WriteLine($"Paper '{Title}' has been updated.");
-        }
-
-        public void RemovePaper()
-        {
-            Title = string.Empty;
-            author = null;
-            ISBN = string.Empty;
-            Details = string.Empty;
-            Type = string.Empty;
-            Console.WriteLine("Paper has been removed.");
-        }
-
     }
 }

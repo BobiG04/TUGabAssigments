@@ -10,6 +10,15 @@
         public string Affiliation { get; set; }
         public string Department { get; set; }
 
+        public Lecturer()
+        {
+            Name = "1";
+            Surname = "";
+            LastName = "";
+            Affiliation = "";
+            Department = "";
+        }
+
         public Lecturer(string name, string surname, string lastName, string affiliation, string department)
         {
             Name = name;

@@ -1,86 +1,44 @@
-﻿namespace Publications
+﻿using System;
+
+namespace Publications
 {
     internal class Facade
     {
-
-        Lecturer lecturer;
-        Book book;
-        Paper paper;
-        Author author = new Author("","");
-
-        public Facade()
+        public Lecturer CreateLecturer()
         {
-            lecturer = new Lecturer("", "", "", "", "");
-            book = new Book("", new Author("", ""), "", "");
-            paper = new Paper("", author, "", "", "");
-            author = new Author("", "");
+            Lecturer l = new Lecturer();
+            l.AddLecturer(); 
+            return l;
         }
 
-        public Lecturer AddLecturer()
+        public Book CreateBook()
         {
-            lecturer.AddLecturer();
-            return lecturer;
+            Book b = new Book();
+            b.InputBookData();
+            return b;
         }
 
-        public void EditLecturer(int index)
+        public Paper CreatePaper()
         {
-            lecturer.EditLecturer(index);
+            Console.Write("How many authors for this paper? ");
+            int n = int.Parse(Console.ReadLine());
+
+            Paper p = new Paper(n);
+            p.InputPaperData();
+            return p;
         }
 
-        public void RemoveLecturer(int index)
+        public bool IsLecturerBookAuthor(Lecturer lecturer, Book book)
         {
-            lecturer.RemoveLecturer(index);
+            string bookAuthorName = book.GetAuhtorName().ToLower().Trim();
+            string lecturerFullName = (lecturer.Name + " " + lecturer.LastName).ToLower().Trim();
+
+            return bookAuthorName == lecturerFullName;
         }
 
-        public void DisplayLecturers()
+        public bool IsLecturerPaperAuthor(Lecturer lecturer, Paper paper)
         {
-            lecturer.DisplayLecturers();
-        }
-
-        public void AddBook()
-        {
-            book.AddBook();
-        }
-
-        public void EditBook()
-        {
-            book.EditBook();
-        }
-
-        public void AddPaper()
-        {
-            paper.AddPaper();
-        }
-
-        public void EditPaper()
-        {
-            paper.EditPaper();
-        }
-
-        public void CheckLecturerPublicationAssociation(Lecturer lecturer, Book[] books, Paper[] papers)
-        {
-            // This method would contain logic to check associations
-            // between lecturers and books. Implementation depends on
-            // how associations are defined in the system.
-
-            Console.Clear();
-
-            foreach (var book in books)
-            {
-                if (lecturer.Name == book.author.Name)
-                {
-                    Console.WriteLine($"The lecturer {lecturer.Name} is the author of the book {book.Title}");
-                }
-            }
-
-            foreach (var paper in papers)
-            {
-                    if (lecturer.Name == author.Name)
-                    {
-                        Console.WriteLine($"The lecturer {lecturer.Name} is associated with the paper {paper.Title}");
-                    }
-            }
-
+            return paper.SearchAuthor(lecturer.Name, lecturer.LastName);
         }
     }
 }
