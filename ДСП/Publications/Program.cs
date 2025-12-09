@@ -9,7 +9,7 @@ namespace Publications
         {
             Facade facade = new Facade();
 
-            Console.WriteLine("--- SYSTEM SETUP ---");
+            Console.WriteLine("SYSTEM SETUP");
             Console.Write("Enter number of lecturers: ");
             int countLecturers = int.Parse(Console.ReadLine());
 
@@ -25,19 +25,19 @@ namespace Publications
 
             for (int i = 0; i < countLecturers; i++)
             {
-                Console.WriteLine($"\n--- Adding Lecturer {i + 1}/{countLecturers} ---");
+                Console.WriteLine($"\n Adding Lecturer {i + 1}/{countLecturers}");
                 lecturers.Add(facade.CreateLecturer());
             }
 
             for (int i = 0; i < countBooks; i++)
             {
-                Console.WriteLine($"\n--- Adding Book {i + 1}/{countBooks} ---");
+                Console.WriteLine($"\nAdding Book {i + 1}/{countBooks}");
                 books.Add(facade.CreateBook());
             }
 
             for (int i = 0; i < countPapers; i++)
             {
-                Console.WriteLine($"\n--- Adding Paper {i + 1}/{countPapers} ---");
+                Console.WriteLine($"\nAdding Paper {i + 1}/{countPapers}");
                 papers.Add(facade.CreatePaper());
             }
 
@@ -46,7 +46,7 @@ namespace Publications
 
             while (true)
             {
-                Console.WriteLine("\n--- VERIFICATION MENU ---");
+                Console.WriteLine("\nVERIFICATION MENU");
                 Console.WriteLine("1. Check if Lecturer wrote a Book");
                 Console.WriteLine("2. Check if Lecturer wrote a Paper");
                 Console.WriteLine("3. Exit");
