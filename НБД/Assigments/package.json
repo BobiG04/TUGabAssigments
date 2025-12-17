@@ -18,8 +18,11 @@
   },
   "dependencies": {
     "body-parser": "^2.2.1",
+    "ejs": "^3.1.10",
     "express": "^5.1.0",
-    "mongodb": "^6.20.0"
+    "express-brute": "^1.0.1",
+    "mongodb": "^6.20.0",
+    "rate-limiter-flexible": "^9.0.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"

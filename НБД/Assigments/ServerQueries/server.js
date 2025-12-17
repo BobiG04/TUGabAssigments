@@ -1,18 +1,31 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongodb = require('mongodb');
-const app = express(); 
+const app = express();
+const ExpressBrute = require('express-brute');
 
-app.listen(8080, () => { 
-    console.log('Start listening on port 8080...') 
+const store = new ExpressBrute.MemoryStore();
+
+const bruteforce = new ExpressBrute(store, {
+    freeRetries: 3,            
+    minWait: 15 * 60 * 1000,    
+    maxWait: 15 * 60 * 1000,    
+    failCallback: function (req, res, next, nextValidRequestDate) {
+        res.status(429).send({
+            error: "Too many failed attempts",
+            message: "Account locked for 15 minutes. Please try again later."
+        });
+    }
 });
 
+// start listening after routes are set up (below)
+
 const url = 'mongodb://localhost:27017';
-const dbName = 'users'; 
+const dbName = 'users';
 const collectionName = "logins";
-const options = { 
-    serverSelectionTimeoutMS: 3000, 
-    connectTimeoutMS: 3000,  
+const options = {
+    serverSelectionTimeoutMS: 3000,
+    connectTimeoutMS: 3000,
     socketTimeoutMS: 3000,
 };
 
@@ -30,43 +43,44 @@ mongodb.MongoClient.connect(url, options)
         const collection = db.collection(collectionName);
 
         app.use(bodyParser.urlencoded({ extended: true }));
-        app.get('/', (request, response) => { 
+        app.get('/', (request, response) => {
             response.sendFile(__dirname + '/index.html');
-        }); 
-        app.post('/query', (req, res) => {
+        });
 
+        // Apply express-brute middleware to protect this route.
+        app.post('/query', bruteforce.prevent, (req, res) => {
+            const username = (req.body.username || '').toString();
+            const password = (req.body.password || '').toString();
 
-            const filter = {
-                username: `${req.body.username}`,
-                password: `${req.body.password}`
-            };
-            const projection = { _id: 0, name: 1 };
-            const sort = { name: 1 };
+            if (!username) return res.status(400).send('Username is required');
 
-            collection
-                .find(filter, { projection: projection}, {sort: sort})
-                .toArray()
-                .then(docs => {
-                    let result = ``;
-                    if (docs.length === 0) {
-                        result += "No users found.";
-                    } else {
-                        docs.forEach(doc => {
-                            result += `OK`;
-                        });
+            const filter = { username: username, password: password };
+
+            // Check credentials in MongoDB
+            collection.findOne(filter)
+                .then(doc => {
+                    if (!doc) {
+                        // Let express-brute count this failure (handled by middleware). Respond 401.
+                        return res.status(401).send('Login Failed!');
                     }
-                    res.send(result);
+
+                    // successful login -> reset brute force counters for this request
+                    if (req.brute && typeof req.brute.reset === 'function') {
+                        req.brute.reset();
+                    }
+
+                    return res.send('Login Successful!');
                 })
                 .catch(err => {
                     console.error("Error querying MongoDB:", err);
                     res.status(500).send("Internal Server Error");
                 });
         });
-        app.listen(8080, () => { 
-            console.log('Start listening on port 8080...') 
+        app.listen(8080, () => {
+            console.log('Start listening on port 8080...')
         });
     })
     .catch(err => {
         console.error("Failed to connect to MongoDB:", err);
-    }
-);
+    });
+
