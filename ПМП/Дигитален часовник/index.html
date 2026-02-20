@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="alarm.js"></script>
+</head>
+<body>
+
+    <div id="clock">00:00:00</div>
+
+    <div class="controls">
+        <div class="control-group">
+            <label>Alarm: <input type="time" id="alarmTime"></label>
+        </div>
+        <div class="control-group">
+            <label>Sound: 
+                <select id="alarmSound">
+                    <option value="beep">Beep</option>
+                    <option value="siren">Siren</option>
+                    <option value="square">Square Wave</option>
+                    <option value="spotify">Spotify</option>
+                </select>
+            </label>
+            <input type="text" id="spotifyUrl" placeholder="Spotify URL" style="display:none;">
+            <label><input type="checkbox" id="vibrateCheck"> Vibrate</label>
+        </div>
+        <button id="setAlarmBtn" onclick="setAlarm()">Set Alarm</button>
+        <button id="stopAlarmBtn" class="stop" onclick="stopAlarm()">Stop Alarm</button>
+        <div id="alarmStatus" class="alarm-status"></div>
+    </div>
+</body>
+</html>
