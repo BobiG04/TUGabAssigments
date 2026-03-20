@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="bg" data-bs-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра Бесеница</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .word-display {
+            font-size: 2.5rem;
+            letter-spacing: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-5 text-center">
+        <div class="d-flex justify-content-end mb-3" style="max-width: 600px; margin: 0 auto;">
+            <button id="theme-toggle" class="btn btn-dark">🌙 Dark Mode</button>
+        </div>
+
+        <div class="card shadow p-4 mx-auto" style="max-width: 600px;">
+            <h1 class="mb-4">Бесеница</h1>
+
+            <div class="row mb-4">
+    <div class="col-md-4 mb-2">
+        <select id="language-select" class="form-select">
+            <option value="bg">Български</option>
+            <option value="en">English</option>
+        </select>
+    </div>
+    <div class="col-md-4 mb-2">
+        <select id="difficulty-select" class="form-select">
+            <option value="easy">Лесно (3-5 букви)</option>
+            <option value="medium">Средно (6-8 букви)</option>
+            <option value="hard">Трудно (9+ букви)</option>
+        </select>
+    </div>
+    <div class="col-md-4 mb-2">
+        <select id="category-select" class="form-select">
+            <option value="all">Всички теми</option>
+            <option value="it">ИТ и Технологии</option>
+            <option value="geography">География</option>
+            <option value="animals">Животни</option>
+        </select>
+    </div>
+</div>
+
+            <div class="mb-4">
+                <img id="meme-image" src="https://placehold.co/300x200/0099ff/ffffff?text=Спокоен+старт...+6+Живота"
+                    alt="Meme" class="img-fluid rounded shadow" style="max-height: 250px;">
+            </div>
+
+            <div class="mb-3">
+                <h2 id="word-display" class="word-display fw-bold text-primary">_ _ _ _ _</h2>
+            </div>
+
+            <h4 class="mb-4">Останали животи: <span id="lives-display" class="text-danger fw-bold">6</span></h4>
+
+            <div class="input-group mb-3">
+                <input type="text" id="guess-input" class="form-control text-uppercase"
+                    placeholder="Въведи буква или цялата дума" autocomplete="off" maxlength="20">
+                <button class="btn btn-primary" id="guess-btn">Провери</button>
+            </div>
+
+            <div id="message" class="alert d-none" role="alert"></div>
+
+            <button class="btn btn-success mt-3 d-none" id="restart-btn">Нова игра</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
