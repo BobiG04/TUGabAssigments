@@ -1,91 +1,162 @@
-body {
-    background-color: #2c3e50;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
-    font-family: 'Courier New', Courier, monospace;
+:root {
+	--bg: #0f1722;
+	--card: #0b1220;
+	--accent: #00c3a3;
+	--text: #e6eef6;
+    --glow: rgba(0, 195, 163, 0.7);
 }
 
-#clock {
-    font-size: 5rem;
-    color: #2ecc71;
-    background: #34495e;
-    padding: 20px 40px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+* {
+	box-sizing: border-box
+}
+
+html,
+body {
+	height: 100%;
+	margin: 0;
+	font-family: system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Arial;
+    font-size: 16px;
+}
+
+body {
+	background: linear-gradient(180deg, #071029 0%, #0b1220 100%);
+	color: var(--text);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 20px
+}
+
+.container {
+	width: 100%;
+	max-width: 420px;
+	background: rgba(255, 255, 255, 0.03);
+	padding: 24px;
+	border-radius: 16px;
+	box-shadow: 0 8px 30px rgba(2, 6, 23, 0.7);
+	text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+#title {
+	margin: 0 0 12px;
+	font-size: 24px;
+	font-weight: 600;
+    color: var(--accent);
+}
+
+#current-time {
+    font-family: 'Orbitron', sans-serif;
+	font-size: 48px;
+	margin: 12px 0 24px;
+	letter-spacing: 2px;
+    color: var(--accent);
+    text-shadow: 0 0 5px var(--glow), 0 0 10px var(--glow), 0 0 20px var(--glow);
 }
 
 .controls {
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    color: #ecf0f1;
-    background: #34495e;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    text-align: left;
 }
 
-.control-group {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+label {
+	font-size: 14px;
+	margin-bottom: 0;
+    color: rgba(230, 238, 246, 0.9);
 }
 
-input,
-select,
+input[type=time], select {
+	width: 100%;
+	padding: 12px;
+	border-radius: 10px;
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	background: rgba(0, 0, 0, 0.2);
+	color: var(--text);
+	font-size: 16px;
+}
+
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239ca3af' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+}
+
+.buttons {
+	margin-top: 12px;
+	display: flex;
+	gap: 8px;
+	flex-wrap: wrap
+}
+
 button {
-    padding: 8px;
-    border-radius: 5px;
-    border: none;
-    font-family: inherit;
-}
-
-button {
-    background-color: #2ecc71;
-    color: #2c3e50;
-    cursor: pointer;
-    font-weight: bold;
-    padding: 10px 20px;
+	flex: 1;
+	padding: 12px 10px;
+	border-radius: 10px;
+	border: 0;
+	font-size: 16px;
+	color: #072023;
+	background: var(--accent);
+	cursor: pointer;
+    transition: background-color 0.2s;
 }
 
 button:hover {
-    background-color: #27ae60;
+    background: #00e0b9;
 }
 
-button.stop {
-    background-color: #e74c3c;
+#cancel-alarm {
+	background: transparent;
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	color: var(--text)
+}
+
+#cancel-alarm:hover {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#stop-alarm {
+	background: #c93c3c;
+	color: #fff;
+    flex: 2; /* Make stop button wider */
+}
+#stop-alarm:hover {
+    background: #e04a4a;
+}
+
+#spotify-login {
+    background-color: #1DB954;
     color: white;
-    display: none;
+    border: none;
+    padding: 12px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 8px;
 }
 
-.alarm-status {
-    height: 20px;
-    color: #e74c3c;
-    font-weight: bold;
+#spotify-login:hover {
+    background-color: #1ed760;
 }
 
-@media (max-width: 600px) {
-    #clock {
-        font-size: 3rem;
-        padding: 15px;
-        width: 90%;
-        text-align: center;
-        box-sizing: border-box;
-    }
+.status {
+	margin-top: 20px;
+	font-size: 14px;
+	color: rgba(230, 238, 246, 0.9)
+}
 
-    .controls {
-        width: 90%;
-        box-sizing: border-box;
-    }
+.status.error {
+	color: #ff8b8b
+}
 
-    .control-group {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+/* Accessibility focus */
+button:focus,
+input:focus,
+select:focus {
+	outline: 3px solid rgba(0, 195, 163, 0.25);
+	outline-offset: 2px;
 }

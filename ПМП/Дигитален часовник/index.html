@@ -1,35 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bg">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="
+        default-src 'self' data:;
+        script-src 'self' 'unsafe-inline' 'unsafe-eval' https://debug.monaca.mobi https://accounts.spotify.com;
+        style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+        font-src 'self' https://fonts.gstatic.com;
+        connect-src 'self' https://api.spotify.com https://accounts.spotify.com;
+        frame-src 'self' https://accounts.spotify.com;
+        media-src *;
+    ">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Digital Clock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
     <script src="alarm.js"></script>
+    <title>Alarm Clock</title>
 </head>
+
 <body>
 
-    <div id="clock">00:00:00</div>
 
-    <div class="controls">
-        <div class="control-group">
-            <label>Alarm: <input type="time" id="alarmTime"></label>
+    <div class="container">
+        <h1 id="title">Часовник</h1>
+        <h2 id="current-time">00:00:00</h2>
+        <div class="controls">
+            <label for="alarm-time">Направи аларма:</label>
+            <input type="time" id="alarm-time">
+            
+            <label for="alarm-sound">Звук на алармата:</label>
+            <select id="alarm-sound">
+                <option value="./src/alarmSounds/iphone_alarm.mp3" selected>iPhone Alarm</option>
+                <option value="spotify">Spotify Music</option>
+            </select>
+
+            <button id="spotify-login" style="display:none;">Login to Spotify</button>
+
+            <div class="buttons">
+                <button id="set-alarm">Задай аларма</button>
+                <button id="cancel-alarm">Отмени</button>
+                <button id="stop-alarm" style="display:none">Стоп</button>
+            </div>
         </div>
-        <div class="control-group">
-            <label>Sound: 
-                <select id="alarmSound">
-                    <option value="beep">Beep</option>
-                    <option value="siren">Siren</option>
-                    <option value="square">Square Wave</option>
-                    <option value="spotify">Spotify</option>
-                </select>
-            </label>
-            <input type="text" id="spotifyUrl" placeholder="Spotify URL" style="display:none;">
-            <label><input type="checkbox" id="vibrateCheck"> Vibrate</label>
-        </div>
-        <button id="setAlarmBtn" onclick="setAlarm()">Set Alarm</button>
-        <button id="stopAlarmBtn" class="stop" onclick="stopAlarm()">Stop Alarm</button>
-        <div id="alarmStatus" class="alarm-status"></div>
+        <div id="alarm-status" class="status">Няма зададена аларма</div>
     </div>
+
 </body>
+
 </html>

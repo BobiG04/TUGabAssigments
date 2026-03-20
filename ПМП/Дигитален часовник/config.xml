@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.example.alarmclock" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>AlarmClock</name>
+    <description>
+        A simple alarm clock with Spotify integration.
+    </description>
+    <author email="dev@example.com" href="http://example.com">
+        Your Name
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+
+    <!-- Allow navigation to Spotify's login page -->
+    <allow-navigation href="https://accounts.spotify.com/*" />
+
+    <platform name="android">
+        <allow-intent href="market:*" />
+        <!-- Custom URL scheme for Spotify Redirect -->
+        <edit-config file="AndroidManifest.xml" target="/manifest/application/activity[@android:name='MainActivity']" mode="merge">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="my-alarm-app" />
+            </intent-filter>
+        </edit-config>
+    </platform>
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+        <!-- Custom URL scheme for Spotify Redirect -->
+        <config-file parent="CFBundleURLTypes" target="*-Info.plist">
+            <array>
+                <dict>
+                    <key>CFBundleURLSchemes</key>
+                    <array>
+                        <string>my-alarm-app</string>
+                    </array>
+                </dict>
+            </array>
+        </config-file>
+    </platform>
+</widget>
