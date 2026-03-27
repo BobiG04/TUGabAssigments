@@ -31,15 +31,37 @@ app.get('/api/seed', async (req, res) => {
     try {
         await Word.deleteMany({});
         const initialWords = [
+            // ИТ и Технологии
             { text: 'КОД', lang: 'bg', length: 3, category: 'it' },
+            { text: 'БЪГ', lang: 'bg', length: 3, category: 'it' },
+            { text: 'МРЕЖА', lang: 'bg', length: 5, category: 'it' },
             { text: 'СЪРВЪР', lang: 'bg', length: 6, category: 'it' },
             { text: 'ЛАПТОП', lang: 'bg', length: 6, category: 'it' },
-            { text: 'ГАБРОВО', lang: 'bg', length: 7, category: 'geography' },
+            { text: 'ЕКРАН', lang: 'bg', length: 5, category: 'it' },
+            { text: 'БРАУЗЪР', lang: 'bg', length: 7, category: 'it' },
+            { text: 'АЛГОРИТЪМ', lang: 'bg', length: 9, category: 'it' },
+            { text: 'ИНЖЕНЕР', lang: 'bg', length: 7, category: 'it' },
+            { text: 'СТУДЕНТ', lang: 'bg', length: 7, category: 'it' },
+            { text: 'ПРИЛОЖЕНИЕ', lang: 'bg', length: 10, category: 'it' },
+            
+            // География
             { text: 'ЯНТРА', lang: 'bg', length: 5, category: 'geography' },
             { text: 'ВРАЦА', lang: 'bg', length: 5, category: 'geography' },
+            { text: 'СОФИЯ', lang: 'bg', length: 5, category: 'geography' },
+            { text: 'ГАБРОВО', lang: 'bg', length: 7, category: 'geography' },
+            { text: 'ШИПКА', lang: 'bg', length: 5, category: 'geography' },
+            { text: 'БАЛКАН', lang: 'bg', length: 6, category: 'geography' },
+            { text: 'АПРИЛОВ', lang: 'bg', length: 7, category: 'geography' },
+            { text: 'ПЛАНИНА', lang: 'bg', length: 7, category: 'geography' },
+            
+            // Животни
             { text: 'КУЧЕ', lang: 'bg', length: 4, category: 'animals' },
             { text: 'КОТКА', lang: 'bg', length: 5, category: 'animals' },
-            { text: 'ЖИРАФ', lang: 'bg', length: 5, category: 'animals' }
+            { text: 'ЖИРАФ', lang: 'bg', length: 5, category: 'animals' },
+            { text: 'ДЕЛФИН', lang: 'bg', length: 6, category: 'animals' },
+            { text: 'ПЕЛЕКАН', lang: 'bg', length: 7, category: 'animals' },
+            { text: 'ПИНГВИН', lang: 'bg', length: 7, category: 'animals' },
+            { text: 'КРОКОДИЛ', lang: 'bg', length: 8, category: 'animals' }
         ];
         await Word.insertMany(initialWords);
         res.send('Успешно добавени начални думи с категории!');
