@@ -44,9 +44,11 @@ async function initGame() {
     const diff = diffSelect.value;
     const category = categorySelect.value; // Взимаме категорията
 
+    const backendUrl = "https://hangman-api-anmd.onrender.com";
+
     try {
         // Изпращаме заявка с параметри
-        const response = await fetch(`/api/word?lang=${lang}&diff=${diff}&category=${category}`);
+        const response = await fetch(`${backendUrl}/api/word?lang=${lang}&diff=${diff}&category=${category}`);
         const data = await response.json();
         
         if (response.ok) {

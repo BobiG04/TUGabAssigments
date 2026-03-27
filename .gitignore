@@ -362,3 +362,19 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /Java/Sedm6/PIS_Sem_Upr/target/
+
+# ==========================================
+# НОВИ ДОБАВКИ: Node.js / Besenica Project
+# ==========================================
+
+# Тайни ключове и пароли (КРИТИЧНО ЗА СИГУРНОСТТА!)
+.env
+
+# Лог файлове от грешки при инсталация на пакети (Node.js)
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Системни файлове (Mac/Windows)
+.DS_Store
+Thumbs.db
