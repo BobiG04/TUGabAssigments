@@ -16,6 +16,12 @@ const langSelect = document.getElementById("language-select");
 const diffSelect = document.getElementById("difficulty-select");
 const memeImage = document.getElementById("meme-image");
 
+// --- Звукови ефекти ---
+const correctSound = new Audio('audio/correct.mp3');
+const wrongSound = new Audio('audio/wrong.mp3');
+const winSound = new Audio('audio/win.mp3');
+const loseSound = new Audio('audio/lose.mp3');
+
 // Масив с Meme снимки (замести тези линкове с реални забавни снимки или локални пътища)
 const memeUrls = [
     "./images/0.jpg", // 0 животи
@@ -95,7 +101,7 @@ function handleGuess() {
         if (guess === currentWord) {
             guessedLetters = currentWord.split('');
             updateWordDisplay();
-            endGame(true);
+            endGame(true); // Тук автоматично ще се пусне winSound от endGame функцията
         } else {
             reduceLife(`Грешка! Думата не е "${guess}".`);
         }
@@ -112,13 +118,16 @@ function handleGuess() {
             reduceLife(`Буквата "${guess}" не се съдържа в думата.`);
         } else {
             messageBox.classList.add("d-none");
+            
+            // ---> ЗВУК ЗА УСПЕХ: Добавяме го тук, когато буквата е позната <---
+            correctSound.play(); 
         }
 
         updateWordDisplay();
     }
 }
 
-// Нова помощна функция за намаляване на живот и смяна на meme-то
+// Помощна функция за намаляване на живот и смяна на meme-то
 function reduceLife(msg) {
     lives--;
     livesDisplay.innerText = lives;
@@ -126,7 +135,10 @@ function reduceLife(msg) {
     showMessage(msg, "warning");
 
     if (lives <= 0) {
-        endGame(false);
+        endGame(false); // Тук ще се пусне loseSound от endGame функцията
+    } else {
+        // ---> ЗВУК ЗА ГРЕШКА: Пускаме го, само ако играта продължава <---
+        wrongSound.play(); 
     }
 }
 
@@ -137,12 +149,28 @@ function endGame(isWin) {
     restartBtn.classList.remove("d-none");
 
     if (isWin) {
-        memeImage.src = "./images/w.jpg"; // Снимка за победа (замени с реална)
+        winSound.play(); // Пускаме звук за победа
+        memeImage.src = "images/w.jpg"; 
         showMessage("Поздравления! Ти позна думата!", "success");
+        
+        // Вибрация за победа
+        if (navigator.vibrate) {
+            navigator.vibrate([100, 100, 200]);
+        } else if (navigator.notification && navigator.notification.vibrate) {
+            navigator.notification.vibrate(400); 
+        }
     } else {
-        wordDisplay.innerText = currentWord; // Показваме цялата дума
-        wordDisplay.classList.add("text-danger"); // Правим я червена за акцент
+        loseSound.play(); // Пускаме звук за загуба
+        wordDisplay.innerText = currentWord; 
+        wordDisplay.classList.add("text-danger"); 
         showMessage(`Край на играта! Търсената дума беше: ${currentWord}`, "danger");
+        
+        // Вибрация за загуба
+        if (navigator.vibrate) {
+            navigator.vibrate(500);
+        } else if (navigator.notification && navigator.notification.vibrate) {
+            navigator.notification.vibrate(500);
+        }
     }
 }
 
