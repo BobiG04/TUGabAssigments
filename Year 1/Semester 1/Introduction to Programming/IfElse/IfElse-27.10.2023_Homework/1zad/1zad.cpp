@@ -18,11 +18,11 @@ int main()
 
     if (a > b) {
         printf("%20d", b);
-        printf("%X", b);
+        printf("%A", b);
     }
     else {
         printf("%20d", a);
-        printf("%X", a);
+        printf("%A", a);
     }
 
     scanf_s("%f", &c);
@@ -30,11 +30,11 @@ int main()
 
     if (c > d) {
         printf("%20f", c);
-        printf("%X", c);
+        printf("%A", c);
     }
     else {
         printf("%20f", d);
-        printf("%X", d);
+        printf("%A", d);
     }
 
     return 0;

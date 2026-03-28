@@ -16,7 +16,8 @@ int main()
     D = b * b - 4 * a * c;
 
     if (D == 0) {
-        x1 = (-b) / (2 * a);
+        x1 = (float)(-b) / (2 * a);
+        printf("x1 = %f\n", x1);
     }
     else if (D < 0) {
         printf("\nNqma realni koreni. \n");

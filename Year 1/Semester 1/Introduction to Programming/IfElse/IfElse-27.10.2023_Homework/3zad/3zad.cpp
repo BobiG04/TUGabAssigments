@@ -14,7 +14,7 @@ int main()
     scanf_s("%d", &a);
     scanf_s("%d", &b);
 
-    result = a / b;
+    result = a % b;
 
     if (result) {
         printf("%d", result);

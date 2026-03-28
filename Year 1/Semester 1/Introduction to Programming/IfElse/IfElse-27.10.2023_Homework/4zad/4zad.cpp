@@ -15,10 +15,10 @@ int main()
     scanf_s("%d", &b);
 
 
-    result = a / b;
+    result = a % b;
 
     if (result) {
-        printf("\a\a", result);
+        printf("\a\a%%%d", result);
     }
     else {
         printf("\a\a\a", result);

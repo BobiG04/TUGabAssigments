@@ -3,7 +3,8 @@
 
 int main()
 {
-    int a, b, c, p, S;
+    int a, b, c;
+    float p, S;
 
     printf("a = ");
     scanf_s("%d", &a);
@@ -28,8 +29,8 @@ int main()
 
         S = sqrt(p * (p - a) * (p - b) * (p - c));
 
-        printf("p = %d\n", p);
-        printf("S = %d\n", S);
+        printf("p = %A\n", p);
+        printf("S = %A\n", S);
 
     }
 
