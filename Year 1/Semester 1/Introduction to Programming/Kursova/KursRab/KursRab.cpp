@@ -1,13 +1,6 @@
 ﻿#include <stdio.h>
 #include <math.h>
 
-struct TrapsSides {
-    int a;
-    int b;
-    int c;
-    int d;
-    int h;
-};
 // Деклариране на цял брой трапеци
 int brTraps;
 // Деклариране на лицето на текущия трапец
@@ -28,7 +21,8 @@ int main()
 {
 
     EnterBrTraps();
-    if (brTraps > 50) {
+    if (brTraps > 50)
+    {
         printf("Ne mojesh da nadvishavash poveche ot 50 trapetsa.\n");
         return 0;
     }
@@ -36,35 +30,42 @@ int main()
     SortSes();
 
     return 0;
-
 }
 
-void EnterAndCalSums() {
+void EnterAndCalSums()
+{
     // Разглеждаме трапеците, които сме въвели първоначално
     for (int t = 0; t < brTraps; t++)
     {
         // Изписваме страните, височината или радиуса.
-        printf("Vuvedi stranite na trapets %d: \n",t);
+        printf("Vuvedi stranite na trapets %d: \n", t);
         for (int i = 0; i < 6; i++)
         {
             // Проверка за текуща променлива, на която задаваме стойност
-            switch (i) {
-            case 0:printf("a = ");
+            switch (i)
+            {
+            case 0:
+                printf("a = ");
                 scanf_s("%f", &n[0]);
                 break;
-            case 1:printf("b = ");
+            case 1:
+                printf("b = ");
                 scanf_s("%f", &n[1]);
                 break;
-            case 2:printf("c = ");
+            case 2:
+                printf("c = ");
                 scanf_s("%f", &n[2]);
                 break;
-            case 3:printf("d = ");
+            case 3:
+                printf("d = ");
                 scanf_s("%f", &n[3]);
                 break;
-            case 4:printf("h = ");
+            case 4:
+                printf("h = ");
                 scanf_s("%f", &n[4]);
                 break;
-            case 5:printf("r = ");
+            case 5:
+                printf("r = ");
                 scanf_s("%f", &n[5]);
                 break;
             }
@@ -76,45 +77,63 @@ void EnterAndCalSums() {
     }
 }
 
-void EnterBrTraps() {
+void EnterBrTraps()
+{
     // Въвеждаме броя на трапеците, които ще пресмятаме
     printf("Broi Trapetsi: ");
     scanf_s("%d", &brTraps);
     printf("\n");
 }
 
-double SumTrap(float a, float b, float c, float d, float h, float r) {
+double SumTrap(float a, float b, float c, float d, float h, float r)
+{
 
     // Формула за лице чрез две страни и височина
-    if (a!=0 && b!=0 && c==0 && d==0 && h!=0 && r==0) {
+    if (a != 0 && b != 0 && c == 0 && d == 0 && h != 0 && r == 0)
+    {
+
         S = 0.5 * (a + b) * h;
         printf("S = %.2lf\n\n", S);
     }
     // Формула за лице чрез четирите страни на трапеца
-    else if (a!=0 && b!=0 && c!=0 && d!=0 && h==0 && r==0) {
-        S = (a + c) / (4 * (a - c)) * sqrt((a + b - c + d) * (a - b - c + d) * (a + b - c - d) * (-a + b + c + d));
-        printf("S = %.2lf\n\n", S);
+    else if (a != 0 && b != 0 && c != 0 && d != 0 && h == 0 && r == 0)
+    {
+        if (a == c)
+        {
+            printf("Ne mojesh da delish na nula.\n");
+            return 0;
+        }
+        else
+        {
+            S = (a + c) / (4 * (a - c)) * sqrt((a + b - c + d) * (a - b - c + d) * (a + b - c - d) * (-a + b + c + d));
+            printf("S = %.2lf\n\n", S);
+        }
     }
     // Формула за лице чрез височината и радиуса на описаната окръжност
-    else if (a != 0 && b != 0 && c != 0 && d != 0 && h == 0 && r == 0) {
+    else if (a != 0 && b != 0 && c != 0 && d != 0 && h == 0 && r != 0)
+    {
+
         S = 8 * pow(r, 2);
         printf("S = %.2lf\n\n", S);
     }
     // Когато нито едно от горепосочените не е изпълнено
-    else {
+    else
+    {
         printf("Ima problem.");
     }
 
     return 0;
 }
 
-void SortSes() {
+void SortSes()
+{
     // Сортиране на масива с лицата по големината им във възходящ ред
     for (int u = 0; u < brTraps; u++)
     {
         for (int p = u + 1; p < brTraps; p++)
         {
-            if (Ses[u] > Ses[p]) {
+            if (Ses[u] > Ses[p])
+            {
                 float Mid = Ses[u];
                 Ses[u] = Ses[p];
                 Ses[p] = Mid;
