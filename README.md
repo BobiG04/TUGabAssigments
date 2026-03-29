@@ -1,73 +1,49 @@
-<h1><i>Добре дошли в TU-Gabrovo Assigments!</i></h1>
-<p font-size="30px"> По долу можете да си изберете папката, в която можете да разгледате задачите, които са били поставяни за домашно от Технически университет - Габрово.</p>
-<p><img style="width: 75%; height: auto; border-radius: 10px" src="https://github.com/BobiG04/TUGabAssigments/blob/master/%D0%9A%D0%BE%D0%BC%D0%BF%D1%8E%D1%82%D1%8A%D1%80%D0%BD%D0%B0%20%D0%B3%D1%80%D0%B0%D1%84%D0%B8%D0%BA%D0%B0/Git_TUGabAssigments.png" alt="Банер на TU Gab Assigments"></p>
+# 🎓 Технически Университет - Габрово | Студентско Портфолио
 
-<h2>Въведение в програмирането <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=40670&format=png&color=000000"></h2>
-<ul>
-    <li>Курсова работа - http://tinyurl.com/KursRab1</li>
-    <li>Линкове към изпълнени задачи:</li>
-    <ul>
-        <li><em>27.10.2023г.</em> - http://tinyurl.com/Cfrom2710</li>
-        <li><em>19.10.2023г.</em> - http://tinyurl.com/Cfrom1910</li>
-    </ul>
-</ul>
+Добре дошли в моето GitHub хранилище! Тук съхранявам всички свои лабораторни упражнения, семинари, курсови работи и проекти, разработени по време на обучението ми по специалност **Софтуерно и компютърно инженерство (СКИ)** в ТУ-Габрово.
 
-<h2>Обектно ориентирано програмиране <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=55251&format=png&color=000000"></h2>
-<ul>
-    <li>Курсова работа - https://tinyurl.com/CSharpKursovRab</li>
-    <li>Линкове към изпълнени задачи:</li>
-    <ul>
-        <li><em>20.02.2024г.</em> - http://tinyurl.com/CSharp2002</li>
-        <li><em>13.02.2024г.</em> - http://tinyurl.com/CSharp1302</li>
-        <li><em>27.02.2024г.</em> - http://tinyurl.com/CSharp2702</li>
-        <li><em>05.03.2024г.</em> - http://tinyurl.com/CSharp0503</li>
-        <li><em>12.03.2024г.</em> - http://tinyurl.com/CSharp1203</li>
-        <li><em>19.03.2024г.</em> - http://tinyurl.com/CSharp1903</li>
-        <li><em>26.03.2024г.</em> - http://tinyurl.com/CSharp2603</li>
-        <li><em>CST Anniversary</em> - http://tinyurl.com/CstAniv2603</li>
-        <li><em>02.04.2024г.</em> - http://tinyurl.com/CSharp0204</li>
-        <li><em>07.04.2024г.</em> - http://tinyurl.com/CSharp0704</li>
-        <li><em>16.04.2024г.</em> - http://tinyurl.com/CSharp1604</li>
-        <li><em>23.04.2024г.</em> - http://tinyurl.com/CSharp2304</li>
-        <li><em>14.05.2024г.</em> - http://tinyurl.com/CSharp1405</li>
-    </ul>
-</ul>
+**Автор:** Богомил Георгиев Иванов  
+**Факултетен номер:** 22372126  
 
-<h2>Компютърна графика <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=63150&format=png&color=000000"> <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=omuSvqfyybfC&format=png&color=000000"></h2>
-<ul>
-    <li>Линк към изпълнени задачи: - http://tinyurl.com/CompGraphs</li>
-</ul>
+---
 
-<h2>Програмиране в интернет среда <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=GPfHz0SM85FX&format=png&color=000000"> <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=20909&format=png&color=000000"> <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=21278&format=png&color=000000"> <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=108784&format=png&color=000000"></h2>
-<ul>
-    <li>Курсова работа - https://tinyurl.com/CSharpKursovRab</li>
-    <li>Линкове към изпълнени задачи:</li>
-    <ul>
-        <li><em>Първа седмица</em> - https://tinyurl.com/Java1BobiG04</li>
-        <li><em>Втора седмица</em> - https://tinyurl.com/Java2BobiG04</li>
-        <li><em>Трета седмица</em> - https://tinyurl.com/Java3BobiG04</li>
-        <li><em>Четвърта седмица</em> - https://tinyurl.com/Java4BobiG04</li>
-        <li><em>Пета седмица</em> - https://tinyurl.com/Java5BobiG04</li>
-        <li><em>Шеста седмица</em> - https://tinyurl.com/Java6BobiG04</li>
-        <li><em>HTML, CSS, JavaScript</em> - https://tinyurl.com/WebBobiG04</li>
-    </ul>
-</ul>
+## 🗂️ Структура на хранилището
 
-<h2>Алгоритми и структури от данни <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=40669&format=png&color=000000"></h2>
-<ul>
-    <li>Курсова работа - https://tinyurl.com/CPPKursovRab</li>
-    <li>Линк към изпълнени задачи: - https://tinyurl.com/ASDBobiG04</li>
-</ul>
+Кликнете върху линковете по-долу, за да навигирате директно до проектите от съответния семестър и дисциплина:
 
-<h2>Програмиране на програмни интерфейси <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=123603&format=png&color=000000"></h2>
-<ul>
-    <li>Линк към изпълнени задачи: - https://tinyurl.com/PPIBobiG04</li>
-</ul>
+### 📚 Година 1 (Year 1)
+#### Семестър 1
+* 💻 [Увод в програмирането (Introduction to Programming)](./Year%201/Semester%201/Introduction%20to%20Programming)
+* 🧮 [Математика 1](./Year%201/Semester%201/Mathematics%201)
+* ⚛️ [Физика](./Year%201/Semester%201/Physics)
 
-<h2>Информационни системи <img style="width:30px; height:30px;" src="https://img.icons8.com/?size=100&id=anECpXcEIboQ&format=png&color=000000"></h2>
-<ul>
-    <li>Линк към изпълнени задачи: - скоро...</li>
-</ul>
+#### Семестър 2
+* ⚙️ [Обектно-ориентирано програмиране (Object Oriented Programming)](./Year%201/Semester%202/Object%20Oriented%20Programming) 
+* 🧮 [Математика 2](./Year%201/Semester%202/Mathematics%202)
+* 🔌 [Синтез и анализ на логически схеми (САЛС)](./Year%201/Semester%202/Synthesis%20and%20Analysis%20of%20Logic%20Schemes)
+
+### 📚 Година 2 (Year 2)
+#### Семестър 3
+* 🌐 [Уеб програмиране (Web Programming)](./Year%202/Semester%203/Web%20Programming) - *Java, JavaScript, jQuery, проекти (ChatRoom, CV site)*
+* 🗄️ [Бази данни (Data Bases)](./Year%202/Semester%203/Data%20Bases)
+* 🖥️ [Операционни системи (Operating Systems)](./Year%202/Semester%203/Operating%20Systems)
+
+#### Семестър 4
+* ⚛️ [Програмиране на програмни интерфейси](./Year%202/Semester%204/Programming%20of%20Programme%20Interfaces) - *React, Vite, Tailwind проекти*
+* 🧠 [Алгоритми и структури от данни](./Year%202/Semester%204/Algorithms%20and%20Structuring%20of%20Data)
+* ℹ️ [Информационни системи](./Year%202/Semester%204/Information%20Systems)
+* 🏗️ [Организация на компютъра](./Year%202/Semester%204/Organization%20of%20the%20Computer)
+
+### 📚 Година 3 (Year 3)
+#### Семестър 5
+* 📐 [Проектиране на софтуерни проекти](./Year%203/Semester%205/Design%20of%20Software%20Projects) - *C# архитектури (Animals, Calculator, Factory)*
+* 🍃 [Нерелационни бази данни](./Year%203/Semester%205/Non-relatable%20Data%20Bases) - *MongoDB / NoSQL лабораторни*
+
+#### Семестър 6
+* 📱 [Програмиране на мобилни проекти](./Year%203/Semester%206/Programming%20Mobile%20Projects) - *Node.js, Express, MongoDB (Проект "Besenica")*
+
+---
+*Това хранилище се обновява активно с напредването на обучението ми.*
 
 <!--| Въведение в програмирането | Обектно ориентирано програмиране (C#) | Компютърна графика | Програмиране в интернет среда (Java, HTML, CSS, JavaScript)
 | :-------------: | :-------------: | :-----: | :-----: |
