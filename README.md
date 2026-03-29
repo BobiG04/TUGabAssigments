@@ -1,6 +1,6 @@
-# 🎓 Технически Университет - Габрово | Студентско Портфолио
+# 🎓 Технически Университет - Габрово | Студентско Портфолио и Лекционен Архив
 
-Добре дошли в моето GitHub хранилище! Тук съхранявам всички свои лабораторни упражнения, семинари, курсови работи и проекти, разработени по време на обучението ми по специалност **Софтуерно и компютърно инженерство (СКИ)** в ТУ-Габрово.
+Добре дошли в моето GitHub хранилище! Тук съхранявам всички свои лабораторни упражнения, семинари, курсови работи, проекти и **лекционни материали**, разработени и събрани по време на обучението ми по специалност **Софтуерно и компютърно инженерство (СКИ)** в ТУ-Габрово.
 
 **Автор:** Богомил Георгиев Иванов  
 **Факултетен номер:** 22372126  
@@ -9,38 +9,68 @@
 
 ## 🗂️ Структура на хранилището
 
-Кликнете върху линковете по-долу, за да навигирате директно до проектите от съответния семестър и дисциплина:
+Кликнете върху линковете по-долу, за да навигирате директно до материалите (код или теория) от съответния семестър и дисциплина:
 
 ### 📚 Година 1 (Year 1)
 #### Семестър 1
-* 💻 [Увод в програмирането (Introduction to Programming)](./Year%201/Semester%201/Introduction%20to%20Programming)
-* 🧮 [Математика 1](./Year%201/Semester%201/Mathematics%201)
-* ⚛️ [Физика](./Year%201/Semester%201/Physics)
+* 💻 **Увод в програмирането (Introduction to Programming)**
+  * 📂 [Упражнения и Проекти](./Year%201/Semester%201/Introduction%20to%20Programming)
+  * 📖 [Лекции](./Year%201/Semester%201/Introduction%20to%20Programming/Lectures)
+* 🧮 **Математика 1**
+  * 📂 [Материали](./Year%201/Semester%201/Mathematics%201)
+* ⚛️ **Физика**
+  * 📂 [Материали](./Year%201/Semester%201/Physics)
 
 #### Семестър 2
-* ⚙️ [Обектно-ориентирано програмиране (Object Oriented Programming)](./Year%201/Semester%202/Object%20Oriented%20Programming) 
-* 🧮 [Математика 2](./Year%201/Semester%202/Mathematics%202)
-* 🔌 [Синтез и анализ на логически схеми (САЛС)](./Year%201/Semester%202/Synthesis%20and%20Analysis%20of%20Logic%20Schemes)
+* ⚙️ **Обектно-ориентирано програмиране (Object Oriented Programming)** * 📂 [Упражнения и Проекти](./Year%201/Semester%202/Object%20Oriented%20Programming)
+  * 📖 [Лекции](./Year%201/Semester%202/Object%20Oriented%20Programming/Lectures)
+* 🧮 **Математика 2**
+  * 📂 [Материали](./Year%201/Semester%202/Mathematics%202)
+* 🔌 **Синтез и анализ на логически схеми (САЛС)**
+  * 📂 [Упражнения](./Year%201/Semester%202/Synthesis%20and%20Analysis%20of%20Logic%20Schemes)
+  * 📖 [Лекции](./Year%201/Semester%202/Synthesis%20and%20Analysis%20of%20Logic%20Schemes/Lectures)
+
+---
 
 ### 📚 Година 2 (Year 2)
 #### Семестър 3
-* 🌐 [Уеб програмиране (Web Programming)](./Year%202/Semester%203/Web%20Programming) - *Java, JavaScript, jQuery, проекти (ChatRoom, CV site)*
-* 🗄️ [Бази данни (Data Bases)](./Year%202/Semester%203/Data%20Bases)
-* 🖥️ [Операционни системи (Operating Systems)](./Year%202/Semester%203/Operating%20Systems)
+* 🌐 **Уеб програмиране (Web Programming)** - *Java, JavaScript, jQuery, проекти*
+  * 📂 [Упражнения и Проекти](./Year%202/Semester%203/Web%20Programming)
+  * 📖 [Лекции](./Year%202/Semester%203/Web%20Programming/Lectures)
+* 🗄️ **Бази данни (Data Bases)**
+  * 📂 [Упражнения](./Year%202/Semester%203/Data%20Bases)
+  * 📖 [Лекции](./Year%202/Semester%203/Data%20Bases/Lectures)
+* 🖥️ **Операционни системи (Operating Systems)**
+  * 📂 [Упражнения](./Year%202/Semester%203/Operating%20Systems)
+  * 📖 [Лекции](./Year%202/Semester%203/Operating%20Systems/Lectures)
 
 #### Семестър 4
-* ⚛️ [Програмиране на програмни интерфейси](./Year%202/Semester%204/Programming%20of%20Programme%20Interfaces) - *React, Vite, Tailwind проекти*
-* 🧠 [Алгоритми и структури от данни](./Year%202/Semester%204/Algorithms%20and%20Structuring%20of%20Data)
-* ℹ️ [Информационни системи](./Year%202/Semester%204/Information%20Systems)
-* 🏗️ [Организация на компютъра](./Year%202/Semester%204/Organization%20of%20the%20Computer)
+* ⚛️ **Програмиране на програмни интерфейси** - *React, Vite, Tailwind*
+  * 📂 [Проекти](./Year%202/Semester%204/Programming%20of%20Programme%20Interfaces)
+  * 📖 [Лекции](./Year%202/Semester%204/Programming%20of%20Programme%20Interfaces/Lectures)
+* 🧠 **Алгоритми и структури от данни**
+  * 📂 [Упражнения и Код](./Year%202/Semester%204/Algorithms%20and%20Structuring%20of%20Data)
+  * 📖 [Лекции](./Year%202/Semester%204/Algorithms%20and%20Structuring%20of%20Data/Lectures)
+* ℹ️ **Информационни системи**
+  * 📂 [Материали](./Year%202/Semester%204/Information%20Systems)
+* 🏗️ **Организация на компютъра**
+  * 📂 [Материали](./Year%202/Semester%204/Organization%20of%20the%20Computer)
+
+---
 
 ### 📚 Година 3 (Year 3)
 #### Семестър 5
-* 📐 [Проектиране на софтуерни проекти](./Year%203/Semester%205/Design%20of%20Software%20Projects) - *C# архитектури (Animals, Calculator, Factory)*
-* 🍃 [Нерелационни бази данни](./Year%203/Semester%205/Non-relatable%20Data%20Bases) - *MongoDB / NoSQL лабораторни*
+* 📐 **Проектиране на софтуерни проекти** - *C# архитектури*
+  * 📂 [Проекти (Animals, Calculator, Factory) ](./Year%203/Semester%205/Design%20of%20Software%20Projects)
+  * 📖 [Лекции](./Year%203/Semester%205/Design%20of%20Software%20Projects/Lectures)
+* 🍃 **Нерелационни бази данни** - *MongoDB / NoSQL*
+  * 📂 [Лабораторни упражнения](./Year%203/Semester%205/Non-relatable%20Data%20Bases)
+  * 📖 [Лекции](./Year%203/Semester%205/Non-relatable%20Data%20Bases/Lectures)
 
 #### Семестър 6
-* 📱 [Програмиране на мобилни проекти](./Year%203/Semester%206/Programming%20Mobile%20Projects) - *Node.js, Express, MongoDB (Проект "Besenica")*
+* 📱 **Програмиране на мобилни проекти** - *Node.js, Express, MongoDB*
+  * 📂 [Проект "Besenica"](./Year%203/Semester%206/Programming%20Mobile%20Projects)
+  * 📖 [Лекции](./Year%203/Semester%206/Programming%20Mobile%20Projects/Lectures)
 
 ---
 *Това хранилище се обновява активно с напредването на обучението ми.*
