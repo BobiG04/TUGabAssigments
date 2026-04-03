@@ -3,13 +3,13 @@ let guessedLetters = [];
 let lives = 6;
 let isGameOver = false;
 
-const wordDisplay = document.getElementById("word-display");
-const livesDisplay = document.getElementById("lives-display");
-const guessInput = document.getElementById("guess-input");
-const guessBtn = document.getElementById("guess-btn");
+const wordDisplay = document.getElementById("wordDisplay"); // Беше "word-display"
+const guessInput = document.getElementById("guessInput"); // Беше "guess-input"
+const guessBtn = document.getElementById("guessBtn"); // Беше "guess-btn"
 const messageBox = document.getElementById("message");
 const restartBtn = document.getElementById("restart-btn");
 const categorySelect = document.getElementById("category-select");
+const usedLettersDisplay = document.getElementById("usedLettersDisplay");
 
 // Нови елементи
 const langSelect = document.getElementById("language-select");
@@ -45,6 +45,12 @@ async function initGame() {
     livesDisplay.innerText = lives;
     memeImage.src = memeUrls[6]; 
     wordDisplay.classList.remove("text-danger"); // ВРЪЩАМЕ ЦВЕТА НА ДУМАТА В НОРМАЛЕН
+    usedLettersDisplay.innerText = "";
+
+    winSound.pause();
+    winSound.currentTime = 0;
+    loseSound.pause();
+    loseSound.currentTime = 0;
 
     const lang = langSelect.value;
     const diff = diffSelect.value;
@@ -113,6 +119,7 @@ function handleGuess() {
         }
 
         guessedLetters.push(guess);
+        usedLettersDisplay.innerText = guessedLetters.join(", ");
 
         if (!currentWord.includes(guess)) {
             reduceLife(`Буквата "${guess}" не се съдържа в думата.`);

@@ -1,0 +1,38 @@
+/* Ограничаваме височината на картинката, за да има място за клавиатурата */
+#memeImage {
+    max-height: 30vh; /* Заема максимум 30% от наличния екран */
+    width: auto;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+/* Правим скролирането гладко, ако все пак се наложи при отворена клавиатура */
+body {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* --- Нови стилове, преместени от HTML --- */
+
+/* Ограничава ширината на основния контейнер на играта */
+.game-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Ограничава ширината на полето за въвеждане */
+.input-wrapper {
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+/* Настройки за картинката */
+#meme-image {
+    max-height: 250px;
+}
+
+/* Настройки за реда с използваните букви */
+#usedLettersDisplay {
+    min-height: 24px;
+    letter-spacing: 2px;
+}
