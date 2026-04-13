@@ -40,4 +40,7 @@ app.get('/api/users/:userId/feed', async (req, res) => {
   }
 });
 
+// В UserSchema (за бързо търсене на потребители)
+UserSchema.index({ username: 1 });
+
 module.exports = mongoose.model('User', UserSchema);

@@ -23,4 +23,7 @@ app.post('/api/posts', async (req, res) => {
   }
 });
 
+// В PostSchema (за бързо сортиране на фийда по време)
+PostSchema.index({ createdAt: -1 });
+
 module.exports = mongoose.model('Post', PostSchema);
