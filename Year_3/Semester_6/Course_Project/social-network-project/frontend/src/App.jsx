@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
-import Login from './pages/Login';
+import Login from './pages/LogIn';
 import Register from './pages/Register';
 import Messages from './pages/Messages'; // НОВО: Импортираме съобщенията
 
