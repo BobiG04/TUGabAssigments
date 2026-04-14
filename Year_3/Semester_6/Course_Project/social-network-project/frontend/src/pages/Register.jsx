@@ -8,9 +8,45 @@ function Register({ setCurrentPage }) {
     password: '',
     confirmPassword: ''
   });
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Новата функция за изпращане на данните
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+
+    if (formData.password !== formData.confirmPassword) {
+      setError('Паролите не съвпадат!');
+      return;
+    }
+
+    try {
+      const response = await fetch('http://localhost:5000/api/users/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          email: formData.email,
+          password: formData.password
+        })
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        alert('Регистрацията е успешна! Моля, влезте в профила си.');
+        setCurrentPage('login'); // Прехвърляме към страницата за вход
+      } else {
+        setError(data.error); // Показваме грешката от сървъра
+      }
+    } catch (err) {
+      setError('Грешка при връзка със сървъра.');
+    }
   };
 
   return (
@@ -18,13 +54,18 @@ function Register({ setCurrentPage }) {
       <div style={{ backgroundColor: 'white', padding: '40px', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', width: '350px' }}>
         <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Регистрация</h2>
         
-        <input name="firstName" placeholder="Име" onChange={handleChange} style={inputStyle} />
-        <input name="lastName" placeholder="Фамилия" onChange={handleChange} style={inputStyle} />
-        <input name="email" type="email" placeholder="Имейл" onChange={handleChange} style={inputStyle} />
-        <input name="password" type="password" placeholder="Парола" onChange={handleChange} style={inputStyle} />
-        <input name="confirmPassword" type="password" placeholder="Повтори паролата" onChange={handleChange} style={inputStyle} />
-        
-        <button style={buttonStyle}>Регистрирай се</button>
+        {/* Показваме грешките, ако има такива */}
+        {error && <div style={{ color: 'red', marginBottom: '10px', textAlign: 'center' }}>{error}</div>}
+
+        <form onSubmit={handleSubmit}>
+          <input name="firstName" placeholder="Име" required onChange={handleChange} style={inputStyle} />
+          <input name="lastName" placeholder="Фамилия" required onChange={handleChange} style={inputStyle} />
+          <input name="email" type="email" placeholder="Имейл" required onChange={handleChange} style={inputStyle} />
+          <input name="password" type="password" placeholder="Парола" required onChange={handleChange} style={inputStyle} />
+          <input name="confirmPassword" type="password" placeholder="Повтори паролата" required onChange={handleChange} style={inputStyle} />
+          
+          <button type="submit" style={buttonStyle}>Регистрирай се</button>
+        </form>
         
         <div style={{ textAlign: 'center', marginTop: '15px' }}>
           <a href="#" onClick={(e) => { e.preventDefault(); setCurrentPage('login'); }}>Вече имаш акаунт? Влез</a>

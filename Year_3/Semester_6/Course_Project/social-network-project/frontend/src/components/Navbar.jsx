@@ -1,79 +1,96 @@
-import React from 'react';
-// Импортираме конкретните икони, които ни трябват
-import { FiSearch, FiUser, FiMessageSquare, FiLogOut, FiHexagon } from 'react-icons/fi'; 
+import React, { useState } from 'react';
+import { FiSearch, FiMessageSquare, FiLogOut, FiHexagon } from 'react-icons/fi';
 
-// Леко обновен стил, за да центрираме иконите перфектно в кръгчетата
 const navButtonStyle = {
-  width: '36px',
-  height: '36px',
-  borderRadius: '50%',
-  backgroundColor: '#e4e6eb', // Малко по-приятно сиво (като във Facebook)
-  border: 'none',
-  marginLeft: '10px',
-  cursor: 'pointer',
-  display: 'inline-flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  fontSize: '18px', // Това контролира размера на иконата
-  color: '#050505',
+  width: '36px', height: '36px', borderRadius: '50%', backgroundColor: '#e4e6eb',
+  border: 'none', marginLeft: '10px', cursor: 'pointer', display: 'inline-flex',
+  justifyContent: 'center', alignItems: 'center', fontSize: '18px', color: '#050505',
   transition: 'background-color 0.2s'
 };
 
 function Navbar({ setCurrentPage }) {
+  // Състояние за показване/скриване на търсачката
+  const [showSearch, setShowSearch] = useState(false);
+  
+  // Вземаме името на логнатия потребител
+  const username = localStorage.getItem('username') || 'Гост';
+  const initial = username !== 'Гост' ? username[0].toUpperCase() : '?';
+
+  const handleLogout = () => {
+    localStorage.removeItem('userId');
+    localStorage.removeItem('username');
+    setCurrentPage('login');
+  };
+
   return (
     <nav style={{ 
-      display: 'flex', 
-      justifyContent: 'space-between', 
-      alignItems: 'center', 
-      padding: '10px 20px', 
-      backgroundColor: '#ffffff',
-      borderBottom: '1px solid #e0e0e0',
-      boxShadow: '0 1px 3px rgba(0,0,0,0.05)'
+      display: 'flex', justifyContent: 'space-between', alignItems: 'center', 
+      padding: '10px 20px', backgroundColor: '#ffffff', borderBottom: '1px solid #e0e0e0',
+      boxShadow: '0 1px 3px rgba(0,0,0,0.05)', position: 'relative'
     }}>
-      {/* Лого - сложихме примерна икона за лого */}
-      <button 
-        style={{ 
-          width: '40px', height: '40px', borderRadius: '50%', 
-          backgroundColor: '#0064e0', color: 'white', border: 'none', 
-          cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center',
-          fontSize: '22px'
-        }}
-        onClick={() => setCurrentPage('home')}
-        title="Начало"
-      >
-        <FiHexagon /> 
-      </button>
+      
+      {/* ЛЯВА ЧАСТ: Само логото */}
+      <div>
+        <button 
+          style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#0064e0', color: 'white', border: 'none', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '22px' }}
+          onClick={() => setCurrentPage('home')}
+          title="Начало"
+        >
+          <FiHexagon /> 
+        </button>
+      </div>
 
-      {/* Десни бутони с икони */}
+      {/* ДЯСНА ЧАСТ: Търсачка, Профил, Съобщения, Изход */}
       <div style={{ display: 'flex', alignItems: 'center' }}>
-        <button style={navButtonStyle} onClick={() => alert('Търсене')} title="Търсене">
-          <FiSearch />
-        </button>
         
-        <button style={navButtonStyle} onClick={() => setCurrentPage('profile')} title="Профил">
-          <FiUser />
-        </button>
+        {/* 1. Група Търсене (Поле + Бутон) */}
+        <div style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
+          {showSearch && (
+            <input 
+              type="text" 
+              placeholder="Търсене..." 
+              autoFocus
+              style={{ padding: '8px 15px', borderRadius: '20px', border: '1px solid #ccc', outline: 'none', width: '200px', backgroundColor: '#f0f2f5', marginRight: '5px' }}
+            />
+          )}
+          <button 
+            style={{...navButtonStyle, marginLeft: 0}} 
+            onClick={() => setShowSearch(!showSearch)} 
+            title="Търсене"
+          >
+            <FiSearch />
+          </button>
+        </div>
+
+        {/* 2. Бутон Профил (Аватар + Име) */}
+        {/* Превърнахме индикатора в кликаем бутон, който води към страницата на профила */}
+        <div 
+          onClick={() => setCurrentPage('profile')}
+          style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', padding: '5px 10px', borderRadius: '20px', transition: 'background-color 0.2s', marginRight: '5px' }}
+          onMouseOver={(e) => e.currentTarget.style.backgroundColor = '#f0f2f5'}
+          onMouseOut={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
+          title="Към профила"
+        >
+          <div style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: '#0064e0', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '14px', fontWeight: 'bold', marginRight: '8px' }}>
+            {initial}
+          </div>
+          <span style={{ fontWeight: '600', fontSize: '14px', color: '#333' }}>{username}</span>
+        </div>
         
-        <button style={navButtonStyle} onClick={() => alert('Съобщения')} title="Съобщения">
+        {/* 3. Съобщения */}
+        <button style={navButtonStyle} onClick={() => setCurrentPage('messages')} title="Съобщения">
           <FiMessageSquare />
         </button>
         
-        {/* Бутон за изход (с текст и икона) */}
+        {/* 4. Изход */}
         <button 
-          style={{
-            ...navButtonStyle, 
-            backgroundColor: 'transparent', 
-            width: 'auto', 
-            marginLeft: '15px',
-            gap: '8px', // Разстояние между иконата и текста
-            padding: '0 10px',
-            borderRadius: '6px'
-          }} 
-          onClick={() => setCurrentPage('login')}
+          style={{ ...navButtonStyle, backgroundColor: 'transparent', width: 'auto', gap: '5px', padding: '0 5px' }} 
+          onClick={handleLogout}
         >
           <FiLogOut />
-          <span style={{ fontSize: '15px', fontWeight: '500' }}>Изход</span>
+          <span style={{ fontSize: '14px', fontWeight: '500' }}>Изход</span>
         </button>
+
       </div>
     </nav>
   );

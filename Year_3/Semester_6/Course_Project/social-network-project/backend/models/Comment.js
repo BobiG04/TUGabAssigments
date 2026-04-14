@@ -8,22 +8,4 @@ const CommentSchema = new mongoose.Schema({
   author: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true }
 }, { timestamps: true });
 
-// Добавяне на коментар към публикация
-app.post('/api/comments', async (req, res) => {
-  try {
-    const { text, postId, userId } = req.body;
-
-    const newComment = new Comment({
-      text,
-      post: postId,
-      author: userId
-    });
-
-    const savedComment = await newComment.save();
-    res.status(201).json(savedComment);
-  } catch (error) {
-    res.status(500).json({ error: 'Грешка при добавяне на коментар' });
-  }
-});
-
 module.exports = mongoose.model('Comment', CommentSchema);
