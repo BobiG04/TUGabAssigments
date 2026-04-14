@@ -22,7 +22,8 @@
 
 #### Семестър 2
 
-* ⚙️ **Обектно-ориентирано програмиране (OOP)** * 📂 [Упражнения и Проекти](./Year_1/Semester_2/Object_Oriented_Programming)
+* ⚙️ **Обектно-ориентирано програмиране (OOP)**
+  * 📂 [Упражнения и Проекти](./Year_1/Semester_2/Object_Oriented_Programming)
 * 🖥️ **Компютърна графика**
   * 📂 [Материали](./Year_1/Semester_2/Computer_Graphics)
 * 📖 [Общ архив с лекции (Семестър 2)](./Year_1/Semester_2/Lectures)
