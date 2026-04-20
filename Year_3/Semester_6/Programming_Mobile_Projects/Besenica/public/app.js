@@ -11,6 +11,8 @@ const restartBtn = document.getElementById("restart-btn");
 const categorySelect = document.getElementById("category-select");
 const usedLettersDisplay = document.getElementById("usedLettersDisplay");
 
+const livesDisplay = document.getElementById("lives-display");
+
 // Нови елементи
 const langSelect = document.getElementById("language-select");
 const diffSelect = document.getElementById("difficulty-select");
@@ -22,29 +24,36 @@ const wrongSound = new Audio('audio/wrong.mp3');
 const winSound = new Audio('audio/win.mp3');
 const loseSound = new Audio('audio/lose.mp3');
 
-// Масив с Meme снимки (замести тези линкове с реални забавни снимки или локални пътища)
+// Масив с Meme снимки
 const memeUrls = [
-    "./images/0.jpg", // 0 животи
-    "./images/1.jpg", // 1 живот
-    "./images/2.jpg", // 2 животи
-    "./images/3.jpg", // 3 животи
-    "./images/4.jpg", // 4 животи
-    "./images/5.jpg", // 5 животи
-    "./images/6.jpg"  // 6 животи
+    "images/0.jpg", // 0 животи
+    "images/1.jpg", // 1 живот
+    "images/2.jpg", // 2 животи
+    "images/3.jpg", // 3 животи
+    "images/4.jpg", // 4 животи
+    "images/5.jpg", // 5 животи
+    "images/6.jpg"  // 6 животи
 ];
 
 async function initGame() {
     isGameOver = false;
     lives = 6;
     guessedLetters = [];
+    currentWord = ""; // Изчистваме старата дума веднага
+    
     guessInput.value = "";
-    guessInput.disabled = false;
-    guessBtn.disabled = false;
+    // ЗАКЛЮЧВАМЕ полето и бутона, докато сървърът не върне дума
+    guessInput.disabled = true; 
+    guessBtn.disabled = true; 
+    
     messageBox.className = "alert d-none";
     restartBtn.classList.add("d-none");
     livesDisplay.innerText = lives;
     memeImage.src = memeUrls[6]; 
-    wordDisplay.classList.remove("text-danger"); // ВРЪЩАМЕ ЦВЕТА НА ДУМАТА В НОРМАЛЕН
+    
+    wordDisplay.classList.remove("text-danger"); 
+    // Показваме, че се зарежда
+    wordDisplay.innerText = "ЗАРЕЖДАНЕ..."; 
     usedLettersDisplay.innerText = "";
 
     winSound.pause();
@@ -54,26 +63,31 @@ async function initGame() {
 
     const lang = langSelect.value;
     const diff = diffSelect.value;
-    const category = categorySelect.value; // Взимаме категорията
+    const category = categorySelect.value; 
 
     const backendUrl = "https://hangman-api-anmd.onrender.com";
 
     try {
-        // Изпращаме заявка с параметри
         const response = await fetch(`${backendUrl}/api/word?lang=${lang}&diff=${diff}&category=${category}`);
         const data = await response.json();
         
         if (response.ok) {
             currentWord = data.word;
+            
+            // ОТКЛЮЧВАМЕ полето, защото думата е пристигнала успешно
+            guessInput.disabled = false; 
+            guessBtn.disabled = false; 
+            
             updateWordDisplay();
         } else {
+            wordDisplay.innerText = "ГРЕШКА";
             showMessage(data.error, "danger");
         }
     } catch (err) {
-        showMessage("Грешка при зареждане на думата.", "danger");
+        wordDisplay.innerText = "ГРЕШКА";
+        showMessage("Грешка при връзката със сървъра.", "danger");
     }
 }
-
 // Функцията updateWordDisplay остава същата като преди
 function updateWordDisplay() {
     let display = "";
@@ -81,14 +95,15 @@ function updateWordDisplay() {
 
     for (let char of currentWord) {
         if (guessedLetters.includes(char)) {
-            display += char;
+            display += char + " "; // Добавяме интервал за красота
         } else {
-            display += "_";
+            display += "_ "; // Добавяме интервал между чертите
             isWordGuessed = false;
         }
     }
 
-    wordDisplay.innerText = display;
+    // .trim() премахва излишния интервал най-накрая
+    wordDisplay.innerText = display.trim();
 
     if (isWordGuessed && currentWord.length > 0) {
         endGame(true);
@@ -150,6 +165,7 @@ function reduceLife(msg) {
 }
 
 function endGame(isWin) {
+    // Вътре в endGame(isWin) при победа:
     isGameOver = true;
     guessInput.disabled = true;
     guessBtn.disabled = true;

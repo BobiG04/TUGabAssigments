@@ -23,8 +23,8 @@
 
     <div class="container mt-5 text-center">
         <div class="d-flex justify-content-end mb-3 game-wrapper">
-    <button id="theme-toggle" class="btn btn-dark">🌙 Dark Mode</button>
-</div>
+            <button id="theme-toggle" class="btn btn-dark">🌙 Dark Mode</button>
+        </div>
 
         <div class="card shadow p-4 mx-auto game-wrapper">
             <h1 class="mb-4">Бесеница</h1>
@@ -56,8 +56,7 @@
             </div>
 
             <div class="mb-4">
-                <img id="meme-image" src="https://placehold.co/300x200/0099ff/ffffff?text=Спокоен+старт...+6+Живота"
-    alt="Meme" class="img-fluid rounded shadow">
+                <img id="meme-image" src="images/6.jpg" alt="Meme" class="img-fluid rounded shadow">
             </div>
 
             <div class="text-center my-3">
@@ -74,10 +73,11 @@
             <h4 class="mb-4">Останали животи: <span id="lives-display" class="text-danger fw-bold">6</span></h4>
 
             <div class="input-group mb-3 justify-content-center input-wrapper">
-    <input type="text" id="guessInput" class="form-control text-center fw-bold" maxlength="1"
-        placeholder="Буква" autocomplete="off" title="Въвеждане на буква" aria-label="Въвеждане на буква">
-    <button id="guessBtn" class="btn btn-primary">Провери</button>
-</div>
+                <input type="text" id="guessInput" class="form-control text-center fw-bold" maxlength="20"
+                    placeholder="Буква или дума" autocomplete="off" title="Въвеждане на буква или дума"
+                    aria-label="Въвеждане на буква или дума">
+                <button id="guessBtn" class="btn btn-primary">Провери</button>
+            </div>
 
             <div id="message" class="alert d-none" role="alert"></div>
 
