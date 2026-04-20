@@ -15,7 +15,8 @@ Follow these instructions to get the project up and running on your local machin
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/TUGabAssigments/tree/master/Year_3/Semester_6/Programming_Mobile_Projects/GPS_Locator.git
+   git clone https://github.com/BobiG04/TUGabAssigments.git
+   cd TUGabAssigments/Year_3/Semester_6/Programming_Mobile_Projects/GPS_Locator
    ```
 2. Install dependencies:
    ```bash
