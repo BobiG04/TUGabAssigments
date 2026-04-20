@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <title>GPS & Sensor App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="tab-map" class="tab-content active-tab">
+        <div class="card">
+            <h2><i class="fas fa-satellite-dish"></i> <span data-i18n="gps_title">GPS Данни</span></h2>
+            <p><span class="label" data-i18n="coords">Координати:</span> <span id="coords" data-i18n="searching">Търсене...</span></p>
+            <p><span class="label" data-i18n="alt">Височина:</span> <span id="alt">...</span> м</p>
+            <p><span class="label" data-i18n="speed">Скорост:</span> <span id="speed">...</span> м/с</p>
+        </div>
+        <div class="card">
+            <h2><i class="fas fa-map-marked-alt"></i> <span data-i18n="loc_title">Локация</span></h2>
+            <p id="address" data-i18n="waiting">Очакване на данни...</p>
+            <img id="map" src="" alt="Google Map">
+        </div>
+    </div>
+
+    <div id="tab-accel" class="tab-content">
+        <div class="card">
+            <h2><i class="fas fa-mobile-alt"></i> <span data-i18n="accel_title">Данни от акселерометъра</span></h2>
+            <p><span class="label" data-i18n="orientation">Ориентация:</span> <br><span id="orientation" class="highlight" data-i18n="unknown">Неизвестна</span></p>
+            <hr>
+            <p><span class="label" data-i18n="acc_x">Ускорение X:</span> <span id="acc-x">0</span></p>
+            <p><span class="label" data-i18n="acc_y">Ускорение Y:</span> <span id="acc-y">0</span></p>
+            <p><span class="label" data-i18n="acc_z">Ускорение Z (Гравитация):</span> <span id="acc-z">0</span></p>
+        </div>
+    </div>
+
+    <div id="tab-gyro" class="tab-content">
+        <div class="card">
+            <h2><i class="far fa-compass"></i> <span data-i18n="compass_title">Компас</span></h2>
+            
+            <div class="compass-container">
+                <div class="compass-ring" id="compass-ring">
+                    <div class="compass-north">N</div>
+                    <div class="compass-east">E</div>
+                    <div class="compass-south">S</div>
+                    <div class="compass-west">W</div>
+                    <i class="fas fa-caret-up compass-arrow" id="compass-arrow"></i>
+                </div>
+            </div>
+
+            <p class="text-center"><span class="label" data-i18n="direction">Посока:</span> <span id="compass" class="highlight" data-i18n="searching">Търсене...</span>&deg;</p>
+            <p class="hint text-center" data-i18n="compass_hint">Завърти телефона около оста му.</p>
+        </div>
+    </div>
+
+    <div id="tab-settings" class="tab-content">
+        <div class="card">
+            <h2><i class="fas fa-cog"></i> <span data-i18n="settings_title">Настройки</span></h2>
+            
+            <div class="setting-item">
+                <span class="label" data-i18n="dark_mode">Тъмен режим</span>
+                <label class="switch">
+                    <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <hr>
+            <div class="setting-item">
+                <span class="label" data-i18n="app_lang">Език на приложението</span>
+                <select id="languageSelect" onchange="changeLanguage()" class="select-css">
+                    <option value="bg">Български</option>
+                    <option value="en">English</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <button class="tab-btn active" onclick="openTab(event, 'tab-map')">
+            <i class="fas fa-map-marker-alt"></i><span data-i18n="tab_map">Карта</span>
+        </button>
+        <button class="tab-btn" onclick="openTab(event, 'tab-accel')">
+            <i class="fas fa-arrows-alt"></i><span data-i18n="tab_sensor">Сензор</span>
+        </button>
+        <button class="tab-btn" onclick="openTab(event, 'tab-gyro')">
+            <i class="fas fa-compass"></i><span data-i18n="tab_compass">Компас</span>
+        </button>
+        <button class="tab-btn" onclick="openTab(event, 'tab-settings')">
+            <i class="fas fa-cog"></i><span data-i18n="tab_settings">Настройки</span>
+        </button>
+    </div>
+
+    <script src="cordova.js"></script>
+    <script src="./components/app.js"></script>
+</body>
+</html>

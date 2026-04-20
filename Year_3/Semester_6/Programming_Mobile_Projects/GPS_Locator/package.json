@@ -1,0 +1,12 @@
+{
+  "name": "gps-locator",
+  "version": "1.0.0",
+  "main": "components/server.js",
+  "dependencies": {
+    "dotenv": "^16.6.1",
+    "express": "^4.22.1"
+  },
+  "scripts": {
+    "start": "node components/server.js"
+  }
+}
