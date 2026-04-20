@@ -4,7 +4,6 @@ const UserSchema = new mongoose.Schema({
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  // Пазим приятелите като масив от референции към други потребители
   friends: [{ type: mongoose.Schema.Types.ObjectId, ref: 'User' }] 
 }, { timestamps: true });
 

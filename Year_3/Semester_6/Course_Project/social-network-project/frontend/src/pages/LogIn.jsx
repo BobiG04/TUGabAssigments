@@ -21,7 +21,6 @@ function Login({ setCurrentPage }) {
     const data = await response.json();
 
     if (response.ok) {
-      // Записваме данните в localStorage
       localStorage.setItem('userId', data.userId);
       localStorage.setItem('username', data.username);
       setCurrentPage('home');

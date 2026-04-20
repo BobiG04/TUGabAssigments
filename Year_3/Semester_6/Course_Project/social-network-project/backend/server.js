@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const bcrypt = require('bcryptjs'); // Добавяме bcrypt за паролите
+const bcrypt = require('bcryptjs');
 require('dotenv').config();
 
 const User = require('./models/User');
@@ -18,24 +18,20 @@ mongoose.connect(process.env.MONGO_URI)
 
 // --- РОУТОВЕ ЗА ПОТРЕБИТЕЛИ ---
 
-// Регистрация
 app.post('/api/users/register', async (req, res) => {
   try {
     const { firstName, lastName, email, password } = req.body;
 
-    // 1. Проверяваме дали потребителят вече съществува
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ error: 'Потребител с този имейл вече съществува!' });
     }
 
-    // 2. Криптираме паролата
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    // 3. Създаваме нов потребител
     const newUser = new User({
-      username: `${firstName} ${lastName}`, // Комбинираме за username
+      username: `${firstName} ${lastName}`,
       email,
       password: hashedPassword
     });
@@ -52,13 +48,11 @@ app.post('/api/users/login', async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // 1. Търсим потребителя по имейл
     const user = await User.findOne({ email });
     if (!user) {
       return res.status(400).json({ error: 'Грешен имейл или парола!' });
     }
 
-    // 2. Сравняваме въведената парола с криптираната в базата
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
       return res.status(400).json({ error: 'Грешен имейл или парола!' });
@@ -71,10 +65,8 @@ app.post('/api/users/login', async (req, res) => {
 });
 
 // --- РОУТОВЕ ЗА ПУБЛИКАЦИИ ---
-// Взимане на всички постове
 app.get('/api/posts', async (req, res) => {
   try {
-    // .populate('author', 'username') казва: "Намери потребителя с това ID и ми дай само неговия username"
     const posts = await Post.find()
       .populate('author', 'username') 
       .sort({ createdAt: -1 });
@@ -84,7 +76,6 @@ app.get('/api/posts', async (req, res) => {
   }
 });
 
-// Създаване на нов пост
 app.post('/api/posts', async (req, res) => {
   try {
     const { content, author } = req.body;
@@ -100,10 +91,9 @@ app.get('/', (req, res) => {
   res.send('Бекенд API-то за социалната мрежа работи успешно!');
 });
 
-// Извличане на данни за конкретен потребител (за Профил)
 app.get('/api/users/:id', async (req, res) => {
   try {
-    const user = await User.findById(req.params.id).select('-password'); // Връщаме всичко без паролата
+    const user = await User.findById(req.params.id).select('-password');
     res.json(user);
   } catch (error) {
     res.status(500).json({ error: 'Потребителят не е намерен' });
@@ -113,8 +103,8 @@ app.get('/api/users/:id', async (req, res) => {
 app.get('/api/posts/:postId/comments', async (req, res) => {
   try {
     const comments = await Comment.find({ post: req.params.postId })
-      .populate('author', 'username') // Искаме да видим името на коментатора
-      .sort({ createdAt: 1 }); // Сортираме от най-стария към най-новия
+      .populate('author', 'username')
+      .sort({ createdAt: 1 });
     res.json(comments);
   } catch (error) {
     res.status(500).json({ error: 'Грешка при зареждане на коментарите' });

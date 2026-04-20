@@ -3,7 +3,7 @@ import Home from './pages/Home';
 import Profile from './pages/Profile';
 import Login from './pages/LogIn';
 import Register from './pages/Register';
-import Messages from './pages/Messages'; // НОВО: Импортираме съобщенията
+import Messages from './pages/Messages';
 
 function App() {
   const [currentPage, setCurrentPage] = useState('login');
@@ -14,7 +14,7 @@ function App() {
       case 'profile': return <Profile setCurrentPage={setCurrentPage} />;
       case 'login': return <Login setCurrentPage={setCurrentPage} />;
       case 'register': return <Register setCurrentPage={setCurrentPage} />;
-      case 'messages': return <Messages setCurrentPage={setCurrentPage} />; // НОВО
+      case 'messages': return <Messages setCurrentPage={setCurrentPage} />;
       default: return <Login setCurrentPage={setCurrentPage} />;
     }
   };

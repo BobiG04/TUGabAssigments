@@ -6,11 +6,8 @@ function Home({ setCurrentPage }) {
   const [posts, setPosts] = useState([]);
   const [newPostContent, setNewPostContent] = useState('');
 
-  // ВАЖНО: Тук сложи едно реално ID на потребител от твоята база в MongoDB Atlas!
-  // Влез в Atlas -> Browse Collections -> Users -> копирай някое ObjectId
   const userId = localStorage.getItem('userId'); 
 
-  // Зареждане на публикациите от базата
   const fetchPosts = async () => {
     try {
       const response = await fetch('http://localhost:5000/api/posts');
@@ -23,15 +20,12 @@ function Home({ setCurrentPage }) {
     }
   };
 
-  // Извикваме зареждането при отваряне на страницата
   useEffect(() => {
     fetchPosts();
   }, []);
 
-  // Изпращане на нов пост към базата
   const handlePublish = async () => {
-  const currentUserId = localStorage.getItem('userId'); // Вземаме ID-то на логнатия потребител
-
+  const currentUserId = localStorage.getItem('userId'); 
   if (!newPostContent.trim() || !currentUserId) {
     alert("Трябва да сте влезли в профила си, за да публикувате!");
     return;
@@ -43,7 +37,7 @@ function Home({ setCurrentPage }) {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         content: newPostContent,
-        author: currentUserId // Вече използваме реалното ID
+        author: currentUserId
       })
     });
 
@@ -61,7 +55,6 @@ function Home({ setCurrentPage }) {
       <Navbar setCurrentPage={setCurrentPage} />
       <div style={{ maxWidth: '600px', margin: '20px auto', padding: '0 15px' }}>
         
-        {/* Форма за писане на нов пост */}
         <div style={{ backgroundColor: '#fff', padding: '15px', borderRadius: '8px', border: '1px solid #ccc', marginBottom: '20px' }}>
           <textarea 
             value={newPostContent}
@@ -79,7 +72,6 @@ function Home({ setCurrentPage }) {
           </div>
         </div>
 
-        {/* Списък с реални публикации */}
         {posts.length === 0 ? (
           <p style={{ textAlign: 'center', color: '#888' }}>Все още няма публикации. Напиши първата!</p>
         ) : (

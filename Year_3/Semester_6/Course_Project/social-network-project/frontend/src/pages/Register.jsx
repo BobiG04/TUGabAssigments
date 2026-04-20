@@ -14,7 +14,6 @@ function Register({ setCurrentPage }) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Новата функция за изпращане на данните
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -40,9 +39,9 @@ function Register({ setCurrentPage }) {
 
       if (response.ok) {
         alert('Регистрацията е успешна! Моля, влезте в профила си.');
-        setCurrentPage('login'); // Прехвърляме към страницата за вход
+        setCurrentPage('login');
       } else {
-        setError(data.error); // Показваме грешката от сървъра
+        setError(data.error);
       }
     } catch (err) {
       setError('Грешка при връзка със сървъра.');
@@ -54,7 +53,6 @@ function Register({ setCurrentPage }) {
       <div style={{ backgroundColor: 'white', padding: '40px', borderRadius: '8px', boxShadow: '0 2px 4px rgba(0,0,0,0.1)', width: '350px' }}>
         <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Регистрация</h2>
         
-        {/* Показваме грешките, ако има такива */}
         {error && <div style={{ color: 'red', marginBottom: '10px', textAlign: 'center' }}>{error}</div>}
 
         <form onSubmit={handleSubmit}>

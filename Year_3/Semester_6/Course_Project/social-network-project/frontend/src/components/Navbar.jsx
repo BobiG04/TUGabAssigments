@@ -9,10 +9,8 @@ const navButtonStyle = {
 };
 
 function Navbar({ setCurrentPage }) {
-  // Състояние за показване/скриване на търсачката
   const [showSearch, setShowSearch] = useState(false);
   
-  // Вземаме името на логнатия потребител
   const username = localStorage.getItem('username') || 'Гост';
   const initial = username !== 'Гост' ? username[0].toUpperCase() : '?';
 
@@ -29,7 +27,6 @@ function Navbar({ setCurrentPage }) {
       boxShadow: '0 1px 3px rgba(0,0,0,0.05)', position: 'relative'
     }}>
       
-      {/* ЛЯВА ЧАСТ: Само логото */}
       <div>
         <button 
           style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: '#0064e0', color: 'white', border: 'none', cursor: 'pointer', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '22px' }}
@@ -40,10 +37,8 @@ function Navbar({ setCurrentPage }) {
         </button>
       </div>
 
-      {/* ДЯСНА ЧАСТ: Търсачка, Профил, Съобщения, Изход */}
       <div style={{ display: 'flex', alignItems: 'center' }}>
         
-        {/* 1. Група Търсене (Поле + Бутон) */}
         <div style={{ display: 'flex', alignItems: 'center', marginRight: '15px' }}>
           {showSearch && (
             <input 
@@ -62,8 +57,6 @@ function Navbar({ setCurrentPage }) {
           </button>
         </div>
 
-        {/* 2. Бутон Профил (Аватар + Име) */}
-        {/* Превърнахме индикатора в кликаем бутон, който води към страницата на профила */}
         <div 
           onClick={() => setCurrentPage('profile')}
           style={{ display: 'flex', alignItems: 'center', cursor: 'pointer', padding: '5px 10px', borderRadius: '20px', transition: 'background-color 0.2s', marginRight: '5px' }}
@@ -77,12 +70,10 @@ function Navbar({ setCurrentPage }) {
           <span style={{ fontWeight: '600', fontSize: '14px', color: '#333' }}>{username}</span>
         </div>
         
-        {/* 3. Съобщения */}
         <button style={navButtonStyle} onClick={() => setCurrentPage('messages')} title="Съобщения">
           <FiMessageSquare />
         </button>
         
-        {/* 4. Изход */}
         <button 
           style={{ ...navButtonStyle, backgroundColor: 'transparent', width: 'auto', gap: '5px', padding: '0 5px' }} 
           onClick={handleLogout}

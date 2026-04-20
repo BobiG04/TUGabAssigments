@@ -6,7 +6,6 @@ function PostCard({ post }) {
   const [comments, setComments] = useState([]);
   const [newCommentText, setNewCommentText] = useState('');
   
-  // НОВО: Състояние за бутона "Харесва ми"
   const [isLiked, setIsLiked] = useState(false);
 
   if (!post) return null;
@@ -41,7 +40,6 @@ function PostCard({ post }) {
 
   return (
     <div style={{ border: '1px solid #ccc', borderRadius: '8px', padding: '15px', marginBottom: '20px', backgroundColor: '#fff', boxShadow: '0 1px 2px rgba(0,0,0,0.1)' }}>
-      {/* Хедър */}
       <div style={{ display: 'flex', alignItems: 'center', marginBottom: '12px' }}>
         <div style={{ width: '35px', height: '35px', borderRadius: '50%', backgroundColor: '#0064e0', color: 'white', display: 'flex', justifyContent: 'center', alignItems: 'center', marginRight: '10px', fontWeight: 'bold' }}>
           {post.author?.username?.[0] || '?'}
@@ -52,15 +50,12 @@ function PostCard({ post }) {
         </div>
       </div>
 
-      {/* Съдържание */}
       <div style={{ fontSize: '15px', marginBottom: '15px', lineHeight: '1.4' }}>
         {post.content}
       </div>
 
-      {/* Интерактивни бутони */}
       <div style={{ display: 'flex', borderTop: '1px solid #eee', paddingTop: '10px', gap: '20px' }}>
         
-        {/* НОВО: Динамичен бутон за харесване */}
         <button 
           style={{ ...actionButtonStyle, color: isLiked ? '#e0245e' : '#65676b' }} 
           onClick={() => setIsLiked(!isLiked)}
@@ -77,7 +72,6 @@ function PostCard({ post }) {
         </button>
       </div>
 
-      {/* Секция за коментари */}
       {showComments && (
         <div style={{ marginTop: '15px', paddingTop: '15px', borderTop: '1px solid #eee' }}>
           {comments.map(c => (
