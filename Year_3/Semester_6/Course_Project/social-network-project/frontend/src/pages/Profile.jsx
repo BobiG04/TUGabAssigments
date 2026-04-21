@@ -11,12 +11,12 @@ function Profile({ setCurrentPage }) {
   useEffect(() => {
     
     const fetchUser = async () => {
-      const response = await fetch(`http://localhost:5000/api/users/${userId}`);
+      const response = await fetch(`http://localhost:3000/api/users/${userId}`);
       if (response.ok) setUser(await response.json());
     };
 
     const fetchUserPosts = async () => {
-      const response = await fetch('http://localhost:5000/api/posts');
+      const response = await fetch('http://localhost:3000/api/posts');
       if (response.ok) {
         const allPosts = await response.json();
         const myPosts = allPosts.filter(post => post.author && post.author._id === userId);

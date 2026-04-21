@@ -18,7 +18,7 @@ function PostCard({ post }) {
 
   const fetchComments = async () => {
     try {
-      const res = await fetch(`http://localhost:5000/api/posts/${post._id}/comments`);
+      const res = await fetch(`http://localhost:3000/api/posts/${post._id}/comments`);
       if (res.ok) setComments(await res.json());
     } catch (err) { console.error(err); }
   };
@@ -26,7 +26,7 @@ function PostCard({ post }) {
   const handleAddComment = async () => {
     if (!newCommentText.trim() || !currentUserId) return;
     try {
-      const res = await fetch('http://localhost:5000/api/comments', {
+      const res = await fetch(`http://localhost:3000/api/posts/${post._id}/comments`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: newCommentText, postId: post._id, userId: currentUserId })
@@ -57,7 +57,7 @@ function PostCard({ post }) {
       <div style={{ display: 'flex', borderTop: '1px solid #eee', paddingTop: '10px', gap: '20px' }}>
         
         <button 
-          style={{ ...actionButtonStyle, color: isLiked ? '#e0245e' : '#65676b' }} 
+          style={{ ...actionButtonStyle, color: isLiked ? '#e0245e' : 'gray' }}
           onClick={() => setIsLiked(!isLiked)}
         >
           <FiHeart fill={isLiked ? '#e0245e' : 'transparent'} /> 
