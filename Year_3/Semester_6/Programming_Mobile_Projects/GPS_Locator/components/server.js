@@ -1,20 +1,22 @@
 const express = require('express');
 const path = require('path');
-require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Обслужване на статичните файлове (index.html) от главната папка
-app.use(express.static(path.join(__dirname, '../')));
+// Указваме пътя към родителската директория (там, където са index.html, app.js и т.н.)
+const publicDirectoryPath = path.join(__dirname, '..');
 
-// Ендпоинт, от който клиентът ще си взима ключа
-app.get('/api-config', (req, res) => {
-    res.json({
-        apiKey: process.env.GOOGLE_MAPS_API_KEY
-    });
+// Казваме на Express да обслужва статичните файлове от горната папка
+app.use(express.static(publicDirectoryPath));
+
+// При заявка към основния URL (/) връщаме index.html от горната папка
+app.get('/', (req, res) => {
+    res.sendFile(path.join(publicDirectoryPath, 'index.html'));
 });
 
 app.listen(PORT, () => {
-    console.log(`Сървърът работи на: http://localhost:${PORT}`);
+    console.log(`🚀 Сървърът е стартиран успешно от папка components!`);
+    console.log(`📍 Отвори: http://localhost:${PORT}`);
+    console.log(`Натисни Ctrl + C, за да го спреш.`);
 });

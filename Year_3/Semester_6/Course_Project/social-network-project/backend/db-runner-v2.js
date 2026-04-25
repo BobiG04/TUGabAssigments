@@ -124,6 +124,18 @@ app.get("/api/users/:userId", async (req, res) => {
     }
 });
 
+// Рут за извличане на потребителите
+app.get("/api/users", async (req, res) => {
+    try {
+        // Извличаме всички потребители от базата данни, като изключваме паролите
+        const users = await User.find().select("-password");
+        // Връщаме извлечените потребители като JSON отговор
+        res.json(users);
+    } catch (error) {
+        res.status(500).json({ error: "Грешка при извличане на потребителите!" });
+    }
+});
+
 // Рут за създаване на публикация
 app.post("/api/posts", async (req, res) => {
     try {

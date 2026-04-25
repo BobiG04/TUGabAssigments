@@ -1,96 +1,181 @@
-<!DOCTYPE HTML>
-<html>
+<!doctype html>
+<html lang="bg">
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-    <title>GPS & Sensor App</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap: content: https://ssl.gstatic.com; img-src * 'self' data: https:; style-src * 'self' 'unsafe-inline';" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Навигатор</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/framework7@8.3.0/framework7-bundle.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/framework7-icons/css/framework7-icons.css" />
+    <link rel="stylesheet" href="./css/style.css" />
 </head>
+
 <body>
+    <div id="app">
+        <div class="view view-main">
+            <div class="page page-with-toolbar">
+                <div class="navbar">
+                    <div class="navbar-bg"></div>
+                    <div class="navbar-inner">
+                        <div class="title" id="nav-title">Компас</div>
+                    </div>
+                </div>
 
-    <div id="tab-map" class="tab-content active-tab">
-        <div class="card">
-            <h2><i class="fas fa-satellite-dish"></i> <span data-i18n="gps_title">GPS Данни</span></h2>
-            <p><span class="label" data-i18n="coords">Координати:</span> <span id="coords" data-i18n="searching">Търсене...</span></p>
-            <p><span class="label" data-i18n="alt">Височина:</span> <span id="alt">...</span> м</p>
-            <p><span class="label" data-i18n="speed">Скорост:</span> <span id="speed">...</span> м/с</p>
-        </div>
-        <div class="card">
-            <h2><i class="fas fa-map-marked-alt"></i> <span data-i18n="loc_title">Локация</span></h2>
-            <p id="address" data-i18n="waiting">Очакване на данни...</p>
-            <img id="map" src="" alt="Google Map">
-        </div>
-    </div>
+                <div class="toolbar toolbar-bottom tabbar-labels">
+                    <div class="toolbar-inner">
+                        <a href="#tab-compass" class="tab-link tab-link-active">
+                            <i class="icon f7-icons">compass</i>
+                            <span class="tabbar-label">Компас</span>
+                        </a>
+                        <a href="#tab-sensors" class="tab-link">
+                            <i class="icon f7-icons">radiowaves_right</i>
+                            <span class="tabbar-label">Сензори</span>
+                        </a>
+                        <a href="#tab-map" class="tab-link">
+                            <i class="icon f7-icons">map</i>
+                            <span class="tabbar-label">Карта</span>
+                        </a>
+                        <a href="#tab-settings" class="tab-link">
+                            <i class="icon f7-icons">gear_alt</i>
+                            <span class="tabbar-label">Настройки</span>
+                        </a>
+                    </div>
+                </div>
 
-    <div id="tab-accel" class="tab-content">
-        <div class="card">
-            <h2><i class="fas fa-mobile-alt"></i> <span data-i18n="accel_title">Данни от акселерометъра</span></h2>
-            <p><span class="label" data-i18n="orientation">Ориентация:</span> <br><span id="orientation" class="highlight" data-i18n="unknown">Неизвестна</span></p>
-            <hr>
-            <p><span class="label" data-i18n="acc_x">Ускорение X:</span> <span id="acc-x">0</span></p>
-            <p><span class="label" data-i18n="acc_y">Ускорение Y:</span> <span id="acc-y">0</span></p>
-            <p><span class="label" data-i18n="acc_z">Ускорение Z (Гравитация):</span> <span id="acc-z">0</span></p>
-        </div>
-    </div>
+                <div class="tabs">
+                    <div id="tab-compass" class="page-content tab tab-active">
+                        <div class="block text-align-center">
+                            <p>
+                                Ориентация:
+                                <strong id="orientation-status">...</strong>
+                            </p>
+                            <div class="compass-wrapper">
+                                <div id="compass-dial" class="compass-dial">
+                                    <span class="mark mark-n">N</span>
+                                    <span class="mark mark-e">E</span>
+                                    <span class="mark mark-s">S</span>
+                                    <span class="mark mark-w">W</span>
+                                </div>
+                                <div class="compass-arrow"></div>
+                            </div>
+                            <h1 id="heading-value">0°</h1>
+                        </div>
+                    </div>
 
-    <div id="tab-gyro" class="tab-content">
-        <div class="card">
-            <h2><i class="far fa-compass"></i> <span data-i18n="compass_title">Компас</span></h2>
-            
-            <div class="compass-container">
-                <div class="compass-ring" id="compass-ring">
-                    <div class="compass-north">N</div>
-                    <div class="compass-east">E</div>
-                    <div class="compass-south">S</div>
-                    <div class="compass-west">W</div>
-                    <i class="fas fa-caret-up compass-arrow" id="compass-arrow"></i>
+                    <div id="tab-sensors" class="page-content tab">
+                        <div class="block-title">
+                            Ориентация (Акселерометър)
+                        </div>
+                        <div class="list simple-list">
+                            <ul>
+                                <li>
+                                    Позиция:
+                                    <strong id="sensor-orientation" class="color-blue">Очаква се...</strong>
+                                </li>
+                                <li>
+                                    Наклон напред/назад (Beta):
+                                    <span id="beta-val">0</span>°
+                                </li>
+                                <li>
+                                    Наклон настрани (Gamma):
+                                    <span id="gamma-val">0</span>°
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="block-title">
+                            Данни от GPS Приемника
+                        </div>
+                        <div class="list simple-list">
+                            <ul>
+                                <li>Ширина: <span id="lat">...</span></li>
+                                <li>Дължина: <span id="lng">...</span></li>
+                                <li>
+                                    Височина: <span id="alt">...</span> м
+                                </li>
+                                <li>
+                                    Скорост: <span id="speed">...</span> м/с
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div id="tab-map" class="page-content tab">
+                        <div class="block">
+                            <p id="address-text">Търсене на адрес...</p>
+                            <img id="static-map" src="" alt="Google Static Map"
+                                style="width: 100%; border-radius: 10px; display: none;" />
+                        </div>
+                    </div>
+
+                    <div id="tab-settings" class="page-content tab">
+                        <div class="block-title">Конфигурация</div>
+                        <div class="list inset">
+                            <ul>
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                GPS Висока точност
+                                            </div>
+                                            <div class="item-after">
+                                                <label class="toggle toggle-init color-blue">
+                                                    <input type="checkbox" id="setting-gps" checked />
+                                                    <span class="toggle-icon"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">
+                                                Тъмен режим
+                                            </div>
+                                            <div class="item-after">
+                                                <label class="toggle toggle-init color-orange">
+                                                    <input type="checkbox" id="setting-dark" />
+                                                    <span class="toggle-icon"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li>
+                                    <a class="item-link smart-select smart-select-init" data-open-in="popover">
+                                        <select name="language" id="setting-lang">
+                                            <option value="bg" selected>
+                                                Български
+                                            </option>
+                                            <option value="en">
+                                                English
+                                            </option>
+                                        </select>
+                                        <div class="item-content">
+                                            <div class="item-inner">
+                                                <div class="item-title">
+                                                    Език
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-            <p class="text-center"><span class="label" data-i18n="direction">Посока:</span> <span id="compass" class="highlight" data-i18n="searching">Търсене...</span>&deg;</p>
-            <p class="hint text-center" data-i18n="compass_hint">Завърти телефона около оста му.</p>
         </div>
     </div>
 
-    <div id="tab-settings" class="tab-content">
-        <div class="card">
-            <h2><i class="fas fa-cog"></i> <span data-i18n="settings_title">Настройки</span></h2>
-            
-            <div class="setting-item">
-                <span class="label" data-i18n="dark_mode">Тъмен режим</span>
-                <label class="switch">
-                    <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <hr>
-            <div class="setting-item">
-                <span class="label" data-i18n="app_lang">Език на приложението</span>
-                <select id="languageSelect" onchange="changeLanguage()" class="select-css">
-                    <option value="bg">Български</option>
-                    <option value="en">English</option>
-                </select>
-            </div>
-        </div>
-    </div>
-
-    <div class="tabs">
-        <button class="tab-btn active" onclick="openTab(event, 'tab-map')">
-            <i class="fas fa-map-marker-alt"></i><span data-i18n="tab_map">Карта</span>
-        </button>
-        <button class="tab-btn" onclick="openTab(event, 'tab-accel')">
-            <i class="fas fa-arrows-alt"></i><span data-i18n="tab_sensor">Сензор</span>
-        </button>
-        <button class="tab-btn" onclick="openTab(event, 'tab-gyro')">
-            <i class="fas fa-compass"></i><span data-i18n="tab_compass">Компас</span>
-        </button>
-        <button class="tab-btn" onclick="openTab(event, 'tab-settings')">
-            <i class="fas fa-cog"></i><span data-i18n="tab_settings">Настройки</span>
-        </button>
-    </div>
-
-    <script src="cordova.js"></script>
+    <script src="https://unpkg.com/framework7@8.3.0/framework7-bundle.min.js"></script>
     <script src="./components/app.js"></script>
 </body>
+
 </html>

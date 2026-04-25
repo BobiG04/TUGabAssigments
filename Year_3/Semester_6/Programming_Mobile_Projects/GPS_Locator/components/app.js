@@ -1,165 +1,135 @@
-const GOOGLE_API_KEY = ""; 
-let currentLang = 'bg'; // Пази текущия език за динамичните текстове
+var app = new Framework7({
+  el: '#app',
+  theme: 'auto',
+});
 
-// === РЕЧНИК С ПРЕВОДИ ===
-const translations = {
-    bg: {
-        tab_map: "Карта", tab_sensor: "Сензор", tab_compass: "Компас", tab_settings: "Настройки",
-        gps_title: "GPS Данни", coords: "Координати:", alt: "Височина:", speed: "Скорост:",
-        loc_title: "Локация", searching: "Търсене...", waiting: "Очакване на данни...",
-        accel_title: "Данни от акселерометъра", orientation: "Ориентация:", unknown: "Неизвестна",
-        acc_x: "Ускорение X:", acc_y: "Ускорение Y:", acc_z: "Ускорение Z (Гравитация):",
-        compass_title: "Компас", direction: "Посока:", compass_hint: "Завърти телефона около оста му.",
-        settings_title: "Настройки", dark_mode: "Тъмен режим", app_lang: "Език на приложението",
-        state_tilted: "наклонен", state_up: "към небето", state_down: "към земята", not_supported: "Не се поддържа"
-    },
-    en: {
-        tab_map: "Map", tab_sensor: "Sensor", tab_compass: "Compass", tab_settings: "Settings",
-        gps_title: "GPS Data", coords: "Coordinates:", alt: "Altitude:", speed: "Speed:",
-        loc_title: "Location", searching: "Searching...", waiting: "Waiting for data...",
-        accel_title: "Accelerometer Data", orientation: "Orientation:", unknown: "Unknown",
-        acc_x: "Acceleration X:", acc_y: "Acceleration Y:", acc_z: "Acceleration Z (Gravity):",
-        compass_title: "Compass", direction: "Heading:", compass_hint: "Rotate the phone around its axis.",
-        settings_title: "Settings", dark_mode: "Dark Mode", app_lang: "App Language",
-        state_tilted: "tilted", state_up: "facing sky", state_down: "facing ground", not_supported: "Not supported"
+// ПРОМЯНА 1: Извикваме функцията за настройки веднага след старта
+initSettings();
+
+const API_KEY = '';
+
+// Промяна на заглавието при смяна на табовете
+app.on('tabShow', function (tabEl) {
+  const titles = { 'tab-compass': 'Компас', 'tab-sensors': 'Сензори', 'tab-map': 'Карта', 'tab-settings': 'Настройки' };
+  document.getElementById('nav-title').innerText = titles[tabEl.id];
+});
+
+function initApp() {
+  // 1. Компас и Ориентация
+  window.addEventListener('deviceorientation', function (e) {
+    // 1. КОМПАС (съществуващ код)
+    let heading = e.webkitCompassHeading || (360 - e.alpha);
+    document.getElementById('compass-dial').style.transform = `rotate(${-heading}deg)`;
+    document.getElementById('heading-value').innerText = Math.round(heading) + '°';
+
+    // 2. АКСЕЛЕРОМЕТЪР (Наклон)
+    // Взимаме стойностите за наклон (по подразбиране 0, ако няма данни)
+    let beta = e.beta || 0;   // Наклон напред/назад [-180, 180]
+    let gamma = e.gamma || 0; // Наклон наляво/надясно [-90, 90]
+
+    // Показваме точните градуси в таб "Сензори"
+    document.getElementById('beta-val').innerText = Math.round(beta);
+    document.getElementById('gamma-val').innerText = Math.round(gamma);
+
+    // Изчисляване на позицията по условие
+    let pos = "наклонен";
+
+    // Ако екранът гледа право нагоре (позволяваме отклонение до 15 градуса)
+    if (Math.abs(beta) < 15 && Math.abs(gamma) < 15) {
+      pos = "към небето";
     }
-};
-
-document.addEventListener('deviceready', onDeviceReady, false);
-if (!window.cordova) { window.onload = onDeviceReady; }
-
-function onDeviceReady() {
-    loadSettings();
-    initSensors();
-    initGPS();
-}
-
-function openTab(evt, tabId) {
-    const tabContents = document.getElementsByClassName("tab-content");
-    for (let i = 0; i < tabContents.length; i++) tabContents[i].classList.remove("active-tab");
-
-    const tabBtns = document.getElementsByClassName("tab-btn");
-    for (let i = 0; i < tabBtns.length; i++) tabBtns[i].classList.remove("active");
-
-    document.getElementById(tabId).classList.add("active-tab");
-    evt.currentTarget.classList.add("active");
-}
-
-// === ЛОГИКА ЗА НАСТРОЙКИ И ПРЕВОД ===
-function loadSettings() {
-    const isDarkMode = localStorage.getItem('darkMode') === 'true';
-    if (isDarkMode) {
-        document.body.classList.add('dark-mode');
-        document.getElementById('darkModeToggle').checked = true;
+    // Ако екранът гледа право надолу към земята (beta е около 180 или -180)
+    else if (Math.abs(beta) > 165 && Math.abs(gamma) < 15) {
+      pos = "към земята";
     }
 
-    currentLang = localStorage.getItem('appLanguage') || 'bg';
-    document.getElementById('languageSelect').value = currentLang;
-    
-    applyTranslations(currentLang);
+    // Обновяваме текста за позицията и в двата таба
+    if (document.getElementById('orientation-status')) {
+      document.getElementById('orientation-status').innerText = pos;
+    }
+    if (document.getElementById('sensor-orientation')) {
+      document.getElementById('sensor-orientation').innerText = pos;
+    }
+  });
+
+  // 2. GPS
+  navigator.geolocation.watchPosition(function (p) {
+    const coords = p.coords;
+    document.getElementById('lat').innerText = coords.latitude.toFixed(5);
+    document.getElementById('lng').innerText = coords.longitude.toFixed(5);
+    document.getElementById('alt').innerText = coords.altitude ? coords.altitude.toFixed(1) : '0';
+    document.getElementById('speed').innerText = coords.speed ? coords.speed.toFixed(1) : '0';
+
+    // Обновяване на картата и адреса
+    updateMapAndAddress(coords.latitude, coords.longitude);
+  }, null, { enableHighAccuracy: true });
 }
 
-function toggleDarkMode() {
-    document.body.classList.toggle('dark-mode');
-    localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-}
+function updateMapAndAddress(lat, lng) {
+  if (!API_KEY) return;
 
-function changeLanguage() {
-    currentLang = document.getElementById('languageSelect').value;
-    localStorage.setItem('appLanguage', currentLang);
-    applyTranslations(currentLang);
-}
+  // Static Map
+  const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=15&size=400x400&markers=color:red%7C${lat},${lng}&key=${API_KEY}`;
+  const mapImg = document.getElementById('static-map');
+  mapImg.src = mapUrl;
+  mapImg.style.display = 'block';
 
-// Функцията, която обикаля HTML-а и сменя текстовете
-function applyTranslations(lang) {
-    const elements = document.querySelectorAll('[data-i18n]');
-    elements.forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (translations[lang] && translations[lang][key]) {
-            el.innerText = translations[lang][key];
-        }
+  // Geocoding (Адрес)
+  fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=${API_KEY}&language=bg`)
+    .then(r => r.json())
+    .then(d => {
+      if (d.results[0]) document.getElementById('address-text').innerText = d.results[0].formatted_address;
     });
+}
 
-    // Ако нямаме координати, искаме да преведем и съобщението за грешка/търсене
-    if (document.getElementById('coords').innerText === "Търсене..." || document.getElementById('coords').innerText === "Searching...") {
-        document.getElementById('coords').innerText = translations[lang].searching;
+function initSettings() {
+  const darkToggle = document.getElementById('setting-dark');
+  const gpsToggle = document.getElementById('setting-gps');
+  const langSelect = document.getElementById('setting-lang');
+
+  // 1. ЗАРЕЖДАНЕ на запазените настройки от localStorage
+  const isDark = localStorage.getItem('darkMode') === 'true';
+  const isGpsHigh = localStorage.getItem('gpsHigh') !== 'false'; // по подразбиране е true
+  const savedLang = localStorage.getItem('appLang') || 'bg';
+
+  // 2. ПРИЛАГАНЕ на настройките върху UI (бутоните)
+  darkToggle.checked = isDark;
+  gpsToggle.checked = isGpsHigh;
+  langSelect.value = savedLang;
+
+  // Прилагане на тъмния режим визуално
+  if (isDark) {
+    document.documentElement.classList.add('dark');
+  }
+
+  // 3. СЛУШАНЕ ЗА ПРОМЕНИ (когато потребителят цъкне нещо)
+
+  // При цъкане на Тъмен режим
+  darkToggle.addEventListener('change', function (e) {
+    const checked = e.target.checked;
+    localStorage.setItem('darkMode', checked);
+    if (checked) {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
     }
+  });
+
+  // При цъкане на GPS точност
+  gpsToggle.addEventListener('change', function (e) {
+    localStorage.setItem('gpsHigh', e.target.checked);
+    // За да влезе в сила веднага, тук по принцип се рестартира navigator.geolocation.watchPosition
+  });
+
+  // При смяна на Език
+  langSelect.addEventListener('change', function (e) {
+    localStorage.setItem('appLang', e.target.value);
+    app.toast.create({
+      text: 'Езикът е запазен. Ще се приложи при рестарт.',
+      closeTimeout: 3000,
+      position: 'bottom'
+    }).open();
+  });
 }
 
-// === ЛОГИКА ЗА СЕНЗОРИТЕ ===
-function initSensors() {
-    window.addEventListener('devicemotion', (e) => {
-        if (!e.accelerationIncludingGravity) return;
-        let x = e.accelerationIncludingGravity.x || 0;
-        let y = e.accelerationIncludingGravity.y || 0;
-        let z = e.accelerationIncludingGravity.z || 0;
-
-        document.getElementById('acc-x').innerText = x.toFixed(2);
-        document.getElementById('acc-y').innerText = y.toFixed(2);
-        document.getElementById('acc-z').innerText = z.toFixed(2);
-
-        // Динамичен превод на ориентацията
-        let stateKey = "state_tilted";
-        if (z > 8.5) stateKey = "state_up";
-        else if (z < -8.5) stateKey = "state_down";
-        
-        document.getElementById('orientation').innerText = translations[currentLang][stateKey];
-    }, true);
-
-    window.addEventListener('deviceorientation', (e) => {
-        let heading = e.webkitCompassHeading || e.alpha;
-        if (heading !== null) {
-            let roundedHeading = Math.round(heading);
-            document.getElementById('compass').innerText = roundedHeading;
-
-            // Въртим САМО стрелката по средата
-            const compassArrow = document.getElementById('compass-arrow');
-            if (compassArrow) {
-                compassArrow.style.transform = `rotate(${-roundedHeading}deg)`;
-            }
-        }
-    }, true);
-}
-
-// === ЛОГИКА ЗА GPS И КАРТА ===
-let lastLat = 0, lastLng = 0;
-
-function initGPS() {
-    if (!navigator.geolocation) {
-        document.getElementById('coords').innerText = translations[currentLang].not_supported;
-        return;
-    }
-
-    navigator.geolocation.watchPosition(
-        (pos) => {
-            const lat = pos.coords.latitude;
-            const lng = pos.coords.longitude;
-            document.getElementById('coords').innerText = `${lat.toFixed(5)}, ${lng.toFixed(5)}`;
-            document.getElementById('alt').innerText = (pos.coords.altitude || 0).toFixed(1);
-            document.getElementById('speed').innerText = (pos.coords.speed || 0).toFixed(1);
-            updateMap(lat, lng);
-        },
-        (err) => console.error(err),
-        { enableHighAccuracy: true, timeout: 10000, maximumAge: 0 }
-    );
-}
-
-function updateMap(lat, lng) {
-    if (Math.abs(lastLat - lat) < 0.0001 && Math.abs(lastLng - lng) < 0.0001) return;
-    lastLat = lat; lastLng = lng;
-
-    if (!GOOGLE_API_KEY || GOOGLE_API_KEY === "ТВОЯТ_API_КЛЮЧ_ТУК") return;
-
-    const mapImg = document.getElementById('map');
-    mapImg.src = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=18&size=600x400&markers=color:blue%7Csize:small%7C${lat},${lng}&key=${GOOGLE_API_KEY}`;
-    mapImg.style.display = "block";
-
-    // Подаваме езика и на Google Maps API-то (language=bg или language=en)
-    fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&language=${currentLang}&key=${GOOGLE_API_KEY}`)
-        .then(r => r.json())
-        .then(data => {
-            if (data.status === "OK" && data.results[0]) {
-                document.getElementById('address').innerText = data.results[0].formatted_address;
-            }
-        });
-}
+initApp();
