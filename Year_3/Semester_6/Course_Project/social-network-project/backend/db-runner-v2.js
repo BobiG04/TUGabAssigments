@@ -9,14 +9,21 @@ const UserSchema = new mongoose.Schema({
     username: { type: String, required: true },
     email: { type: String, required: true },
     password: { type: String, required: true },
-    friends: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }]
 });
+// Колекцията за приятелствата
+const FriendSchema = new mongoose.Schema({
+    user: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    friend: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
+    status: { type: String, enum: ["pending", "accepted", "rejected"], default: "pending" },
+    createdAt: { type: Date, default: Date.now },
+}, { timestamps: true });
 // Колекцията за публикациите
 const PostSchema = new mongoose.Schema({
     content: { type: String, required: true },
     author: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
-    likes: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
+    likes: { type: Number, default: 0 },
     createdAt: { type: Date, default: Date.now },
+    location: { type: String },
     updatedAt: { type: Date, default: Date.now }
 }, { timestamps: true });
 // Колекцията за коментарите
@@ -24,15 +31,20 @@ const CommentSchema = new mongoose.Schema({
     content: { type: String, required: true },
     author: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     post: { type: mongoose.Schema.Types.ObjectId, ref: "Post", required: true },
-    createdAt: { type: Date, default: Date.now },
+    createdAt: { type: Date, default: Date.now },   
     updatedAt: { type: Date, default: Date.now }
 }, { timestamps: true });
 
-PostSchema.index({ createdAt: -1 });
+// Създаваме индекси за оптимизация на заявките
+UserSchema.index({ username: 1 });
+FriendSchema.index({ user: 1, friend: 1 });
+PostSchema.index({ createdAt: -1 }, {location: "text"});        
+CommentSchema.index({ createdAt: -1 });
 
 const User = mongoose.model("User", UserSchema);
 const Post = mongoose.model("Post", PostSchema);
 const Comment = mongoose.model("Comment", CommentSchema);
+const Friend = mongoose.model("Friend", FriendSchema);
 
 const app = express();
 app.use(express.json());
@@ -46,12 +58,12 @@ mongoose.connect(process.env.MONGO_URI)
     })
     .catch((err) => console.error("Грешка при свързване:", err));
 
-// Рут за тестване на API-то
+// Раут за тестване на API-то
 app.get("/", (req, res) => {
     res.json({ message: "API работи успешно!" });
 });
 
-// Рут за регистрация на потребител
+// Раут за регистрация на потребител
 app.post("/api/users/register", async (req, res) => {
     try {
         // Вземаме данните от заявката
@@ -83,7 +95,7 @@ app.post("/api/users/register", async (req, res) => {
     }
 });
 
-// Рут за вход на потребител
+// Раут за вход на потребител
 app.post("/api/users/login", async (req, res) => {
     try {
         const { email, password } = req.body;
@@ -99,7 +111,7 @@ app.post("/api/users/login", async (req, res) => {
         if (!isMatch) {
             return res.status(400).json({ error: "Грешна парола!" });
         }
-    
+
         // Ако всичко е наред, връщаме отговор с успех и информация за потребителя
         res.json({ message: "Успешен вход!", userId: user._id });
     } catch (error) {
@@ -107,14 +119,17 @@ app.post("/api/users/login", async (req, res) => {
     }
 });
 
-// Рут за проверка на потребителския профил
+// Раут за проверка на потребителския профил
 app.get("/api/users/:userId", async (req, res) => {
     try {
         // Вземаме ID-то на потребителя от параметрите на URL
         const { userId } = req.params;
         // Извличаме информацията за потребителя от базата данни, като изключваме паролата
-        const user = await User.findById(userId).select("-password");
-        if (!user) {
+        const user = await User.aggregate([
+            { $match: { _id: mongoose.Types.ObjectId(userId) } },
+            { $project: { _id: 1, username: 1, email: 1 } }
+        ]);
+        if (!user.length) {
             return res.status(404).json({ error: "Потребителят не е намерен!" });
         }
         // Връщаме извлечената информация за потребителя като JSON отговор
@@ -124,11 +139,20 @@ app.get("/api/users/:userId", async (req, res) => {
     }
 });
 
-// Рут за извличане на потребителите
+// Раут за извличане на потребителите
 app.get("/api/users", async (req, res) => {
     try {
-        // Извличаме всички потребители от базата данни, като изключваме паролите
-        const users = await User.find().select("-password");
+        const users = await User.aggregate([
+            {
+                // Проектираме само полетата username и email, като изключваме паролата
+                $project: {
+                    _id: 1,
+                    username: 1,
+                    email: 1
+                },
+                $sort: { username: 1 }
+            }
+        ]);
         // Връщаме извлечените потребители като JSON отговор
         res.json(users);
     } catch (error) {
@@ -136,7 +160,129 @@ app.get("/api/users", async (req, res) => {
     }
 });
 
-// Рут за създаване на публикация
+// Раут за заявки за приятелство
+app.post("/api/friends", async (req, res) => {
+    try {
+        const { userId, friendId } = req.body;
+        // Създаваме нова заявка за приятелство
+        const newFriendRequest = new Friend({
+            user: userId,
+            friend: friendId,
+            status: "pending"
+        });
+        // Запазваме заявката за приятелство в базата данни и връщаме отговор с успех
+        const savedFriendRequest = await newFriendRequest.save();
+        res.status(201).json({ message: "Заявката за приятелство е изпратена успешно!", friendRequestId: savedFriendRequest._id });
+    } catch (error) {
+        res.status(500).json({ error: "Грешка при изпращане на заявка за приятелство!" });
+    }
+});
+
+// Раут за приемане на заявка за приятелство
+app.post("/api/friends/accept", async (req, res) => {
+    try {
+        const { requestId } = req.body;
+        // Намираме заявката за приятелство по ID и я актуализираме до "accepted"
+        const updatedFriendRequest = await Friend.findByIdAndUpdate(requestId, { status: "accepted" }, { new: true });
+        if (!updatedFriendRequest) {
+            return res.status(404).json({ error: "Заявката за приятелство не е намерена!" });
+        }
+        res.json({ message: "Заявката за приятелство е приета успешно!", friendRequest: updatedFriendRequest });
+    } catch (error) {
+        res.status(500).json({ error: "Грешка при приемане на заявка за приятелство!" });
+    }
+});
+
+// Раут за отхвърляне на заявка за приятелство
+app.post("/api/friends/reject", async (req, res) => {
+    try {
+        const { requestId } = req.body;
+        // Намираме заявката за приятелство по ID и я актуализираме до "rejected"
+        const updatedFriendRequest = await Friend.findByIdAndUpdate(requestId, { status: "rejected" }, { new: true });
+        if (!updatedFriendRequest) {
+            return res.status(404).json({ error: "Заявката за приятелство не е намерена!" });
+        }
+        res.json({ message: "Заявката за приятелство е отхвърлена успешно!", friendRequest: updatedFriendRequest });
+    } catch (error) {
+        res.status(500).json({ error: "Грешка при отхвърляне на заявка за приятелство!" });
+    }
+});
+
+// Раут за извличане на общи приятели
+app.get("/api/friends/mutual", async (req, res) => {
+    try {
+        const { userA_id, userB_id } = req.query;
+
+        // ВАЖНО: При агрегация трябва ръчно да превърнем стринговете в ObjectId!
+        const objIdA = new mongoose.Types.ObjectId(userA_id);
+        const objIdB = new mongoose.Types.ObjectId(userB_id);
+
+        const mutualFriends = await Friend.aggregate([
+            {
+                // Вземаме всички записи за приятелство, където статусът е "accepted" и включват или A, или B
+                $match: {
+                    status: "accepted",
+                    $or: [
+                        { user: objIdA }, { friend: objIdA },
+                        { user: objIdB }, { friend: objIdB }
+                    ]
+                }
+            },
+            {
+                // Проектираме "третия човек" от всяко приятелство, който не е нито A, нито B
+                $project: {
+                    thirdPersonId: {
+                        $cond: {
+                            if: { $in: ["$user", [objIdA, objIdB]] },
+                            then: "$friend",
+                            else: "$user"
+                        }
+                    }
+                }
+            },
+            {
+                // Групираме по "третия човек" и броим колко пъти се среща (трябва да е 2, за да е общ приятел на A и B)
+                $group: {
+                    _id: "$thirdPersonId",
+                    count: { $sum: 1 }
+                }
+            }, 
+            {
+                // Филтрираме само тези, които са общи приятели и не са само A или B
+                $match: {
+                    count: 2,
+                    _id: { $nin: [objIdA, objIdB] } // Гарантираме, че A и B не излизат като общи приятели сами на себе си
+                }
+            }, 
+            {
+                // Вземаме информацията за общия приятел от колекцията "users"
+                $lookup: {
+                    from: "users",
+                    localField: "_id",
+                    foreignField: "_id",
+                    as: "friendDetails"
+                }
+            }, 
+            // Разгъваме масива с информация за приятеля, за да имаме директен достъп до полетата му
+            { $unwind: "$friendDetails" }, 
+            {
+                // Форматираме крайния изглед, като включваме ID-то и потребителското име на общия приятел
+                $project: {
+                    _id: 0,
+                    mutualFriendId: "$_id",
+                    username: "$friendDetails.username"
+                }
+            }
+        ]);
+        
+        res.json(mutualFriends); 
+    } catch (error) {
+        console.error("Грешка при извличане на общи приятели:", error);
+        res.status(500).json({ error: "Грешка при извличане на общи приятели!" });
+    }
+});
+
+// Раут за създаване на публикация
 app.post("/api/posts", async (req, res) => {
     try {
         const { content, authorId } = req.body;
@@ -144,7 +290,7 @@ app.post("/api/posts", async (req, res) => {
         // Създаваме нова публикация с данните от заявката
         const newPost = new Post({
             content,
-            likes: [],
+            likes: 0,
             author: authorId
         });
 
@@ -156,41 +302,95 @@ app.post("/api/posts", async (req, res) => {
     }
 });
 
+// console.log(Post);
 
-// Рут за извличане на публикации
+// Раут за извличане на публикации
 app.get("/api/posts", async (req, res) => {
     try {
-        // Извличаме всички публикации от базата данни
-        const posts = await Post.find()
-
-            // Използваме .populate, за да включим информация за автора на всяка публикация
-            .populate("author", "username email")
-            // Сортираме публикациите по дата на създаване в низходящ ред, за да показваме най-новите първо
-            .sort({ createdAt: -1 });
-        
-        // Връщаме извлечените публикации като JSON отговор
-        res.json(posts);
+        const posts = await Post.aggregate([
+            { $sort: { createdAt: -1 } },
+            {
+                // Вземаме данните за автора на публикацията
+                $lookup: {
+                    from: "users",
+                    localField: "author",
+                    foreignField: "_id",
+                    as: "authorInfo"
+                }
+            }, 
+            // Разгъваме масива с информация за автора, за да имаме директен достъп до полетата му
+            { $unwind: "$authorInfo" },
+            {
+                // Форматираме крайния изглед на публикацията, като включваме съдържанието, броя на лайковете, локацията, датата на създаване и информация за автора
+                $project: {
+                    content: 1,
+                    likes: 1,
+                    location: 1,
+                    createdAt: 1,
+                    "authorInfo._id": 1,
+                    "authorInfo.username": 1
+                }
+            }
+        ]);
+        res.status(200).json(posts);
     } catch (error) {
+        console.error("Грешка при агрегация на фийда:", error);
         res.status(500).json({ error: "Грешка при извличане на публикации!" });
     }
 });
 
-// Рут за извличане на trending публикации (най-лайкваните)
+// Раут за извличане на trending публикации
 app.get("/api/posts/trending", async (req, res) => {
     try {
-        // Извличаме публикациите от базата данни и ги сортираме по брой лайкове в низходящ ред
-        const trendingPosts = await Post.find()
-            // Използваме .populate, за да включим информация за автора на всяка публикация
-            .populate("author", "username email")
-            .sort({ likes: -1, createdAt: -1 }); // Първо по брой лайкове, после по дата
+        const trendingPosts = await Post.aggregate([
+            // Вземаме коментарите за всеки пост
+            {
+                $lookup: {
+                    from: "comments",
+                    localField: "_id",
+                    foreignField: "post",
+                    as: "postComments"
+                }
+            },
+            // Вземаме данните за автора
+            {
+                $lookup: {
+                    from: "users",
+                    localField: "author",
+                    foreignField: "_id",
+                    as: "authorInfo"
+                }
+            },
+            { $unwind: "$authorInfo" },
+            // Пресмятаме Trending Score (лайкове + брой коментари)
+            {
+                $addFields: {
+                    trendingScore: { $add: ["$likes", { $size: "$postComments" }] }
+                }
+            },
+            // Сортираме по новия резултат
+            { $sort: { trendingScore: -1, createdAt: -1 } },
+            {
+                // Форматираме крайния изглед
+                $project: {
+                    content: 1,
+                    likes: 1,
+                    commentsCount: 1,
+                    trendingScore: 1,
+                    location: 1,
+                    "authorInfo._id": 1,
+                    "authorInfo.username": 1
+                }
+            }
+        ]);
         res.json(trendingPosts);
     } catch (error) {
+        console.error("Грешка при Trending:", error);
         res.status(500).json({ error: "Грешка при извличане на trending публикации!" });
     }
 });
 
-
-// Рут за писане на коментар
+// Раут за писане на коментар
 app.post("/api/posts/:postId/comments", async (req, res) => {
     try {
         // Вземаме данните от заявката и параметрите от URL
@@ -212,16 +412,35 @@ app.post("/api/posts/:postId/comments", async (req, res) => {
     }
 });
 
-// Рут за извличане на коментари към публикация
+// Раут за извличане на коментари към публикация
 app.get("/api/posts/:postId/comments", async (req, res) => {
     try {
         // Вземаме ID-то на публикацията от параметрите на URL
         const { postId } = req.params;
         // Извличаме всички коментари, които са свързани с тази публикация
-        const comments = await Comment.find({ post: postId })
-            // Използваме .populate, за да включим информация за автора на всеки коментар
-            .populate("author", "username email");
-        
+        const comments = await Comment.aggregate([
+            { $match: { post: mongoose.Types.ObjectId(postId) } },
+            {
+                // Вземаме данните за автора на всеки коментар
+                $lookup: {
+                    from: "users",
+                    localField: "author",
+                    foreignField: "_id",
+                    as: "authorInfo"
+                }
+            },
+            { $unwind: "$authorInfo" },
+            {
+                // Форматираме крайния изглед на коментара, като включваме съдържанието, датата на създаване и информация за автора
+                $project: {
+                    content: 1,
+                    createdAt: 1,
+                    "authorInfo._id": 1,
+                    "authorInfo.username": 1
+                }
+            }
+        ]);
+
         // Връщаме извлечените коментари като JSON отговор
         res.json(comments);
     } catch (error) {
@@ -232,41 +451,105 @@ app.get("/api/posts/:postId/comments", async (req, res) => {
 // Създаваме клъстер от тестови данни
 async function seedDatabase() {
     try {
-        // Изчистваме старите данни
-        await User.deleteMany({});
-        await Post.deleteMany({});
-        await Comment.deleteMany({});
+        console.log("Изчистване на старата база данни...");
+        await Promise.all([
+            User.deleteMany({}), Post.deleteMany({}),
+            Comment.deleteMany({}), Friend.deleteMany({})
+        ]);
 
-        // Хешираме паролите за тестовите потребители
+        console.log("Генериране на 1000 потребителя...");
+        // Хешираме само веднъж за максимална скорост
         const salt = await bcrypt.genSalt(10);
-        const hashedPassword1 = await bcrypt.hash("password123", salt);
-        const hashedPassword2 = await bcrypt.hash("password123", salt);
+        const commonPassword = bcrypt.hashSync("password123", salt);
 
-        // Създаваме потребители
-        const user1 = await User.create({ username: "ivan_ivanov", email: "ivan.ivanov@example.com", password: hashedPassword1 });
-        const user2 = await User.create({ username: "petar_petkov", email: "petar.petkov@example.com", password: hashedPassword2 });
+        const usersData = Array.from({ length: 1000 }).map((_, i) => ({
+            username: `user_${i + 1}`,
+            email: `user${i + 1}@example.com`,
+            password: commonPassword
+        }));
+        const users = await User.insertMany(usersData);
+        console.log("1000 потребителя създадени!");
 
-        // Създаваме публикации
-        const post1 = await Post.create({ content: "Здравейте, това е моята първа публикация!", author: user1._id, likes: [user2._id] });
-        const post2 = await Post.create({ content: "Радвам се да бъда част от тази социална мрежа!", author: user2._id, likes: [user1._id] });
+        console.log("Генериране на 10 000 публикации (Това може да отнеме няколко секунди)...");
+        const locations = ["София", "Пловдив", "Варна", "Бургас", "Русе"];
+        let postsData = [];
+        
+        for (let i = 0; i < 10000; i++) {
+            const randomUser = users[Math.floor(Math.random() * users.length)];
+            // Генерираме случайни дати в миналото, за да тестваме хронологичното сортиране
+            const randomDate = new Date(Date.now() - Math.floor(Math.random() * 10000000000));
+            
+            postsData.push({
+                content: `Това е масова публикация номер ${i + 1} за профилиране на базата.`,
+                author: randomUser._id,
+                location: locations[i % locations.length],
+                likes: Math.floor(Math.random() * 100),
+                createdAt: randomDate
+            });
+        }
+        
+        await Post.insertMany(postsData);
+        console.log("10 000 публикации създадени!");
 
-        // Създаваме коментари
-        await Comment.create({ content: " прекраснo!", author: user2._id, post: post1._id });
-        await Comment.create({ content: "Браво!", author: user1._id, post: post2._id });
+        // Генерираме 20 000 коментара, като ги разпределяме произволно между публикациите и потребителите
+        console.log("Генериране на 20 000 коментара...");
+        const posts = await Post.find({}, { _id: 1 });
+        let commentsData = [];
 
-        console.log("Тестовите данни са създадени успешно!");
+        for (let i = 0; i < 20000; i++) {
+            const randomUser = users[Math.floor(Math.random() * users.length)];
+            const randomPost = posts[Math.floor(Math.random() * posts.length)];
+            const randomDate = new Date(Date.now() - Math.floor(Math.random() * 10000000000));
+            commentsData.push({
+                content: `Това е масов коментар номер ${i + 1} за профилиране на базата.`,
+                author: randomUser._id,
+                post: randomPost._id,
+                createdAt: randomDate
+            });
+        }
+
+        await Comment.insertMany(commentsData);
+        console.log("20 000 коментара създадени!");
+
+        // Генерираме 5000 заявки за приятелство, като ги разпределяме произволно между потребителите
+        console.log("Генериране на 5000 заявки за приятелство...");
+        let friendsData = [];
+        const userIds = users.map(u => u._id);
+
+        for (let i = 0; i < 5000; i++) {
+            const userA = userIds[Math.floor(Math.random() * userIds.length)];
+            let userB = userIds[Math.floor(Math.random() * userIds.length)];
+            // Гарантираме, че не се генерират заявки за приятелство между един и същ потребител
+            while (userB.equals(userA)) {
+                userB = userIds[Math.floor(Math.random() * userIds.length)];
+            }
+            friendsData.push({
+                user: userA,
+                friend: userB,
+                status: "accepted",
+                createdAt: new Date(Date.now() - Math.floor(Math.random() * 10000000000))
+            });
+        }
+
+        await Friend.insertMany(friendsData);
+
+        console.log("Базата е готова!");
     } catch (error) {
-        console.error("Грешка при създаване на тестови данни:", error);
+        console.error("Грешка при сийдване:", error);
     }
 }
 
 seedDatabase();
 
-// Рут за тестване на explain()
+// Раут за тестване на explain()
 app.get("/api/test-explain", async (req, res) => {
     try {
-        // Използваме explain() за да видим как MongoDB изпълнява заявката за извличане на публикации
-        const explainResult = await Post.find().explain("executionStats");
+        // Симулираме реално извличане на фийд: Сортиране по дата и вземане на първите 20
+        const explainResult = await Post.find()
+            .sort({ createdAt: -1 })
+            .limit(5783)
+            .explain("executionStats");
+            
         res.json(explainResult);
     } catch (error) {
         res.status(500).json({ error: "Грешка при изпълнение на explain()!" });
