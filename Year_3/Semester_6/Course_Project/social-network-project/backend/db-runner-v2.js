@@ -541,10 +541,34 @@ async function seedDatabase() {
 
 seedDatabase();
 
-// Раут за тестване на explain()
-app.get("/api/test-explain", async (req, res) => {
+// Раутове за тестване на explain()
+app.get("/api/test-explain-post-1", async (req, res) => {
     try {
         // Симулираме реално извличане на фийд: Сортиране по дата и вземане на първите 20
+        const explainResult = await Post.find()
+            .sort({ createdAt: -1 })
+            .limit(20)
+            .explain("executionStats");
+            
+        res.json(explainResult);
+    } catch (error) {
+        res.status(500).json({ error: "Грешка при изпълнение на explain()!" });
+    }
+});
+app.get("/api/test-explain-post-2", async (req, res) => {
+    try {
+        const explainResult = await Post.find()
+            .sort({ createdAt: -1 })
+            .limit(783)
+            .explain("executionStats");
+            
+        res.json(explainResult);
+    } catch (error) {
+        res.status(500).json({ error: "Грешка при изпълнение на explain()!" });
+    }
+});
+app.get("/api/test-explain-post-3", async (req, res) => {
+    try {
         const explainResult = await Post.find()
             .sort({ createdAt: -1 })
             .limit(5783)
