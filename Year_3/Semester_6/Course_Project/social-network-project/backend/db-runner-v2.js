@@ -22,6 +22,7 @@ const PostSchema = new mongoose.Schema({
     content: { type: String, required: true },
     author: { type: mongoose.Schema.Types.ObjectId, ref: "User", required: true },
     likes: { type: Number, default: 0 },
+    commentsCount: { type: Number, default: 0 },
     createdAt: { type: Date, default: Date.now },
     location: { type: String },
     updatedAt: { type: Date, default: Date.now }
@@ -37,9 +38,10 @@ const CommentSchema = new mongoose.Schema({
 
 // Създаваме индекси за оптимизация на заявките
 UserSchema.index({ username: 1 });
-FriendSchema.index({ user: 1, friend: 1 });
-PostSchema.index({ createdAt: -1 }, {location: "text"});        
-CommentSchema.index({ createdAt: -1 });
+UserSchema.index({ email: 1 }, { unique: true });
+FriendSchema.index({ user: 1, friend: 1 }, { unique: true });
+PostSchema.index({ createdAt: -1 , location: "text"});        
+CommentSchema.index({ post: 1, createdAt: -1 });
 
 const User = mongoose.model("User", UserSchema);
 const Post = mongoose.model("Post", PostSchema);
@@ -124,6 +126,10 @@ app.get("/api/users/:userId", async (req, res) => {
     try {
         // Вземаме ID-то на потребителя от параметрите на URL
         const { userId } = req.params;
+        // Проверяваме дали ID-то е валидно
+        if (!mongoose.Types.ObjectId.isValid(userId)) {
+            return res.status(400).json({ error: "Невалиден потребителски ID!" });
+        }
         // Извличаме информацията за потребителя от базата данни, като изключваме паролата
         const user = await User.aggregate([
             { $match: { _id: mongoose.Types.ObjectId(userId) } },
@@ -213,6 +219,11 @@ app.get("/api/friends/mutual", async (req, res) => {
     try {
         const { userA_id, userB_id } = req.query;
 
+        // Проверяваме дали ID-та са валидни
+        if (!mongoose.Types.ObjectId.isValid(userA_id) || !mongoose.Types.ObjectId.isValid(userB_id)) {
+            return res.status(400).json({ error: "Невалидни потребителски ID!" });
+        }
+
         // ВАЖНО: При агрегация трябва ръчно да превърнем стринговете в ObjectId!
         const objIdA = new mongoose.Types.ObjectId(userA_id);
         const objIdB = new mongoose.Types.ObjectId(userB_id);
@@ -223,8 +234,8 @@ app.get("/api/friends/mutual", async (req, res) => {
                 $match: {
                     status: "accepted",
                     $or: [
-                        { user: objIdA }, { friend: objIdA },
-                        { user: objIdB }, { friend: objIdB }
+                        { user: { $in: [objIdA, objIdB] } },
+                        { friend: { $in: [objIdA, objIdB] } }
                     ]
                 }
             },
@@ -307,8 +318,14 @@ app.post("/api/posts", async (req, res) => {
 // Раут за извличане на публикации
 app.get("/api/posts", async (req, res) => {
     try {
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 10;
+        const skip = (page - 1) * limit;
+
         const posts = await Post.aggregate([
             { $sort: { createdAt: -1 } },
+            { $skip: skip },
+            { $limit: limit },
             {
                 // Вземаме данните за автора на публикацията
                 $lookup: {
@@ -342,16 +359,11 @@ app.get("/api/posts", async (req, res) => {
 // Раут за извличане на trending публикации
 app.get("/api/posts/trending", async (req, res) => {
     try {
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 10;
+        const skip = (page - 1) * limit;
+
         const trendingPosts = await Post.aggregate([
-            // Вземаме коментарите за всеки пост
-            {
-                $lookup: {
-                    from: "comments",
-                    localField: "_id",
-                    foreignField: "post",
-                    as: "postComments"
-                }
-            },
             // Вземаме данните за автора
             {
                 $lookup: {
@@ -362,14 +374,16 @@ app.get("/api/posts/trending", async (req, res) => {
                 }
             },
             { $unwind: "$authorInfo" },
-            // Пресмятаме Trending Score (лайкове + брой коментари)
+            // Пресмятаме Trending Score (лайкове + брой коментари) - използваме денормализованото поле commentsCount
             {
                 $addFields: {
-                    trendingScore: { $add: ["$likes", { $size: "$postComments" }] }
+                    trendingScore: { $add: ["$likes", "$commentsCount"] }
                 }
             },
             // Сортираме по новия резултат
             { $sort: { trendingScore: -1, createdAt: -1 } },
+            { $skip: skip },
+            { $limit: limit },
             {
                 // Форматираме крайния изглед
                 $project: {
@@ -397,6 +411,10 @@ app.post("/api/posts/:postId/comments", async (req, res) => {
         const { content, authorId } = req.body;
         // Вземаме ID-то на публикацията от параметрите на URL
         const { postId } = req.params;
+        // Проверяваме дали ID-та са валидни
+        if (!mongoose.Types.ObjectId.isValid(postId) || !mongoose.Types.ObjectId.isValid(authorId)) {
+            return res.status(400).json({ error: "Невалидни ID!" });
+        }
         // Създаваме нов коментар с данните от заявката и връзка към публикацията
         const newComment = new Comment({
             content,
@@ -404,8 +422,10 @@ app.post("/api/posts/:postId/comments", async (req, res) => {
             post: postId
         });
 
-        // Запазваме новия коментар в базата данни и връщаме отговор с успех
+        // Запазваме новия коментар в базата данни
         const savedComment = await newComment.save();
+        // Увеличаваме commentsCount на публикацията
+        await Post.findByIdAndUpdate(postId, { $inc: { commentsCount: 1 } });
         res.status(201).json({ message: "Коментарът е добавен успешно!", commentId: savedComment._id });
     } catch (error) {
         res.status(500).json({ error: "Грешка при добавяне на коментар!" });
@@ -415,11 +435,22 @@ app.post("/api/posts/:postId/comments", async (req, res) => {
 // Раут за извличане на коментари към публикация
 app.get("/api/posts/:postId/comments", async (req, res) => {
     try {
+        const page = parseInt(req.query.page) || 1;
+        const limit = parseInt(req.query.limit) || 10;
+        const skip = (page - 1) * limit;
+
         // Вземаме ID-то на публикацията от параметрите на URL
         const { postId } = req.params;
+        // Проверяваме дали ID-то е валидно
+        if (!mongoose.Types.ObjectId.isValid(postId)) {
+            return res.status(400).json({ error: "Невалиден публикационен ID!" });
+        }
         // Извличаме всички коментари, които са свързани с тази публикация
         const comments = await Comment.aggregate([
             { $match: { post: mongoose.Types.ObjectId(postId) } },
+            { $sort: { createdAt: -1 } },
+            { $skip: skip },
+            { $limit: limit },
             {
                 // Вземаме данните за автора на всеки коментар
                 $lookup: {
