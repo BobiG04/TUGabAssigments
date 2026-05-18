@@ -1,0 +1,132 @@
+/* components/style.css */
+
+:root {
+  /* Ярко зелено за интерактивни елементи (Tailwind emerald-500) */
+  --f7-theme-color: #10b981;
+  --f7-color-green: #10b981;
+  
+  /* Тъмният цвят за фон и светлият за текст (Tailwind emerald-950) */
+  --emerald-950: #022c22; 
+}
+
+/* =======================================
+   СВЕТЪЛ РЕЖИМ
+   Текстът навсякъде е emerald-950, фонът е бял
+======================================= */
+body:not(.theme-dark) {
+  --f7-page-bg-color: #ffffff;
+  --f7-bars-bg-color: #f7f7f8;
+  --f7-list-bg-color: #ffffff;
+  
+  /* Прилагаме цвета към абсолютно всички текстове */
+  --f7-text-color: var(--emerald-950);
+  --f7-list-item-title-text-color: var(--emerald-950);
+  --f7-block-title-text-color: var(--emerald-950);
+}
+
+body:not(.theme-dark) p, 
+body:not(.theme-dark) .block-strong {
+  color: var(--emerald-950);
+  background-color: transparent;
+}
+
+/* =======================================
+   ТЪМЕН РЕЖИМ
+   Цялата анкета се слива в един общ фон (emerald-950)
+======================================= */
+body.theme-dark {
+  /* Уеднаквяваме всички фонове, за да няма "кутии" */
+  --f7-page-bg-color: var(--emerald-950) !important;
+  --f7-bars-bg-color: var(--emerald-950) !important;
+  --f7-list-bg-color: var(--emerald-950) !important;
+  --f7-block-bg-color: var(--emerald-950) !important;
+  --f7-card-bg-color: var(--emerald-950) !important;
+  
+  /* Правим всички текстове бели за максимален контраст */
+  --f7-text-color: #ffffff !important;
+  --f7-list-item-title-text-color: #ffffff !important;
+  --f7-block-title-text-color: #ffffff !important;
+  
+  /* Премахваме външните рамки на въпросите */
+  --f7-list-border-color: transparent !important;
+  /* Правим вътрешните разделителни линии много фини */
+  --f7-list-item-border-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+body.theme-dark p, 
+body.theme-dark .block-strong {
+  color: #ffffff !important;
+  background-color: transparent !important;
+}
+
+/* =======================================
+   ОБЩИ КОРЕКЦИИ
+======================================= */
+.stats-card { 
+  margin-top: 20px; 
+}
+
+/* За да не се изрязват дългите въпроси */
+.block-title {
+  white-space: normal;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+/* =======================================
+   КРЪГОВА ДИАГРАМА (NATIVE CSS)
+======================================= */
+.custom-pie-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px 0;
+}
+
+.custom-pie {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: transparent; /* Ще се запълни чрез JS */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.pie-legend ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pie-legend li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+  font-size: 13px;
+  color: #ffffff;
+}
+
+body:not(.theme-dark) .pie-legend li {
+  color: var(--emerald-950);
+}
+
+.pie-legend .color-box {
+  width: 14px;
+  height: 14px;
+  margin-right: 8px;
+  border-radius: 3px;
+  display: inline-block;
+}
+/* =======================================
+   АДАПТИВНИ БУТОНИ (ЗА ГОЛЕМИ ШРИФТОВЕ)
+======================================= */
+.button {
+  white-space: normal !important; /* Разрешава пренасяне на нов ред */
+  height: auto !important;        /* Премахва твърдата фиксирана височина */
+  min-height: 48px;               /* Запазва минимален размер за лесно натискане с пръст */
+  line-height: 1.3 !important;    /* Нормално отстояние между редовете, ако са два */
+  padding: 12px 15px !important;  /* Вътрешно отстояние, за да диша текста */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

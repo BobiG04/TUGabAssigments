@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <title>Анкетна карта - Fortnite</title>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/framework7/5.7.14/css/framework7.bundle.min.css">
+    <link rel="stylesheet" href="components/style.css">
+</head>
+
+<body class="color-theme-green">
+    <div id="app">
+        <div class="view view-main view-init" data-url="/">
+            <div class="page" data-name="home">
+
+                <div class="navbar">
+                    <div class="navbar-bg"></div>
+                    <div class="navbar-inner">
+                        <div class="title">Анкета: Fortnite Обратна връзка</div>
+                        <div class="right" style="margin-right: 15px;">
+                            <label class="toggle toggle-init color-green">
+                                <input type="checkbox" id="theme-toggle">
+                                <span class="toggle-icon"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="page-content">
+                    <div class="block block-strong">
+                        <p>Тази анкета цели да събере мнения на играчите относно баланса на оръжията, стабилността на
+                            кадрите и цялостното изживяване. Вашето мнение помага за бъдещи подобрения!</p>
+                    </div>
+
+                    <form class="list" id="survey-form">
+
+                        <div class="block-title">1. Кой е предпочитаният от вас режим на игра? <span
+                                style="color: #ef4444;">*</span></div>
+                        <ul>
+                            <li>
+                                <label class="item-radio item-content">
+                                    <input type="radio" name="mode" value="Battle Royale (Build)" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Battle Royale (Build)</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-radio item-content">
+                                    <input type="radio" name="mode" value="Zero Build" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Zero Build</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-radio item-content">
+                                    <input type="radio" name="mode" value="Reload / Creative" />
+                                    <i class="icon icon-radio"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Reload / Creative</div>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+
+                        <div class="block-title">2. Какво според вас се нуждае от най-голямо подобрение? <span
+                                style="color: #ef4444;">*</span></div>
+                        <ul>
+                            <li>
+                                <label class="item-checkbox item-content">
+                                    <input type="checkbox" name="improvements" value="Баланс на оръжията" />
+                                    <i class="icon icon-checkbox"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Баланс на оръжията</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-checkbox item-content">
+                                    <input type="checkbox" name="improvements" value="Дизайн на картата" />
+                                    <i class="icon icon-checkbox"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Дизайн на картата (POIs)</div>
+                                    </div>
+                                </label>
+                            </li>
+                            <li>
+                                <label class="item-checkbox item-content">
+                                    <input type="checkbox" name="improvements" value="Сървърна стабилност" />
+                                    <i class="icon icon-checkbox"></i>
+                                    <div class="item-inner">
+                                        <div class="item-title">Сървърна стабилност (Ping/Lag)</div>
+                                    </div>
+                                </label>
+                            </li>
+                        </ul>
+
+                        <div class="block-title">3. Оценете стабилността на кадрите (FPS)</div>
+                        <div class="list simple-list">
+                            <ul>
+                                <li>
+                                    <div class="item-cell width-auto flex-shrink-0">1</div>
+                                    <div class="item-cell flex-shrink-3">
+                                        <div id="fps-slider" class="range-slider color-green">
+                                            <input type="range" name="rating" min="1" max="10" step="1" value="5">
+                                        </div>
+                                    </div>
+                                    <div class="item-cell width-auto flex-shrink-0">10</div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="block-title">4. Допълнителни коментари към Epic Games?</div>
+                        <ul>
+                            <li class="item-content item-input">
+                                <div class="item-inner">
+                                    <div class="item-input-wrap">
+                                        <textarea name="feedback"
+                                            placeholder="Въведете смислено изречение (поне 2 думи)..."></textarea>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <div class="block">
+                            <a href="#" class="button button-fill button-large color-green" id="submit-btn"
+                                style="margin-bottom: 15px;">Изпрати Анкетата</a>
+                            <a href="#" class="button button-outline button-large color-green" id="stats-btn">Виж
+                                Статистиката</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/template7" id="stats-page-template">
+    <div class="page" data-name="stats">
+      <div class="navbar">
+        <div class="navbar-bg"></div>
+        <div class="navbar-inner sliding">
+          <div class="left">
+            <a href="#" class="link back">
+              <i class="icon icon-back"></i>
+              <span class="if-not-md">Назад</span>
+            </a>
+          </div>
+          <div class="title">Резултати и Диаграми</div>
+        </div>
+      </div>
+      <div class="page-content">
+        <div class="block stats-card">
+          <div class="card outline">
+            <div class="card-header">Текуща статистика</div>
+            <div class="card-content card-content-padding">
+              <p><strong>Изцяло попълнени анкети:</strong> {{completedCount}}</p>
+              <p><strong>Частично попълнени анкети:</strong> {{partialCount}}</p>
+              
+              {{#if lastData}}
+                <hr>
+                <p><em>Последен запис:</em></p>
+                <ul>
+                  <li><strong>Режим:</strong> {{lastData.mode}}</li>
+                  <li><strong>За подобрение:</strong> {{lastData.improvements}}</li>
+                  <li><strong>Оценка на FPS:</strong> {{lastData.rating}} / 10</li>
+                </ul>
+              {{else}}
+                <hr>
+                <p><em>Няма записани анкети все още.</em></p>
+              {{/if}}
+              
+              {{#js_if "this.totalSurveys > 0"}}
+                <hr>
+                <div class="block-title text-align-center" style="margin-top: 20px;">Разпределение на режимите</div>
+                <div class="custom-pie-container">
+                  <div id="mode-pie-chart" class="custom-pie"></div>
+                  <div id="pie-legend" class="pie-legend"></div>
+                </div>
+              {{/js_if}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/framework7/5.7.14/js/framework7.bundle.min.js"></script>
+    <script src="components/app.js"></script>
+</body>
+
+</html>
