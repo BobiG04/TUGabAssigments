@@ -10,7 +10,7 @@
 
 ## 🗂️ Структура на хранилището
 
-По-долу е пълният индекс на хранилището. Папките `Tasks` съдържат допълнителни, външни или в процес на разработка задачи.
+По-долу е индекс на текущата структура на хранилището. Папките `Tasks` и `Assignments` съдържат допълнителни или все още развиващи се задачи.
 
 ### 📚 Година 1 (Year 1)
 
@@ -18,7 +18,6 @@
 
 * 💻 **Увод в програмирането**
   * 📂 [Упражнения и Проекти](./Year_1/Semester_1/Introduction_to_Programming)
-* 📖 [Общ архив с лекции (Семестър 1)](./Year_1/Semester_1/Lectures)
 
 #### Семестър 2
 
@@ -26,7 +25,6 @@
   * 📂 [Упражнения и Проекти](./Year_1/Semester_2/Object_Oriented_Programming)
 * 🖥️ **Компютърна графика**
   * 📂 [Материали](./Year_1/Semester_2/Computer_Graphics)
-* 📖 [Общ архив с лекции (Семестър 2)](./Year_1/Semester_2/Lectures)
 
 ---
 
@@ -74,20 +72,18 @@
 #### Семестър 5
 
 * 📐 **Дизайн на софтуерни проекти**
-  * 📂 [C# Архитектури (Animals, Calculator, Factory и др.)](./Year_3/Semester_5/Design_of_Software_Projects)
+  * 📂 [C# Проекти и архитектури (Animals, Calculator, Factory и др.)](./Year_3/Semester_5/Design_of_Software_Projects)
   * 📖 [Лекции](./Year_3/Semester_5/Lectures/Дизайн%20на%20Софтуерни%20Проекти)
 * 🍃 **Нерелационни бази данни (NoSQL / MongoDB)**
   * 📂 [Лабораторни упражнения и Assignments](./Year_3/Semester_5/Non-relatable_Data_Bases)
   * 📖 [Лекции](./Year_3/Semester_5/Lectures/Нерелационни%20Бази%20Данни)
-* 🛡️ **Компютърна и мрежова сигурност**
-  * 📖 [Лекции](./Year_3/Semester_5/Lectures/Компютърна%20и%20Мрежова%20Сигурност)
 * 🚀 **Управление на Startup**
   * 📖 [Лекции](./Year_3/Semester_5/Lectures/Управление%20на%20Startup)
 
 #### Семестър 6
 
 * 📱 **Програмиране за мобилни устройства**
-  * 📂 [Проекти (Besenica, Дигитален часовник)](./Year_3/Semester_6/Programming_Mobile_Projects)
+  * 📂 [Проекти (Besenica, Forms, GPS Locator, Дигитален часовник)](./Year_3/Semester_6/Programming_Mobile_Projects)
   * 📖 [Лекции](./Year_3/Semester_6/Lectures/Програмиране%20за%20Мобилни%20Устройства)
 * 🖥️ **Компютърно моделиране**
   * 📂 [Упражнения и Проекти](./Year_3/Semester_6/Computer_Modelling)
@@ -98,6 +94,16 @@
   * 📖 [Лекции](./Year_3/Semester_6/Lectures/Управление%20на%20Софтуерни%20Проекти)
 * 🎓 **Курсов проект**
   * 📂 [Social Network Project](./Year_3/Semester_6/Course_Project/social-network-project)
+
+---
+
+### 📚 Година 4 (Year 4)
+
+#### Семестър 7
+
+* 🧩 **Функционално програмиране**
+  * 📂 [Упражнения с делегати](./Year_4/Semester_7/Functional%20Programming/1.%20Delegates)
+  * 📂 [Упражнения с multicast делегати](./Year_4/Semester_7/Functional%20Programming/2.%20Multicasting)
 
 ---
 
