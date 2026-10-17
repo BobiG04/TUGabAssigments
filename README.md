@@ -103,7 +103,17 @@
 
 * 🧩 **Функционално програмиране**
   * 📂 [Упражнения с делегати](./Year_4/Semester_7/Functional%20Programming/1.%20Delegates)
+    * 📖 [Условия и теория — лабораторно упражнение 1](./Year_4/Semester_7/Functional%20Programming/1.%20Delegates/Лаб.%20упражнение%201.pdf)
   * 📂 [Упражнения с multicast делегати](./Year_4/Semester_7/Functional%20Programming/2.%20Multicasting)
+    * 📖 [Условия и теория — лабораторно упражнение 1A](./Year_4/Semester_7/Functional%20Programming/2.%20Multicasting/Лаб.%20упражнение%201А.pdf)
+  * 📂 [Упражнения с типове делегати](./Year_4/Semester_7/Functional%20Programming/3.%20Delegate%20Types)
+    * 📖 [Условия и теория — лабораторно упражнение 2](./Year_4/Semester_7/Functional%20Programming/3.%20Delegate%20Types/Лаб.%20упражнение%202.pdf)
+  * 📂 [Анонимни функции и ламбда изрази](./Year_4/Semester_7/Functional%20Programming/4.%20Anonymous%20Functions)
+    * 📖 [Условия и теория — лабораторно упражнение 3](./Year_4/Semester_7/Functional%20Programming/4.%20Anonymous%20Functions/Лаб.%20упражнение%203.pdf)
+    * 📂 [Задача 3_1zad — градове и пощенски кодове](./Year_4/Semester_7/Functional%20Programming/4.%20Anonymous%20Functions/Lab%20Exercises/3_1zad)
+    * 📂 [Задача 3_2zad — площи на фигури](./Year_4/Semester_7/Functional%20Programming/4.%20Anonymous%20Functions/Lab%20Exercises/3_2zad)
+    * 📂 [Задача 3_3zad — калкулатор](./Year_4/Semester_7/Functional%20Programming/4.%20Anonymous%20Functions/Lab%20Exercises/3_3zad)
+    * 📂 [Задача 3_4zad — математически функции](./Year_4/Semester_7/Functional%20Programming/4.%20Anonymous%20Functions/Lab%20Exercises/3_4zad)
 
 ---
 
