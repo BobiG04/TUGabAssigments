@@ -12,7 +12,8 @@
 
 По-долу е индекс на текущата структура на хранилището. Папките `Tasks` и `Assignments` съдържат допълнителни или все още развиващи се задачи.
 
-### 📚 Година 1 (Year 1)
+<details>
+<summary>📚 Година 1 (Year 1)</summary>
 
 #### Семестър 1
 
@@ -26,9 +27,12 @@
 * 🖥️ **Компютърна графика**
   * 📂 [Материали](./Year_1/Semester_2/Computer_Graphics)
 
+</details>
+
 ---
 
-### 📚 Година 2 (Year 2)
+<details>
+<summary>📚 Година 2 (Year 2)</summary>
 
 #### Семестър 3
 
@@ -65,9 +69,12 @@
 * 📈 **Икономика и мениджмънт**
   * 📖 [Лекции](./Year_2/Semester_4/Lectures/Икономика%20и%20Мениджмънт)
 
+</details>
+
 ---
 
-### 📚 Година 3 (Year 3)
+<details>
+<summary>📚 Година 3 (Year 3)</summary>
 
 #### Семестър 5
 
@@ -95,9 +102,12 @@
 * 🎓 **Курсов проект**
   * 📂 [Social Network Project](./Year_3/Semester_6/Course_Project/social-network-project)
 
+</details>
+
 ---
 
-### 📚 Година 4 (Year 4)
+<details>
+<summary>📚 Година 4 (Year 4)</summary>
 
 #### Семестър 7
 
@@ -114,6 +124,8 @@
     * 📂 [Задача 3_2zad — площи на фигури](./Year_4/Semester_7/Functional%20Programming/4.%20Anonymous%20Functions/Lab%20Exercises/3_2zad)
     * 📂 [Задача 3_3zad — калкулатор](./Year_4/Semester_7/Functional%20Programming/4.%20Anonymous%20Functions/Lab%20Exercises/3_3zad)
     * 📂 [Задача 3_4zad — математически функции](./Year_4/Semester_7/Functional%20Programming/4.%20Anonymous%20Functions/Lab%20Exercises/3_4zad)
+
+</details>
 
 ---
 
