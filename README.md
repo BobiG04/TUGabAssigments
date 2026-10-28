@@ -124,6 +124,10 @@
     * 📂 [Задача 3_2zad — площи на фигури](./Year_4/Semester_7/Functional%20Programming/4.%20Anonymous%20Functions/Lab%20Exercises/3_2zad)
     * 📂 [Задача 3_3zad — калкулатор](./Year_4/Semester_7/Functional%20Programming/4.%20Anonymous%20Functions/Lab%20Exercises/3_3zad)
     * 📂 [Задача 3_4zad — математически функции](./Year_4/Semester_7/Functional%20Programming/4.%20Anonymous%20Functions/Lab%20Exercises/3_4zad)
+  * 📂 [Методи от по-висок ред](./Year_4/Semester_7/Functional%20Programming/5.%20Upper%20Methods)
+    * 📖 [Условия и теория — лабораторно упражнение 4](./Year_4/Semester_7/Functional%20Programming/5.%20Upper%20Methods/Лаб%20упражнение%204.pdf)
+    * 📂 [Задача 4_1zad — аритметични операции](./Year_4/Semester_7/Functional%20Programming/5.%20Upper%20Methods/Lab%20Exercices/4_1zad)
+    * 📂 [Задача 4_2zad — преобразуване на мерни единици](./Year_4/Semester_7/Functional%20Programming/5.%20Upper%20Methods/Lab%20Exercices/4_2zad)
 
 </details>
 
